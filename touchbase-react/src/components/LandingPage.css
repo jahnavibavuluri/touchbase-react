@@ -1,0 +1,192 @@
+/*h1 {
+  font-size: 70px;
+  color: white;
+  text-align: center;
+}
+
+h4 {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}*/
+
+.landingPage {
+  //background-color: orange;
+}
+
+.landingPage-header {
+  background-color: white;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  //text-align: center;
+  //font-size: 30px;
+  //font-family: "Monaco", monospace;
+  //font-weight: 900;
+}
+
+.nav {
+  background-color: #5053f2;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "HelveticaNeue-Medium";
+  color: white;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  line-height: 1;
+}
+
+.nav1 {
+  font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.nav-button {
+  background-color: black;
+  border: none;
+  color: yellow;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.content-panel-one {
+  padding-top: 70px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 70px;
+  //background-color: yellow;
+}
+
+.content-panel-one-text {
+  float: left;
+  font-family:"Arial", sans-serif;
+  //font-size: 20px;
+  height: auto;
+  width: 50%;
+  //padding-right: 30px;
+  padding-left: 30px;
+  margin: auto;
+  //background-color: purple;
+}
+
+.why-touchbase {
+  color: #5474fb;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.why-touchbase-header {
+  font-size: 30px;
+  line-height: 1;
+  padding-bottom: 10px;
+}
+
+.why-touchbase-answer {
+  font-size: 15px;
+}
+
+.content-panel-one-image {
+  float: right;
+  //width: 80px;
+  //height: 80px;
+  padding-right: 50px;
+  //background-color: blue;
+}
+
+.content-panel-two {
+  padding-top: 300px;
+  //background-color: red;
+
+}
+
+.content-panel-two-text {
+  float: right;
+  font-family:"Arial", sans-serif;
+  padding-right: 100px;
+}
+
+.content-panel-two-image {
+  float: left;
+  padding-left: 100px;
+}
+
+.types-of-touchbases {
+  color: #5474fb;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.types-of-touchbases-header {
+  font-size: 30px;
+  line-height: 1;
+  padding-bottom: 10px;
+}
+
+.types-of-touchbases-answers {
+  font-size: 15px;
+}
+
+.divider {
+  padding-top: 550px;
+  align-content: center;
+  text-align: center;
+  font-family: "HelveticaNeue-Light";
+  font-size: 30px;
+  padding-bottom: 100px;
+  //background-color: gray;
+}
+
+.content-panel-three {
+  padding-top: 10px;
+}
+
+.content-panel-three-image {
+  float: right;
+  padding-right: 100px;
+}
+
+.content-panel-three-text {
+  float: left;
+  font-family:"Arial", sans-serif;
+  padding-left: 100px;
+}
+
+.all-categories {
+  color: #5474fb;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.all-categories-header {
+  font-size: 30px;
+  line-height: 1;
+  padding-bottom: 10px;
+}
+
+.all-categories-answer {
+  font-size: 15px;
+}
+
+.footer {
+  padding-top: 550px;
+  //background-color: purple;
+}
+
+.footer2 {
+  background-color: gray;
+  //padding-bottom: 300px;
+  color: white;
+  font-family: "Arial";
+  font-size: 20px;
+  height: 100px;
+}
