@@ -1,12 +1,24 @@
 import React from 'react';
-//import logo from 'touchbase-react/src/logo.svg';
+import { useHistory } from "react-router-dom";
 import './LandingPage.css';
-import img1 from './touchbase_img_Q&A.png';
-import img2 from './touchbase_img_touchbases.png'
-import img3 from './touchbase_img_dms.png'
-import logo from './touchbase_logo.png'
 
-export const LandingPage = ({}) => {
+import img1 from '../images/touchbase_img_Q&A.png';
+import img2 from '../images/touchbase_img_touchbases.png'
+import img3 from '../images/touchbase_img_dms.png'
+import logo from '../images/touchbase_logo.png'
+import number_one from '../images/1.png'
+import number_two from '../images/2.png'
+import number_three from '../images/3.png'
+
+//import SignupPage from './SignupPage'
+
+export const LandingPage = () => {
+  const history = useHistory();
+
+  const handleSignup = () => {
+    history.push("/signup");
+  };
+
   return (
     <div className="landingPage">
       <header className="landingPage-header">
@@ -18,14 +30,14 @@ export const LandingPage = ({}) => {
           Your questions. Their personalized advice, consulting, and insights. (And for a worthy cause.)
         </div>
           <div className="nav-button">
-            {/*BUTTON DOES NOT CHANGE COLOR IDK WHY IN THE CSS FILE*/}
-            <button type="button">Sign Up</button>
+            <button className="sign-in-button" onClick={handleSignup} type="button">Sign Up</button>
           </div>
       </div>
-      {/*<div className="landingPage-content">*/}
-        <div className="content-panel-one">
+
+      <div className="content-panel-one">
+        <div className="content-panel-one-responsive">
           <div className="content-panel-one-image">
-            <img src={img1} width="700" height="400"></img>
+            <img src={img1} className="img1" ></img>
           </div>
           <div className="content-panel-one-text">
             <div className="why-touchbase">
@@ -40,10 +52,41 @@ export const LandingPage = ({}) => {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="content-panel-two">
+      <div className="content-panel-four">
+        <div className="content-panel-four-responsive">
+          <div className="how-it-works">
+            How it works
+          </div>
+          <div className="block-content">
+            <div className="block-one">
+              <img src={number_one} className="number_one"></img>
+              <div className="block-one-text">
+                Search among our many experts and influencers and find the ones who fit your needs.
+              </div>
+            </div>
+            <div className="block-two">
+              <img src={number_two} className="number_two"></img>
+              <div className="block-two-text">
+                Our user friendly platform makes it effortless for you to book a touch base at your preferred date and time.
+              </div>
+            </div>
+            <div className="block-three">
+              <img src={number_three} className="number_three"></img>
+              <div className="block-three-text">
+                Join your touch base at the scheduled time via our reliable, safe, and fast platform and get the personalized advice you need!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="content-panel-two">
+        <div className="content-panel-two-responsive">
           <div className="content-panel-two-image">
-            <img src={img2} width="800" height="400"></img>
+            <img src={img2} className="img2" ></img>
           </div>
           <div className="content-panel-two-text">
             <div className="types-of-touchbases">
@@ -58,14 +101,12 @@ export const LandingPage = ({}) => {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="divider">
-          Touchbase democratizes access to industry experts and influencers.
-        </div>
-
-        <div className="content-panel-three">
+      <div className="content-panel-three">
+        <div className="content-panel-three-responsive">
           <div className="content-panel-three-image">
-            <img src={img3} width="400" height="550"></img>
+            <img src={img3} className = "img3"></img>
           </div>
           <div className="content-panel-three-text">
             <div className="all-categories">
@@ -81,15 +122,7 @@ export const LandingPage = ({}) => {
             </div>
           </div>
         </div>
-
-
-      {/*</div>*/}
-      <div className="footer">
       </div>
-      <div className="footer2">
-        About     Us     FAQ    Terms & conditions     Privacy policy      Become an expert         Copyright &copy; 2021 Touchbase, Inc.
-      </div>
-
     </div>
 
   );

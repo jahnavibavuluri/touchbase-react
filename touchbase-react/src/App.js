@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-//import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { LandingPage } from './components/LandingPage'
+import { SignupPage } from './components/SignupPage'
+import { Dashboard } from './components/Dashboard'
 
 function App() {
+
+  /*
   const [landingPage, setLandingPage] = useState(0);
 
   useEffect(() => {
@@ -14,13 +17,18 @@ function App() {
   }, []);
 
   console.log(landingPage)
+*/
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <LandingPage/>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/signup" component={SignupPage} />
+          <Route path="/dashboard" component={Dashboard} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
