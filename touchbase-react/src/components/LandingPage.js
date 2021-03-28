@@ -22,7 +22,7 @@ export const LandingPage = () => {
   return (
     <div className="landingPage">
       <header className="landingPage-header">
-        <img src={logo} width ="200" height="60"></img>
+        <img src={logo} width="200" height="60"></img>
       </header>
       <div className="nav">
         Meet with your favorite pros & influencers

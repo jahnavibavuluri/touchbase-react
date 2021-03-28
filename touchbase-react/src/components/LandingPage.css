@@ -32,15 +32,10 @@
   padding-bottom: 30px;
 }
 
-/*.nav-button {
-  background-color: black;
-  border: none;
-  padding: 5px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-}*/
+.logo {
+  width: 50%;
+  height: auto;
+}
 
 .sign-in-button  {
   background-color: white;

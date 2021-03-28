@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import './SignupPage.css';
+import logo from '../images/touchbase_logo.png';
 
 export const SignupPage = () => {
   const history = useHistory();
@@ -52,6 +54,48 @@ export const SignupPage = () => {
 
   return (
     <div className="sign-up-page-div">
+      <div className="sign-up-page-responsive">
+        <div className="sign-up-logo">
+          <img src={logo} width="200" height="60"></img>
+        </div>
+        <div className="sign-up-header">
+          Get the personalized advice you seek.
+        </div>
+        <div className="sign-up-form">
+          <form onSubmit={handleRegistration}>
+            <label className="sign-up-label" for="firstName">First Name</label>
+            <br />
+            <input className="sign-up-input" type="text" id="firstName" name="firstName" onChange={handleFirstName}/>
+            <br />
+            <label className="sign-up-label" for="lastName">Last Name</label>
+            <br />
+            <input className="sign-up-input" type="text" id="lastName" name="lastName" onChange={handleLastName}/>
+            <br />
+            <label className="sign-up-label" for="email">Email</label>
+            <br />
+            <input className="sign-up-input" type="text" id="email" name="email" onChange={handleEmail}/>
+            <br />
+            <label className="sign-up-label" for="password">Password</label>
+            <br />
+            <input className="sign-up-input" type="password" id="password" name="password" onChange={handlePassword}/>
+            <br />
+            <div className="agreement-div" >
+            <label className="agreement">By clicking Agree and Join, you agree to the Touchbase User Agreement, Privacy Policy, and Cookie Policy.</label>
+            <br />
+            </div>
+            <div className="submit-div">
+            <button className="sign-up-button-submit">
+              Agree & Join
+            </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    /*
+    <div className="sign-up-page-div">
       <div className="sign-up-page">
       <div class="card">
       <p className = "sign-up-text"> SIGN UP</p>
@@ -74,6 +118,6 @@ export const SignupPage = () => {
       </form>
       </div>
       </div>
-    </div>
+    </div>*/
   );
 }
