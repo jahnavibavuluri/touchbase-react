@@ -1,15 +1,21 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import './SignupPage.css';
-import logo from '../images/touchbase_logo.png';
+import React, { useState } from "react"
+import { Link, useHistory } from "react-router-dom"
+import './SignupPage.css'
+import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch'
 
 export const SignupPage = () => {
   const history = useHistory();
+
+  const handleLogin = () => {
+    history.push("/login");
+  };
 
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
+  const [isInfluencer, setInfluencer] = useState(false);
 
   const handleFirstName = (event) => {
     setFirstName(event.target.value);
@@ -41,7 +47,8 @@ export const SignupPage = () => {
         email:email,
         firstName:firstName,
         lastName:lastName,
-        password:password
+        password:password,
+        isInfluencer: isInfluencer
       })
     }).then(res => res.json()).then(data => {
       if (data.state === "Success") {
@@ -79,6 +86,10 @@ export const SignupPage = () => {
             <br />
             <input className="sign-up-input" type="password" id="password" name="password" onChange={handlePassword}/>
             <br />
+            <div className="isInfluencer">
+              <label for="influencer" className="sign-up-label">Signing up as an Influencer?</label>
+              <ToggleSwitch id="influencer" className="toggle-switch-checkbox" checked={isInfluencer} onChange={setInfluencer}/>
+            </div>
             <div className="agreement-div" >
             <label className="agreement">By clicking Agree and Join, you agree to the Touchbase User Agreement, Privacy Policy, and Cookie Policy.</label>
             <br />
@@ -89,35 +100,11 @@ export const SignupPage = () => {
             </button>
             </div>
           </form>
+          <div className="redirect-to-login">
+            <p>Already have an account? <Link onClick={handleLogin} className="login-link">Log in</Link></p>
+          </div>
         </div>
       </div>
     </div>
-
-
-    /*
-    <div className="sign-up-page-div">
-      <div className="sign-up-page">
-      <div class="card">
-      <p className = "sign-up-text"> SIGN UP</p>
-      <br />
-      <form onSubmit={handleRegistration}>
-      <input className="sign-up-input" placeholder="First Name" type="text" id="firstName" name="firstName" onChange={handleFirstName}/>
-      <br />
-      <input className="sign-up-input" placeholder="Last Name" type="text" id="lastName" name="lastName" onChange={handleLastName}/>
-      <br />
-      <input className="sign-up-input" placeholder="Email" type="text" id="email" name="email" onChange={handleEmail}/>
-      <br />
-      <input className="sign-up-input" placeholder="Password" type="password" id="password" name="password" onChange={handlePassword}/>
-      <br />
-      <div className="sign-up-bottom-info">
-              Already have an account?
-      </div>
-      <button className="sign-up-button-submit">
-        Submit
-      </button>
-      </form>
-      </div>
-      </div>
-    </div>*/
   );
 }

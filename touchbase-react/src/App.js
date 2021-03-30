@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { LandingPage } from './components/LandingPage'
-import { SignupPage } from './components/SignupPage'
-import { Dashboard } from './components/Dashboard'
+import { LandingPage } from './components/LandingPage/LandingPage'
+import { SignupPage } from './components/SignupPage/SignupPage'
+import { Dashboard } from './components/Dashboard/Dashboard'
+import { Login } from './components/Login/Login'
+//import { ToggleSwitch } from './components/ToggleSwitch/ToggleSwitch'
 
 function App() {
 
@@ -26,6 +28,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route path="/signup" component={SignupPage} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/login" component={Login}/>
         </Switch>
       </div>
     </Router>

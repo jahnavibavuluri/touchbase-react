@@ -2,13 +2,13 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 import './LandingPage.css';
 
-import img1 from '../images/touchbase_img_Q&A.png';
-import img2 from '../images/touchbase_img_touchbases.png'
-import img3 from '../images/touchbase_img_dms.png'
-import logo from '../images/touchbase_logo.png'
-import number_one from '../images/1.png'
-import number_two from '../images/2.png'
-import number_three from '../images/3.png'
+import number_one from '../../images/LandingPage/1.png'
+import number_two from '../../images/LandingPage/2.png'
+import number_three from '../../images/LandingPage/3.png'
+import img1 from '../../images/LandingPage/touchbase_img_Q&A.png'
+import img2 from '../../images/LandingPage/touchbase_img_touchbases.png'
+import img3 from '../../images/LandingPage/touchbase_img_dms.png'
+import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 
 //import SignupPage from './SignupPage'
 
