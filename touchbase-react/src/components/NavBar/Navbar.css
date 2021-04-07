@@ -1,0 +1,38 @@
+.navbar-items {
+  //background-color: yellow;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-logo {
+  float: left;
+  width: 25%;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+.nav-items {
+  grid-template-columns: repeat(5,auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 75%;
+  justify-content: end;
+  margin-right: 2rem;
+  display: inline;
+  font-size: 20px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
+
+.menu-items {
+  //background-color: green;
+  float: right;
+  padding-top: 15px;
+}
+
+.nav-links {
+    color: black;
+}

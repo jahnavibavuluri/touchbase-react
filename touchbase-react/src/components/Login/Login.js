@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
 import './Login.css'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
@@ -8,13 +8,48 @@ export const Login = () => {
 
   const history = useHistory();
 
+
+//this section takes care of the user in session if there is a user. it will redirect straight to the dashboard 
+  useEffect(() => {
+    fetch('/login')
+  .then(response => {
+    const statusCode = response.status;
+    const data = response.json();
+    return Promise.all([statusCode, data]);
+  })
+  .then((res, data) => {
+    if (res.status === 200) {
+      if (data.state === "Success") {
+        history.push('/dashboard')
+      }
+    }
+    console.log(res, data);
+  })
+  .catch(error => {
+    console.error(error);
+    return { name: "network error", description: "" };
+  });
+},[])
+/*
+  useEffect(() => {
+    fetch('/login')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data.state)
+      if(data.state === 'user in session!') {
+        history.push('/dashboard')
+      }
+    })
+  })*/
+
+
   const handleSignup = () => {
     history.push("/signup");
   };
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isInfluencer, setInfluencer] = useState("");
+  const [isInfluencer, setInfluencer] = useState(false);
   const [rememberMe, setRememberMe] = useState("");
 
   const handleEmail = (event) => {
@@ -27,8 +62,7 @@ export const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    //const { email, firstName, lastName, password } = this.state;
-
+    //const { email, firstName, lastName, password } = this.state
     fetch('/login', {
       method: 'POST',
       headers: {
@@ -41,13 +75,17 @@ export const Login = () => {
         isInfluencer: isInfluencer,
         rememberMe: rememberMe
       })
-    }).then(res => res.json()).then(data => {
-      if (data.state === "Success") {
+    }).then(res => {
+      if (res.status === 200) {
+        history.push("/dashboard")
+      }
+    })/*.then(data => {
+      if (res.status === 200) {
         history.push("/dashboard");
       } else {
         history.push("/error");
       }
-      console.log(data.state)});
+      //console.log(data.state)});*/
   }
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
 import './SignupPage.css'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
@@ -6,6 +6,16 @@ import ToggleSwitch from '../ToggleSwitch/ToggleSwitch'
 
 export const SignupPage = () => {
   const history = useHistory();
+
+/*
+  useEffect(() => {
+    fetch('/signup').then(response => {
+      if (response.status === 200) {
+        console.log("hey, we are good to go!")
+      }
+    })
+  },[])
+*/
 
   const handleLogin = () => {
     history.push("/login");

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { LandingPage } from './components/LandingPage/LandingPage'
 import { SignupPage } from './components/SignupPage/SignupPage'
 import { Dashboard } from './components/Dashboard/Dashboard'
 import { Login } from './components/Login/Login'
-//import { ToggleSwitch } from './components/ToggleSwitch/ToggleSwitch'
+import Navbar from './components/NavBar/Navbar.js'
+import Footer from './components/Footer/Footer.js'
 
 function App() {
 
@@ -22,7 +23,14 @@ function App() {
 */
 
   return (
+    //to add navbar, add it here and to style it, add it in App.css
     <Router>
+    {/*
+      <div className="navbar">
+        <Navbar/>
+      </div>
+    */}
+    <Navbar/>
       <div className="App">
         <Switch>
           <Route exact path="/" component={LandingPage} />
@@ -31,6 +39,7 @@ function App() {
           <Route path="/login" component={Login}/>
         </Switch>
       </div>
+    <Footer />
     </Router>
   );
 }

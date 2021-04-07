@@ -1,0 +1,52 @@
+.footer-div {
+  background-color: #9e9d9d;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.footer-logo {
+  float: left;
+  width: 25%;
+  //padding-left: 30px;
+  padding-top: 10px;
+  //background-color: red;
+}
+
+.footer-items {
+  grid-template-columns: repeat(5%,auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  justify-content: end;
+  margin-right: 2rem;
+  display: inline;
+  font-size: 20px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
+
+.footer-menu-items {
+  //background-color: green;
+  float: left;
+  padding-top: 15px;
+  width: 37.5%;
+}
+
+.footer-links {
+  color: black;
+  width: 37.5%;
+}
+
+.copyright {
+  //float: left;
+  font-size: 20px;
+  padding-top: 30px;
+  color: black;
+}
+
+.copyright-text {
+  text-align: center;
+}

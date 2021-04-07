@@ -9,6 +9,7 @@ import img1 from '../../images/LandingPage/touchbase_img_Q&A.png'
 import img2 from '../../images/LandingPage/touchbase_img_touchbases.png'
 import img3 from '../../images/LandingPage/touchbase_img_dms.png'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
+//import Navbar from '../NavBar/Navbar.js';
 
 //import SignupPage from './SignupPage'
 
@@ -20,10 +21,8 @@ export const LandingPage = () => {
   };
 
   return (
+
     <div className="landingPage">
-      <header className="landingPage-header">
-        <img src={logo} width="200" height="60"></img>
-      </header>
       <div className="nav">
         Meet with your favorite pros & influencers
         <div className='nav1'>
