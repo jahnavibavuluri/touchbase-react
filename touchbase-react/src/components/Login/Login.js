@@ -8,8 +8,7 @@ export const Login = () => {
 
   const history = useHistory();
 
-
-//this section takes care of the user in session if there is a user. it will redirect straight to the dashboard 
+//this section takes care of the person in session
   useEffect(() => {
     fetch('/login')
   .then(response => {
@@ -18,8 +17,10 @@ export const Login = () => {
     return Promise.all([statusCode, data]);
   })
   .then((res, data) => {
-    if (res.status === 200) {
-      if (data.state === "Success") {
+    if (res[0] === 300) {
+      console.log("first conditions satisfied!")
+      if (res[1].state === "user in session!") {
+        console.log("both conditions satisfied!")
         history.push('/dashboard')
       }
     }
@@ -75,11 +76,25 @@ export const Login = () => {
         isInfluencer: isInfluencer,
         rememberMe: rememberMe
       })
-    }).then(res => {
-      if (res.status === 200) {
-        history.push("/dashboard")
+    }).then(response => {
+      const statusCode = response.status;
+      const data = response.json();
+      return Promise.all([statusCode, data]);
+    })
+    .then((res, data) => {
+      if (res[0] === 200) {
+        history.push({
+          pathname:"/dashboard/" + res[1].id,
+          //id: res[1].id
+        });
       }
-    })/*.then(data => {
+      console.log(res, data)
+    })
+    .catch(error => {
+      console.error(error);
+      return { name: "network error", description: "" };
+    });
+    /*.then(data => {
       if (res.status === 200) {
         history.push("/dashboard");
       } else {

@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 
 export const Dashboard = () => {
   const [dashboard, setDashboard] = useState("");
   const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
-    fetch('/dashboard').then(res => res.json()).then(data => {
+    const url = location.id
+    console.log(url)
+    console.log(location.pathname)
+    fetch('/dashboard/' + location.id).then(res => res.json()).then(data => {
       console.log(data.state);
       setDashboard(data.state);
     });
-  }, []);
+  }, [location]);
 
   const handleLogout = (event) => {
     fetch('/logout')
