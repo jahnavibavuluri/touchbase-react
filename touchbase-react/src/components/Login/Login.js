@@ -85,7 +85,7 @@ export const Login = () => {
       if (res[0] === 200) {
         history.push({
           pathname:"/dashboard/" + res[1].id,
-          //id: res[1].id
+          id: res[1].id
         });
       }
       console.log(res, data)

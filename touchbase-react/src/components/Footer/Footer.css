@@ -17,12 +17,12 @@
 }
 
 .footer-items {
-  grid-template-columns: repeat(5%,auto);
-  grid-gap: 10px;
+  grid-template-columns: repeat(5,auto);
+  grid-gap: 5px;
   list-style: none;
   text-align: center;
   justify-content: end;
-  margin-right: 2rem;
+  margin-right: 1rem;
   display: inline;
   font-size: 20px;
   font-family: "HelveticaNeue-Light", sans-serif;

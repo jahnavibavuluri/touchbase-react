@@ -1,0 +1,27 @@
+.dashboard-content {
+
+}
+
+.dashboard-welcome {
+  text-align: center;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 30px;
+}
+
+.dashboard-menu {
+
+}
+
+.dashboard-items {
+  list-style: none;
+  display: flex;
+  //background-color: red;
+  margin: 20px 0;
+  width: 15%;
+}
+
+.dashboard-links {
+  color: black;
+  font-size: 20px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}

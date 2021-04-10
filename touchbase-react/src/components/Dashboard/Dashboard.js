@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom"
+import { DashboardItems } from "./DashboardItems"
+import "./Dashboard.css"
 
 export const Dashboard = () => {
   const [dashboard, setDashboard] = useState("");
   const history = useHistory();
   const location = useLocation();
+  let userID = location.id;
 
   useEffect(() => {
-    const url = location.id
-    console.log(url)
+    console.log("the userID is: " + userID)
     console.log(location.pathname)
     fetch('/dashboard/' + location.id).then(res => res.json()).then(data => {
       console.log(data.state);
       setDashboard(data.state);
     });
   }, [location]);
+
 
   const handleLogout = (event) => {
     fetch('/logout')
@@ -28,12 +31,82 @@ export const Dashboard = () => {
       });
     }
 
+  const goToTouchbases = (event) => {
+    history.push({
+      pathname: '/dashboard/' + userID + '/touchbases',
+      id: userID
+    });
+  }
+
+  const goToMeetings = (event) => {
+    history.push({
+      pathname: '/dashboard/' + userID + '/meetings',
+      id: userID
+    });
+  }
+
+  const goToProfile = (event) => {
+    history.push({
+      pathname: '/dashboard/' + userID + '/touchbases',
+      id: userID
+    });
+  }
+
+  const goHome = (event) => {
+    history.push({
+      pathname: '/dashboard/' + userID,
+      id: userID
+    });
+  }
+
 
   return (
-    <div className="hello">
-      {/*dashboard*/}
-      Welcome to Touchbase!
-      <button onClick={handleLogout} type="button">Logout</button>
+    <div className="dashboard-content">
+
+      <div className="dashboard-welcome">
+        Welcome to Touchbase!
+      </div>
+
+      <div className="dashboard-menu">
+      <ul >
+        <li className="dashboard-items">
+          <a className='dashboard-links' href={'/dashboard/' + userID}>
+            Home
+          </a>
+        </li>
+        <li className="dashboard-items">
+          <a className='dashboard-links' onClick={goToTouchbases}>
+            Your Touchbases
+          </a>
+        </li>
+        <li className="dashboard-items">
+          <a className='dashboard-links' onClick={goToMeetings}>
+            Meetings
+          </a>
+        </li>
+        <li className="dashboard-items">
+          <a className='dashboard-links' onClick={goToProfile}>
+            Profile
+          </a>
+        </li>
+        <li className="dashboard-items">
+          <a className='dashboard-links' onClick={handleLogout}>
+            Logout
+          </a>
+        </li>
+      </ul>
+      </div>
+      {/*<button onClick={handleLogout} type="button">Logout</button>
+      {DashboardItems.map((item,index) => {
+        return (
+          <li className="dashboard-items" key={index}>
+            <a className={item.cName} href={item.url} onClick={handleLogout}>
+              {item.title}
+            </a>
+          </li>
+        )
+      })}
+      */}
     </div>
   );
 }
