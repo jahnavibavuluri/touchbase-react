@@ -4,6 +4,8 @@ import { LandingPage } from './components/LandingPage/LandingPage'
 import { SignupPage } from './components/SignupPage/SignupPage'
 import { Dashboard } from './components/Dashboard/Dashboard'
 import { Login } from './components/Login/Login'
+import { Logout } from './components/Logout/Logout'
+import { YourTouchbases } from './components/YourTouchbases/YourTouchbases'
 import Navbar from './components/NavBar/Navbar.js'
 import Footer from './components/Footer/Footer.js'
 
@@ -35,8 +37,10 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/signup" component={SignupPage} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/login" component={Login}/>
+          <Route path="/logout" component={Logout}/>
+          <Route path="/dashboard/yourtouchbases" component={YourTouchbases}/>
         </Switch>
       </div>
     <Footer />

@@ -1,0 +1,83 @@
+.yourtouchbases-main {
+  //background-color: yellow;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-title {
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  line-height: 2;
+}
+
+.all-touchbases-content {
+  float: left;
+  width: 85%;
+  //background-color: red;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.dashboard-menu {
+  float: left;
+  //background-color: purple;
+  width: 15%;
+}
+
+.touchbases-main {
+  width: 75%;
+  //background-color: blue;
+  margin: 0 auto;
+  //position: inherit;
+  //overflow: hidden;
+  border:2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.touchbases-icon {
+  width: 50%;
+  height: 50%;
+}
+
+.touchbases-header {
+  //background-color: orange;
+  height: 5vh;
+}
+
+.touchbases-header-image {
+  float: left;
+  //width: 10%;
+  //padding-right: 10px;
+}
+
+.touchbases-header-text {
+  float: left;
+  //width: 80%;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.touchbases-add-button {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.add-touchbases {
+  color: white;
+  background-color: #5B5FF1;
+  font-size: 15px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
+
+.individual-touchbases{
+  text-align: center;
+  font-size: 15px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}

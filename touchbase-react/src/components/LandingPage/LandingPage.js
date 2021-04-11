@@ -16,8 +16,8 @@ import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 export const LandingPage = () => {
   const history = useHistory();
 
-  const handleSignup = () => {
-    history.push("/signup");
+  const handleExplore = () => {
+    history.push("/explore");
   };
 
   return (
@@ -29,7 +29,7 @@ export const LandingPage = () => {
           Your questions. Their personalized advice, consulting, and insights. (And for a worthy cause.)
         </div>
           <div className="nav-button">
-            <button className="sign-in-button" onClick={handleSignup} type="button">Sign Up</button>
+            <button className="sign-in-button" onClick={handleExplore} type="button">Explore</button>
           </div>
       </div>
 

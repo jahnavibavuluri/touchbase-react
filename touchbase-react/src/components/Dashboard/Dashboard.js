@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom"
-import { DashboardItems } from "./DashboardItems"
 import "./Dashboard.css"
+import DashboardMenu from './DashboardMenu.js'
 
 export const Dashboard = () => {
+  return (
+    <div className="dashboard-menu">
+      <DashboardMenu/>
+    </div>
+  );
+  /*
   const [dashboard, setDashboard] = useState("");
   const history = useHistory();
   const location = useLocation();
@@ -106,7 +112,7 @@ export const Dashboard = () => {
           </li>
         )
       })}
-      */}
     </div>
   );
+  */
 }

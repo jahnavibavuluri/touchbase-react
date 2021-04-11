@@ -2,22 +2,22 @@ export const DashboardItems= [
 
   {
     title: 'Home',
-    url: '/dashboard/<id>/home',
+    url: '/dashboard',
     cName: 'dashboard-links',
   },
   {
     title: 'Your Touchbases',
-    url: '/dashboard/<id>/<yourtouchbases',
+    url: '/dashboard/yourtouchbases',
     cName: 'dashboard-links'
   },
   {
     title: 'Meetings',
-    url: '/dashboard/<id>/meetings',
+    url: '/dashboard/meetings',
     cName: 'dashboard-links'
   },
   {
     title: 'Profile',
-    url: '/dashboard/<id>/profile',
+    url: '/dashboard/profile',
     cName: 'dashboard-links'
   },
   {
