@@ -9,6 +9,7 @@ export const Login = () => {
   const history = useHistory();
 
 //this section takes care of the person in session
+//same thing as compenentDidLoad
   useEffect(() => {
     fetch('/login')
   .then(response => {
@@ -83,10 +84,7 @@ export const Login = () => {
     })
     .then((res, data) => {
       if (res[0] === 200) {
-        history.push({
-          pathname:"/dashboard/" + res[1].id,
-          id: res[1].id
-        });
+        history.push('/dashboard')
       }
       console.log(res, data)
     })

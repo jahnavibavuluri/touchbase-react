@@ -6,6 +6,7 @@ import { Dashboard } from './components/Dashboard/Dashboard'
 import { Login } from './components/Login/Login'
 import { Logout } from './components/Logout/Logout'
 import { YourTouchbases } from './components/YourTouchbases/YourTouchbases'
+import { Meetings } from './components/Meetings/Meetings'
 import Navbar from './components/NavBar/Navbar.js'
 import Footer from './components/Footer/Footer.js'
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route path="/logout" component={Logout}/>
           <Route path="/dashboard/yourtouchbases" component={YourTouchbases}/>
+          <Route path="/dashboard/meetings" component={Meetings}/>
         </Switch>
       </div>
     <Footer />
