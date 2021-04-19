@@ -1,0 +1,82 @@
+.dashboard-menu {
+  float: left;
+  //background-color: purple;
+  width: 15%;
+}
+
+.profile-main-panel {
+  float: left;
+  width: 85%;
+  //background-color: red;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.profile-header-main {
+  //background-color: green;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 30px;
+  line-height: 2;
+}
+
+.username {
+  //background-color: orange;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 25px;
+  line-height: 2;
+}
+
+.user-information {
+  //background-color: yellow;
+  display: grid;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  padding-bottom: 80px;
+  padding-top: 80px;
+}
+
+.user-information-row {
+  //background-color: yellow;
+  //text-align: center;
+  float: center;
+}
+
+.row-left {
+  float: left;
+  padding: 20px;
+}
+
+.row-center {
+  float: left;
+  padding: 20px;
+}
+
+.edit-button-div {
+  float: left;
+  padding: 20px;
+}
+
+.change-password-div {
+  //background-color: blue;
+}
+
+.profile-button {
+  color: white;
+  background-color: #5B5FF1;
+  font-size: 15px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
+
+.password-button {
+  color: white;
+  background-color: #5B5FF1;
+  font-size: 20px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
