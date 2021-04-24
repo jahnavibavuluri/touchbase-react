@@ -8,6 +8,7 @@ import { Logout } from './components/Logout/Logout'
 import { YourTouchbases } from './components/YourTouchbases/YourTouchbases'
 import { Meetings } from './components/Meetings/Meetings'
 import { Profile } from './components/Profile/Profile'
+import { Featured } from './components/Featured/Featured'
 import Navbar from './components/NavBar/Navbar.js'
 import Footer from './components/Footer/Footer.js'
 
@@ -39,6 +40,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/signup" component={SignupPage} />
+          <Route path="/featured" component={Featured} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/login" component={Login}/>
           <Route path="/logout" component={Logout}/>
