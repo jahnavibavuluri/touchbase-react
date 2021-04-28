@@ -10,10 +10,7 @@ export const YourTouchbases = () => {
 
   return (
     <div className="yourtouchbases-main">
-
-      <div className="dashboard-menu">
-        <DashboardMenu/>
-      </div>
+      <DashboardMenu/>
 
       <div className="all-touchbases-content">
 
@@ -64,6 +61,7 @@ export const YourTouchbases = () => {
             <button className="add-touchbases" type="button">Add new Group Touchbase</button>
           </div>
         </div>
+
         <br/>
         <br/>
 

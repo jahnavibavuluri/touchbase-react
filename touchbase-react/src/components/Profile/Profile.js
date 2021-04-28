@@ -8,9 +8,7 @@ export const Profile = () => {
   return (
     <div className="profile-main-content">
 
-      <div className="dashboard-menu">
-        <DashboardMenu/>
-      </div>
+      <DashboardMenu/>
 
       <div className="profile-main-panel">
         <div className="profile-header-main">

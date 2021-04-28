@@ -12,7 +12,7 @@
 }*/
 
 .nav {
-  background-color: #5B5FF1;
+  background-color: #5271ff;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -67,12 +67,12 @@
   float: left;
   width: 50%;
   align-items: center;
-  font-family:"HelveticaNeue-Light", sans-serif;
+  font-family: "HelveticaNeue-Light", sans-serif;
   //background-color: purple;
 }
 
 .why-touchbase {
-  color: #5B5FF1;
+  color: #5271ff;
   font-size: 20px;
   padding-bottom: 10px;
 }
@@ -138,7 +138,7 @@
 }
 
 .types-of-touchbases {
-  color: #5B5FF1;
+  color: #5271ff;
   font-size: 20px;
   padding-bottom: 10px;
 }
@@ -209,7 +209,7 @@
 }
 
 .all-categories {
-  color: #5B5FF1;
+  color: #5271ff;
   font-size: 20px;
   padding-bottom: 10px;
 }

@@ -2,6 +2,8 @@ import React from 'react'
 import './Featured.css'
 import { useHistory } from "react-router-dom";
 import { FeaturedPros } from './FeaturedPros.js'
+import Navbar from '../NavBar/Navbar.js'
+import Footer from '../Footer/Footer.js'
 
 export const Featured = () => {
 
@@ -13,6 +15,7 @@ export const Featured = () => {
 
   return (
     <div className="featured-main-body">
+      <Navbar/>
       <div className="featured-main-heading">
         Our Featured Pros
       </div>
@@ -49,7 +52,7 @@ export const Featured = () => {
         </div>
       </div>
 
-
+      <Footer />
     </div>
 
   );

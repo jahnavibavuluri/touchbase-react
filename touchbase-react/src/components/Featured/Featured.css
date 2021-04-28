@@ -1,18 +1,15 @@
-.featured-main-body{
-  text-align: center;
-  //background-color: yellow;
-}
-
 .featured-main-heading {
   font-family: "HelveticaNeue-Bold", sans-serif;
   font-size: 50px;
   line-height: 2;
+  text-align: center;
 }
 
 .featured-subheading{
   font-family: "HelveticaNeue-Light", sans-serif;
   font-size: 20px;
   line-height: 2;
+  text-align: center;
 }
 
 .featured-content {
@@ -23,7 +20,7 @@
 }
 
 .featured-pros-div {
-  background-color: #5B5FF1;
+  background-color: #5271ff;
   //border-radius: 10px;
   //float: left;
   display: inline-block;
@@ -48,7 +45,7 @@
 }
 
 .explore-button {
-  background-color: #5B5FF1;
+  background-color: #5271ff;
   color: white;
   font-size: 20px;
   padding: 10px 20px;
@@ -61,6 +58,7 @@
   background-color: #E8E9ED;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .explore-more-content{

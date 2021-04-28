@@ -14,42 +14,27 @@ import Footer from './components/Footer/Footer.js'
 
 function App() {
 
-  /*
-  const [landingPage, setLandingPage] = useState(0);
-
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      console.log(data.welcome);
-      setLandingPage(data.welcome);
-    });
-  }, []);
-
-  console.log(landingPage)
-*/
-
   return (
     //to add navbar, add it here and to style it, add it in App.css
     <Router>
-    {/*
-      <div className="navbar">
-        <Navbar/>
+      <div className="public-pages">
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/featured" component={Featured} />
+            <Route path="/signup" component={SignupPage} />
+            <Route path="/login" component={Login}/>
+          </Switch>
       </div>
-    */}
-    <Navbar/>
-      <div className="App">
+
+      <div className="user-pages">
         <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="/signup" component={SignupPage} />
-          <Route path="/featured" component={Featured} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route path="/login" component={Login}/>
           <Route path="/logout" component={Logout}/>
           <Route path="/dashboard/yourtouchbases" component={YourTouchbases}/>
           <Route path="/dashboard/meetings" component={Meetings}/>
           <Route path="/dashboard/profile" component={Profile}/>
         </Switch>
       </div>
-    <Footer />
     </Router>
   );
 }

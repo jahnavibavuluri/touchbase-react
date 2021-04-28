@@ -1,5 +1,5 @@
-.navbar-items {
-  //background-color: yellow;
+.navbar-user-items {
+  background-color: yellow;
   height: 100%;
   width: 100%;
   margin: 0 auto;
@@ -7,14 +7,14 @@
   overflow: hidden;
 }
 
-.navbar-logo {
+.navbar-user-logo {
   float: left;
   width: 25%;
   padding-left: 30px;
   padding-top: 10px;
 }
 
-.nav-items {
+.user-nav-items {
   grid-template-columns: repeat(5,auto);
   grid-gap: 10px;
   list-style: none;
@@ -27,17 +27,21 @@
   font-family: "HelveticaNeue-Light", sans-serif;
 }
 
-.menu-items {
-  //background-color: green;
+.user-menu-items {
+  background-color: green;
   float: right;
-  padding-top: 15px;
+  //padding-top: 15px;
 }
 
-.nav-links {
+.navbar-user-links {
   color: black;
   transition: 0.5s;
 }
 
-.nav-links:hover {
+.navbar-user-links:hover {
   color: #5271ff;
+}
+
+.favicon {
+  width: 5%;
 }

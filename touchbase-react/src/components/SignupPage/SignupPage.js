@@ -3,6 +3,8 @@ import { Link, useHistory } from "react-router-dom"
 import './SignupPage.css'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch'
+import Navbar from '../NavBar/Navbar.js'
+import Footer from '../Footer/Footer.js'
 
 export const SignupPage = () => {
   const history = useHistory();
@@ -71,6 +73,7 @@ export const SignupPage = () => {
 
   return (
     <div className="sign-up-page-div">
+      <Navbar />
       <div className="sign-up-page-responsive">
         <div className="sign-up-logo">
           <img src={logo} width="200" height="60"></img>

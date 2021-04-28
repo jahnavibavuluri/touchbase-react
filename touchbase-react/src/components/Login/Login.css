@@ -73,7 +73,7 @@
 
 .login-button-submit {
   padding-top: 20px;
-  background-color: #5B5FF1;
+  background-color: #5271ff;
   color: white;
   font-size: 15px;
   padding: 10px 20px;
@@ -91,7 +91,7 @@
 .toggle-switch-checkbox {
   height: 25px;
   width: 25px;
-  color: #5B5FF1;
+  color: #5271ff;
   border-radius: 10px;
 }
 
@@ -111,5 +111,5 @@
 .signup-link {
   font-family: "HelveticaNeue-Light", sans-serif;
   font-size: 15px;
-  color: #5B5FF1;
+  color: #5271ff;
 }

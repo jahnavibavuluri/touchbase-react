@@ -8,9 +8,7 @@ export const Meetings = () => {
   return (
     <div className="meetings-main-content">
 
-      <div className="dashboard-menu">
-        <DashboardMenu/>
-      </div>
+      <DashboardMenu/>
 
       <div className="your-meetings-content">
         <div className="meetings-main-title">

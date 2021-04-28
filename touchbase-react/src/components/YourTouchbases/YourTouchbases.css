@@ -1,8 +1,5 @@
 .yourtouchbases-main {
-  //background-color: yellow;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
+  background-color: yellow;
 }
 
 .main-title {
@@ -14,17 +11,12 @@
 }
 
 .all-touchbases-content {
-  float: left;
+  padding-top: 60px;
+  float: right;
   width: 85%;
   //background-color: red;
   margin: 0 auto;
   overflow: hidden;
-}
-
-.dashboard-menu {
-  float: left;
-  //background-color: purple;
-  width: 15%;
 }
 
 .touchbases-main {
@@ -69,7 +61,7 @@
 
 .add-touchbases {
   color: white;
-  background-color: #5B5FF1;
+  background-color: #5271ff;
   font-size: 15px;
   padding: 6px 16px;
   border-radius: 12px;

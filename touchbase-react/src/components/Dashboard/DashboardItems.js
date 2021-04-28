@@ -1,5 +1,12 @@
+import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
+import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 export const DashboardItems= [
 
+  {
+    src: favicon,
+    url: '/',
+    cName: 'logo-image',
+  },
   {
     title: 'Home',
     url: '/dashboard',

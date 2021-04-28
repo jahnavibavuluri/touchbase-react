@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import './Login.css'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch'
+import Navbar from '../NavBar/Navbar.js'
 
 export const Login = () => {
 
@@ -104,6 +105,7 @@ export const Login = () => {
 
   return (
     <div className="login-page-div">
+      <Navbar />
       <div className="login-page-responsive">
         <div className="login-logo">
           <img src={logo} width="200" height="60"></img>

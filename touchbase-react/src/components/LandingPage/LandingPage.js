@@ -9,9 +9,10 @@ import img1 from '../../images/LandingPage/touchbase_img_Q&A.png'
 import img2 from '../../images/LandingPage/touchbase_img_touchbases.png'
 import img3 from '../../images/LandingPage/touchbase_img_dms.png'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
-//import Navbar from '../NavBar/Navbar.js';
+import Navbar from '../NavBar/Navbar.js'
+import Footer from '../Footer/Footer.js'
+import NavbarUser from '../NavBar/NavbarUser.js'
 
-//import SignupPage from './SignupPage'
 
 export const LandingPage = () => {
   const history = useHistory();
@@ -20,9 +21,12 @@ export const LandingPage = () => {
     history.push("/explore");
   };
 
-  return (
 
+
+  return (
     <div className="landingPage">
+      <Navbar />
+
       <div className="nav">
         Meet with your favorite pros & influencers
         <div className='nav1'>
@@ -122,6 +126,7 @@ export const LandingPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
 
   );
