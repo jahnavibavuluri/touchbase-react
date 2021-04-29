@@ -1,0 +1,32 @@
+.explore-main-content {
+  padding: 50px;
+}
+
+.all-categories-content {
+  font-family: "HelveticaNeue-Medium", sans-serif;
+  color: black;
+  font-size: 30px;
+  padding-bottom: 50px;
+}
+
+.category {
+  padding: 20px;
+}
+
+.category-name {
+  font-family: "HelveticaNeue-Light", sans-serif;
+  color: black;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.influencer-items {
+  grid-template-columns: repeat(5,auto);
+  list-style: none;
+  text-align: center;
+  width: 100%;
+  margin-right: 5rem;
+  display: inline;
+  font-size: 17px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}

@@ -22,7 +22,7 @@
   list-style: none;
   text-align: center;
   justify-content: end;
-  margin-right: 1rem;
+  margin-right: 2rem;
   display: inline;
   font-size: 20px;
   font-family: "HelveticaNeue-Light", sans-serif;
@@ -49,4 +49,5 @@
 
 .copyright-text {
   text-align: center;
+  font-family: "HelveticaNeue-Light", sans-serif;
 }

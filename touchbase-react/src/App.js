@@ -9,6 +9,7 @@ import { YourTouchbases } from './components/YourTouchbases/YourTouchbases'
 import { Meetings } from './components/Meetings/Meetings'
 import { Profile } from './components/Profile/Profile'
 import { Featured } from './components/Featured/Featured'
+import { Explore } from './components/Explore/Explore'
 import Navbar from './components/NavBar/Navbar.js'
 import Footer from './components/Footer/Footer.js'
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/featured" component={Featured} />
             <Route path="/signup" component={SignupPage} />
             <Route path="/login" component={Login}/>
+            <Route path="/explore" component={Explore}/>
           </Switch>
       </div>
 
