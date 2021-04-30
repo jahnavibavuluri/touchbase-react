@@ -1,0 +1,51 @@
+.date-picker {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.from-time-picker {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.to-time-picker {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.max-participants {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.cost {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.headings {
+  font-family: "HelveticaNeue-Light", sans-serif;
+  padding-bottom: 30px;
+}
+
+.form-buttoms {
+  text-align: center;
+}
+
+.cancel-button {
+  color: white;
+  background-color: #5271ff;
+  font-size: 15px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
+
+.save-button {
+  color: white;
+  background-color: #5271ff;
+  font-size: 15px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
