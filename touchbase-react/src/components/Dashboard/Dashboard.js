@@ -25,7 +25,7 @@ export const Dashboard = () => {
   .then((res) => {
     if (res[0] === 200) {
       console.log("customer is logged in!")
-    } else if (res[0] === 201) {
+    } else if (res[0] === 204) {
       console.log("influencer is logged in!")
       handleInfluencer()
     }
@@ -46,7 +46,10 @@ export const Dashboard = () => {
 
   return (
       <div className="dashboard-content">
-        {dashboard}
+        <div className="dashboard-menu">
+          {dashboard}
+        </div>
+
         <div className="calendar">
           <Calendar/>
         </div>

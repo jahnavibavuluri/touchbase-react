@@ -25,7 +25,7 @@ export const Meetings = () => {
   .then((res) => {
     if (res[0] === 200) {
       console.log("customer is logged in!")
-    } else if (res[0] === 201) {
+    } else if (res[0] === 204) {
       console.log("influencer is logged in!")
       handleInfluencer()
     }
@@ -37,6 +37,25 @@ export const Meetings = () => {
     return { name: "network error", description: "" };
   });
 },[])
+
+
+  useEffect(() => {
+    fetch('/profile/meetings')
+    .then(response => {
+      const statusCode = response.status;
+      const data = response.json();
+      return Promise.all([statusCode, data]);
+    })
+    .then((res, data) => {
+      console.log(res[1].iterations);
+    })
+    .catch(error => {
+      console.error(error);
+      return {name: "network error", description:""};
+    });
+  }, [])
+
+
 
   if (isInfluencer) {
     dashboard = <DashboardMenu />
