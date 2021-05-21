@@ -1,0 +1,108 @@
+.popup-box {
+  position: fixed;
+  background: #00000050;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  //background-color: red;
+  margin-left: 5%;
+  overflow: hidden;
+}
+
+.box {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  height: 100vh;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.close-icon {
+  content: 'x';
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
+}
+
+.date-picker {
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.from-time-picker {
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.to-time-picker {
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.max-participants {
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.repeat-weeks {
+  padding-bottom: 15px;
+}
+
+.cost {
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.headings {
+  font-family: "HelveticaNeue-Light", sans-serif;
+  padding: 15px;
+  display: grid;
+  grid-gap: 20px;
+}
+
+.touchbase-input {
+  width: 100%;
+  height: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border-width: thin;
+}
+
+.form-buttoms {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.cancel-button {
+  color: white;
+  background-color: #5271ff;
+  font-size: 15px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
+
+.save-button {
+  color: white;
+  background-color: #5271ff;
+  font-size: 15px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}

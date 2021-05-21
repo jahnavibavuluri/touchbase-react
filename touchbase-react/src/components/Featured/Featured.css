@@ -17,6 +17,8 @@
   text-align: center;
   padding-top: 50px;
   padding-bottom: 100px;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 
 .featured-pros-div {
@@ -30,6 +32,10 @@
   font-size: 15px;
   line-height: 1.5;
   color: white;
+}
+
+.featured-pros-div:hover{
+  color: black;
 }
 
 .featured-pro {
@@ -64,4 +70,14 @@
 .explore-more-content{
   //background-color: red;
   padding: 100px;
+}
+
+.influencer-category {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  font-size: 15px;
+}
+
+.influencer-name {
+  font-size: 25px;
 }

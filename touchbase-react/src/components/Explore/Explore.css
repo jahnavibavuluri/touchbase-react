@@ -1,32 +1,55 @@
 .explore-main-content {
-  padding: 50px;
+  padding: 0px 50px 50px 50px;
 }
 
 .all-categories-content {
-  font-family: "HelveticaNeue-Medium", sans-serif;
-  color: black;
-  font-size: 30px;
-  padding-bottom: 50px;
-}
-
-.category {
-  padding: 20px;
-}
-
-.category-name {
-  font-family: "HelveticaNeue-Light", sans-serif;
-  color: black;
-  font-size: 20px;
-  padding-bottom: 20px;
-}
-
-.influencer-items {
-  grid-template-columns: repeat(5,auto);
-  list-style: none;
+  font-family: "HelveticaNeue-Bold", sans-serif;
+  font-size: 50px;
+  line-height: 2;
   text-align: center;
-  width: 100%;
-  margin-right: 5rem;
-  display: inline;
-  font-size: 17px;
+  color: black;
+  //padding-bottom: 50px;
+}
+
+.explore-description {
   font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 20px;
+  line-height: 2;
+  text-align: center;
+}
+
+.explore-content {
+  //background-color: red;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.explore-pros-div {
+  background-color: #5271ff;
+  //border-radius: 10px;
+  //float: left;
+  display: inline-block;
+  padding: 15px;
+  //margin-left: 20;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: white;
+}
+
+.influencer-name {
+  font-size: 25px;
+}
+
+.influencer-category {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  font-size: 15px;
+}
+
+.explore-pros-div:hover{
+  color: black;
 }

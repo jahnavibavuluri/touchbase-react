@@ -9,20 +9,35 @@ import './YourTouchbases.css'
 import Popup from '../Popup/Popup';
 import DatePicker from 'react-date-picker';
 import TimePicker from 'react-time-picker';
+import Popup1on1 from '../Popup/Popup1on1.js'
+import PopupClass from '../Popup/PopupClass.js'
+import PopupBreakout from '../Popup/PopupBreakout.js'
 
 export const YourTouchbases = () => {
 
   const history = useHistory();
   const [isInfluencer, setInfluencer] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen1on1, setIsOpen1on1] = useState(false);
+  const [isOpenClass, setIsOpenClass] = useState(false);
+  const [isOpenBreakout, setIsOpenBreakout] = useState(false);
   const [dateValue, onDateChange] = useState(new Date());
   const [timeValue, onTimeChange] = useState('10:00');
   const [participants, setParticipants] = useState(0);
   const [cost, setCost] = useState(0);
+  const [title, setTouchbaseTitle] = useState("");
+  const [description, setTouchbaseDescription] = useState("");
   let dashboard;
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
+  const togglePopup1on1 = () => {
+    setIsOpen1on1(!isOpen1on1);
+  }
+
+  const togglePopupClass = () => {
+    setIsOpenClass(!isOpenClass);
+  }
+
+  const togglePopupBreakout = () => {
+    setIsOpenBreakout(!isOpenBreakout);
   }
 
   const handleParticipants = (event) => {
@@ -35,6 +50,14 @@ export const YourTouchbases = () => {
 
   const handleInfluencer = (event) => {
     setInfluencer(true);
+  }
+
+  const handleTouchbaseTitle = (event) => {
+    setTouchbaseTitle(event.target.value);
+  }
+
+  const handleTouchbaseDescription = (event) => {
+    setTouchbaseDescription(event.target.value);
   }
 
   useEffect(() => {
@@ -96,56 +119,10 @@ export const YourTouchbases = () => {
                 className="add-touchbases"
                 type="button"
                 value="Add New 1:1 Touchbase"
-                onClick={togglePopup}
+                onClick={togglePopup1on1}
               />
-              {isOpen && <Popup
-                content={<>
-                  <div className="headings">
-                    <h1>Touchbase Web Dev Team Updates</h1>
-                    <p>In this Group Touchbase, the backend developer, Sneh Patel, and the frontend developer, Jahnavi Bavuluri, discuss their updates on Touchbase's MVP with the project lead, Sue Kang. We aim to have the MVP released by early June and plan on having consistent updates to attract more users to our site.</p>
-                  </div>
-                  <div className="touchbase-date-and-time">
-                    <div className="date-picker">
-                      When:
-                      <br />
-                      <DatePicker
-                        onChange={onDateChange}
-                        value={dateValue}
-                      />
-                    </div>
-                    <div className="from-time-picker">
-                      From:
-                      <br />
-                      <TimePicker
-                        onChange={onTimeChange}
-                        value={timeValue}
-                      />
-                    </div>
-                    <div className="to-time-picker">
-                      To:
-                      < br/>
-                      <TimePicker
-                        onChange={onTimeChange}
-                        value={timeValue}
-                      />
-                    </div>
-                  </div>
-                  <div className="max-participants">
-                    <p>Max Participants</p>
-                    <input className="participants-input" onChange={handleParticipants}/>
-                  </div>
-                  <div className="cost">
-                    <p>Cost</p>
-                    <input className="cost-input" onChange={handleCost}/>
-                  </div>
-                  <div className="form-buttoms">
-                    <button className="cancel-button">Cancel</button>
-                    <button className="save-button">Save</button>
-                  </div>
-                </>}
-                handleClose={togglePopup}
-              />}
-          </div>
+              {isOpen1on1 && <Popup1on1 handleClose={togglePopup1on1}/>}
+            </div>
         </div>
         <br/>
         <br/>
@@ -170,56 +147,10 @@ export const YourTouchbases = () => {
               className="add-touchbases"
               type="button"
               value="Add New Group Touchbase"
-              onClick={togglePopup}
+              onClick={togglePopupClass}
             />
-            {isOpen && <Popup
-              content={<>
-                <div className="headings">
-                  <h1>Touchbase Web Dev Team Updates</h1>
-                  <p>In this Group Touchbase, the backend developer, Sneh Patel, and the frontend developer, Jahnavi Bavuluri, discuss their updates on Touchbase's MVP with the project lead, Sue Kang. We aim to have the MVP released by early June and plan on having consistent updates to attract more users to our site.</p>
-                </div>
-                <div className="touchbase-date-and-time">
-                  <div className="date-picker">
-                    When:
-                    <br />
-                    <DatePicker
-                      onChange={onDateChange}
-                      value={dateValue}
-                    />
-                  </div>
-                  <div className="from-time-picker">
-                    From:
-                    <br />
-                    <TimePicker
-                      onChange={onTimeChange}
-                      value={timeValue}
-                    />
-                  </div>
-                  <div className="to-time-picker">
-                    To:
-                    < br/>
-                    <TimePicker
-                      onChange={onTimeChange}
-                      value={timeValue}
-                    />
-                  </div>
-                </div>
-                <div className="max-participants">
-                  <p>Max Participants</p>
-                  <input className="participants-input" onChange={handleParticipants}/>
-                </div>
-                <div className="cost">
-                  <p>Cost</p>
-                  <input className="cost-input" onChange={handleCost}/>
-                </div>
-                <div className="form-buttoms">
-                  <button className="cancel-button">Cancel</button>
-                  <button className="save-button">Save</button>
-                </div>
-              </>}
-              handleClose={togglePopup}
-            />}
-        </div>
+            {isOpenClass && <PopupClass handleClose={togglePopupClass}/>}
+            </div>
         </div>
 
         <br/>
@@ -246,56 +177,10 @@ export const YourTouchbases = () => {
               className="add-touchbases"
               type="button"
               value="Add New Hangout Touchbase"
-              onClick={togglePopup}
+              onClick={togglePopupBreakout}
             />
-            {isOpen && <Popup
-              content={<>
-                <div className="headings">
-                  <h1>Touchbase Web Dev Team Updates</h1>
-                  <p>In this Group Touchbase, the backend developer, Sneh Patel, and the frontend developer, Jahnavi Bavuluri, discuss their updates on Touchbase's MVP with the project lead, Sue Kang. We aim to have the MVP released by early June and plan on having consistent updates to attract more users to our site.</p>
-                </div>
-                <div className="touchbase-date-and-time">
-                  <div className="date-picker">
-                    When:
-                    <br />
-                    <DatePicker
-                      onChange={onDateChange}
-                      value={dateValue}
-                    />
-                  </div>
-                  <div className="from-time-picker">
-                    From:
-                    <br />
-                    <TimePicker
-                      onChange={onTimeChange}
-                      value={timeValue}
-                    />
-                  </div>
-                  <div className="to-time-picker">
-                    To:
-                    < br/>
-                    <TimePicker
-                      onChange={onTimeChange}
-                      value={timeValue}
-                    />
-                  </div>
-                </div>
-                <div className="max-participants">
-                  <p>Max Participants</p>
-                  <input className="participants-input" onChange={handleParticipants}/>
-                </div>
-                <div className="cost">
-                  <p>Cost</p>
-                  <input className="cost-input" onChange={handleCost}/>
-                </div>
-                <div className="form-buttoms">
-                  <button className="cancel-button">Cancel</button>
-                  <button className="save-button">Save</button>
-                </div>
-              </>}
-              handleClose={togglePopup}
-            />}
-        </div>
+            {isOpenBreakout && <PopupBreakout handleClose={togglePopupBreakout}/>}
+            </div>
         </div>
 
         <br/>

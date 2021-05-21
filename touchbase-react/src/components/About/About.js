@@ -35,7 +35,7 @@ export const About = () => {
       {isOpen && <Popup
         content={<>
           <div className="headings">
-            <h1>Touchbase Web Dev Team Updates</h1>
+            <h1>Jello</h1>
             <p>In this Group Touchbase, the backend developer, Sneh Patel, and the frontend developer, Jahnavi Bavuluri, discuss their updates on Touchbase's MVP with the project lead, Sue Kang. We aim to have the MVP released by early June and plan on having consistent updates to attract more users to our site.</p>
           </div>
           <div className="touchbase-date-and-time">

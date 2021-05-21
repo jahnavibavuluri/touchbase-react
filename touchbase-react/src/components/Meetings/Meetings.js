@@ -4,12 +4,14 @@ import DashboardMenu from '../Dashboard/DashboardMenu.js'
 import DashboardMenuCustomer from '../Dashboard/DashboardMenuCustomer.js'
 import oooicon from '../../images/TouchbaseIcons/one-on-one-icon.png'
 import groupicon from '../../images/TouchbaseIcons/group-icon.png'
+import IndividualMeeting from './IndividualMeeting.js'
 import './Meetings.css'
 
 export const Meetings = () => {
 
   const history = useHistory();
   const [isInfluencer, setInfluencer] = useState(false);
+  const [allMeetings, setMeetings] = useState({});
   let dashboard;
 
   const handleInfluencer = (event) => {
@@ -48,6 +50,7 @@ export const Meetings = () => {
     })
     .then((res, data) => {
       console.log(res[1].iterations);
+      setMeetings(res[1].iterations)
     })
     .catch(error => {
       console.error(error);
@@ -55,6 +58,13 @@ export const Meetings = () => {
     });
   }, [])
 
+  console.log(allMeetings)
+  /*const size = Object.keys(allMeetings).length;
+  console.log(size)
+
+  for (var i = 1; i <= size; i++) {
+    console.log(allMeetings[i])
+  }*/
 
 
   if (isInfluencer) {
@@ -79,32 +89,18 @@ export const Meetings = () => {
               Upcoming Meetings
             </div>
 
+            <ul >
+              {Object.entries(allMeetings).map( ([key, value]) => {
+                return (
+                  <IndividualMeeting type="Group" icon={groupicon} date={value.date} time="time" title={value.title}/>
+                )
+              })}
+            </ul>
 
-            <div className="individual-meeting">
-              <div className="touchbase-type">
-                <div className="touchbase-type-name">
-                  Group
-                </div>
-                <div className="touchbase-type-icon">
-                  <img src={groupicon} className="touchbase-icon" ></img>
-                </div>
-              </div>
+            {/*<IndividualMeeting type="Group" icon={groupicon} date="Friday, April 16th" time="3:35-4:00 PM (EST)" title="Touchbase Tech Team Meeting"/>
 
-              <div className="touchbase-info">
-                <div className="touchbase-date">
-                  Friday, April 16th
-                </div>
-                <div className="touchbase-time">
-                  3:35-4:00 PM (EST)
-                </div>
-                <div className="touchbase-name">
-                  Touchbase Tech Team Meeting
-                </div>
-                <div className="touchbase-join-button">
-                  <button className="join-button" type="button">Join</button>
-                </div>
-              </div>
-            </div>
+            <IndividualMeeting type="Group" icon={groupicon} date="Friday, April 16th" time="3:35-4:00 PM (EST)" title="Touchbase Tech Team Meeting"/>*/}
+
           </div>
 
 
