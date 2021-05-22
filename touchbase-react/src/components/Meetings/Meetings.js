@@ -11,7 +11,8 @@ export const Meetings = () => {
 
   const history = useHistory();
   const [isInfluencer, setInfluencer] = useState(false);
-  const [allMeetings, setMeetings] = useState({});
+  const [upcomingMeetings, setUpcomingMeetings] = useState({});
+  const [pastMeetings, setPastMeetings] = useState({});
   let dashboard;
 
   const handleInfluencer = (event) => {
@@ -27,7 +28,7 @@ export const Meetings = () => {
   .then((res) => {
     if (res[0] === 200) {
       console.log("customer is logged in!")
-    } else if (res[0] === 204) {
+    } else if (res[0] === 202) {
       console.log("influencer is logged in!")
       handleInfluencer()
     }
@@ -49,8 +50,10 @@ export const Meetings = () => {
       return Promise.all([statusCode, data]);
     })
     .then((res, data) => {
-      console.log(res[1].iterations);
-      setMeetings(res[1].iterations)
+      console.log(res[1]);
+      setUpcomingMeetings(res[1].future_iterations)
+      setPastMeetings(res[1].past_iterations)
+      //setMeetings(res[1].iterations)
     })
     .catch(error => {
       console.error(error);
@@ -58,7 +61,8 @@ export const Meetings = () => {
     });
   }, [])
 
-  console.log(allMeetings)
+  console.log(upcomingMeetings)
+  console.log(pastMeetings)
   /*const size = Object.keys(allMeetings).length;
   console.log(size)
 
@@ -90,9 +94,9 @@ export const Meetings = () => {
             </div>
 
             <ul >
-              {Object.entries(allMeetings).map( ([key, value]) => {
+              {Object.entries(upcomingMeetings).map( ([key, value]) => {
                 return (
-                  <IndividualMeeting type="Group" icon={groupicon} date={value.date} time="time" title={value.title}/>
+                  <IndividualMeeting key={key} type="Group" icon={groupicon} date={value.date} startTime={value.startTime} endTime={value.endTime} title={value.title}/>
                 )
               })}
             </ul>
@@ -114,31 +118,13 @@ export const Meetings = () => {
               Past Meetings
             </div>
 
-            <div className="individual-meeting">
-              <div className="touchbase-type">
-                <div className="touchbase-type-name">
-                  1:1
-                </div>
-                <div className="touchbase-type-icon">
-                  <img src={oooicon} className="touchbase-icon" ></img>
-                </div>
-              </div>
-
-              <div className="touchbase-info">
-                <div className="touchbase-date">
-                  Monday, April 12th
-                </div>
-                <div className="touchbase-time">
-                  5:30-4:25 PM (EST)
-                </div>
-                <div className="touchbase-name">
-                  How to Code React
-                </div>
-                <div className="touchbase-join-button">
-                  <button className="join-button" type="button">Join</button>
-                </div>
-              </div>
-            </div>
+            <ul >
+              {Object.entries(pastMeetings).map( ([key, value]) => {
+                return (
+                  <IndividualMeeting key={key} type="Group" icon={oooicon} date={value.date} startTime={value.startTime} endTime={value.endTime} title={value.title}/>
+                )
+              })}
+            </ul>
 
           </div>
         </div>

@@ -7,13 +7,16 @@ export const Logout = () => {
 
   useEffect(() => {
     fetch('/logout')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data.state)
-        history.push('/')
-        //if(data.state === 'user in session!') {
-          //history.push('/dashboard')
-        //}
+      .then(response => {
+        const statusCode = response.status;
+        return Promise.all([statusCode]);
+      })
+      .then((res) => {
+        if (res[0] == 200) {
+          history.push('/')
+        } else {
+          history.push('/error')
+        }
       });
     },[])
 

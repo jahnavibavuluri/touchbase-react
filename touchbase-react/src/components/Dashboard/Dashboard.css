@@ -1,7 +1,28 @@
+.dashboard-content {
+  height: 100vh;
+}
+
 .calendar {
-  float: right;
-  width: 85%;
+  width: auto;
+  height: 90vh;
   margin: 0 auto;
   overflow: hidden;
   padding-top: 60px;
+  //background-color: red;
+  position: relative;
+}
+
+.react-calendar {
+  position: absolute;
+  bottom: 100px;
+  left: 55%;
+  transform: translateX(-50%);
+}
+
+.username {
+  padding-left: 53%;
+  padding-right: 47%;
+  padding-top: 3%;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 10px;
 }

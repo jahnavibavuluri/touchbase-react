@@ -1,16 +1,35 @@
 .individual-meeting {
-  width: 75%;
-  margin: 0 auto;
-  //border:2px solid black;
-  //border-radius: 10px;
-  font-size: 15px;
-  text-align: center;
+
+}
+
+.meeting-content {
+  border:2px solid black;
+}
+
+.icon {
+  width:20%;
+}
+
+.button {
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
+
+/*.individual-meeting {
+  //width: 75%;
+  //margin: 0 auto;
+
+  //border-radius: 10px;
+  //font-size: 15px;
+  //text-align: center;
+  //padding-bottom: 30px;
+  background-color: red;
+}
+
 .touchbase-type {
-  float: left;
-  width: 30%;
+  //float: left;
+  //width: 30%;
   //background-color: purple;
 }
 
@@ -40,4 +59,4 @@
   padding: 6px 16px;
   border-radius: 12px;
   font-family: "HelveticaNeue-Light", sans-serif;
-}
+}*/

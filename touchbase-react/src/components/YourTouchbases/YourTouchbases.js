@@ -69,7 +69,7 @@ export const YourTouchbases = () => {
   .then((res) => {
     if (res[0] === 200) {
       console.log("customer is logged in!")
-    } else if (res[0] === 204) {
+    } else if (res[0] === 202) {
       console.log("influencer is logged in!")
       handleInfluencer()
     }

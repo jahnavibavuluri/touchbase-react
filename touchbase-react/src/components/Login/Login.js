@@ -15,35 +15,21 @@ export const Login = () => {
     fetch('/login')
   .then(response => {
     const statusCode = response.status;
-    const data = response.json();
-    return Promise.all([statusCode, data]);
+    //const data = response.json();
+    return Promise.all([statusCode]);
   })
-  .then((res, data) => {
+  .then((res) => {
     if (res[0] === 300) {
-      console.log("first conditions satisfied!")
-      if (res[1].state === "user in session!") {
-        console.log("both conditions satisfied!")
-        history.push('/dashboard')
-      }
+      history.push('/dashboard')
     }
-    console.log(res, data);
+    console.log(res);
   })
   .catch(error => {
     console.error(error);
     return { name: "network error", description: "" };
   });
 },[])
-/*
-  useEffect(() => {
-    fetch('/login')
-    .then(res => res.json())
-    .then(data => {
-      console.log(data.state)
-      if(data.state === 'user in session!') {
-        history.push('/dashboard')
-      }
-    })
-  })*/
+
 
 
   const handleSignup = () => {
@@ -80,14 +66,14 @@ export const Login = () => {
       })
     }).then(response => {
       const statusCode = response.status;
-      const data = response.json();
-      return Promise.all([statusCode, data]);
+      //const data = response.json();
+      return Promise.all([statusCode]);
     })
-    .then((res, data) => {
+    .then((res) => {
       if (res[0] === 200) {
         history.push('/dashboard')
       }
-      console.log(res, data)
+      console.log(res)
     })
     .catch(error => {
       console.error(error);
