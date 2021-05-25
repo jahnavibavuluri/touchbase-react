@@ -96,7 +96,7 @@ export const Meetings = () => {
             <ul >
               {Object.entries(upcomingMeetings).map( ([key, value]) => {
                 return (
-                  <IndividualMeeting key={key} type="Group" icon={groupicon} date={value.date} startTime={value.startTime} endTime={value.endTime} title={value.title}/>
+                  <IndividualMeeting key={key} type="Group" icon={groupicon} date={value.date} startTime={value.startTime} endTime={value.endTime} title={value.title} button={true}/>
                 )
               })}
             </ul>
@@ -121,7 +121,7 @@ export const Meetings = () => {
             <ul >
               {Object.entries(pastMeetings).map( ([key, value]) => {
                 return (
-                  <IndividualMeeting key={key} type="Group" icon={oooicon} date={value.date} startTime={value.startTime} endTime={value.endTime} title={value.title}/>
+                  <IndividualMeeting key={key} type="Group" icon={oooicon} date={value.date} startTime={value.startTime} endTime={value.endTime} title={value.title} button={false}/>
                 )
               })}
             </ul>

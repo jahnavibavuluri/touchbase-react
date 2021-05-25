@@ -12,6 +12,11 @@ import TimePicker from 'react-time-picker';
 import Popup1on1 from '../Popup/Popup1on1.js'
 import PopupClass from '../Popup/PopupClass.js'
 import PopupBreakout from '../Popup/PopupBreakout.js'
+import checkIcon from '../../images/ToastIcons/check.svg';
+import errorIcon from '../../images/ToastIcons/error.svg';
+import infoIcon from '../../images/ToastIcons/info.svg';
+import warningIcon from '../../images/ToastIcons/warning.svg';
+import Toast from '../Toast/Toast.js'
 
 export const YourTouchbases = () => {
 
@@ -20,12 +25,14 @@ export const YourTouchbases = () => {
   const [isOpen1on1, setIsOpen1on1] = useState(false);
   const [isOpenClass, setIsOpenClass] = useState(false);
   const [isOpenBreakout, setIsOpenBreakout] = useState(false);
+  const [isOpenToast, setIsOpenToast] = useState(false);
   const [dateValue, onDateChange] = useState(new Date());
   const [timeValue, onTimeChange] = useState('10:00');
   const [participants, setParticipants] = useState(0);
   const [cost, setCost] = useState(0);
   const [title, setTouchbaseTitle] = useState("");
   const [description, setTouchbaseDescription] = useState("");
+  const [toastList, setToastList] = useState([]);
   let dashboard;
 
   const togglePopup1on1 = () => {
@@ -38,6 +45,10 @@ export const YourTouchbases = () => {
 
   const togglePopupBreakout = () => {
     setIsOpenBreakout(!isOpenBreakout);
+  }
+
+  const toggleToast = () => {
+    setIsOpenToast(!isOpenToast);
   }
 
   const handleParticipants = (event) => {
@@ -59,6 +70,29 @@ export const YourTouchbases = () => {
   const handleTouchbaseDescription = (event) => {
     setTouchbaseDescription(event.target.value);
   }
+
+  const handleToastList = (event) => {
+    setToastList([
+      {
+        id: 1,
+        title: 'Success',
+        description: 'New Touchbase has been added!',
+        backgroundColor: '#5cb85c',
+        icon: checkIcon,
+        handleClose: toggleToast
+      },
+    ])
+  }
+
+  /*const testList = [
+    {
+      id: 1,
+      title: 'Success',
+      description: 'New Touchbase has been added!',
+      backgroundColor: '#5cb85c',
+      icon: checkIcon
+    },
+  ];*/
 
   useEffect(() => {
     fetch('/dashboard')
@@ -185,7 +219,6 @@ export const YourTouchbases = () => {
 
         <br/>
         <br/>
-
 
       </div>
     </div>

@@ -1,36 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom"
+//import { useHistory, useLocation } from "react-router-dom"
 import "./Dashboard.css"
 import DashboardMenu from './DashboardMenu.js'
 import DashboardMenuCustomer from './DashboardMenuCustomer.js'
 import Calendar from 'react-calendar'
-import "./Calendar.css"
+//import 'react-calendar/dist/Calendar.css'
+import "./Calendar.css" //to fix the issue of this css file not loading, try copying it directly into react-calendar/dist/Calendar.css and importing that file
 import TileContent from "./TileContent.js";
 
 export const Dashboard = () => {
 
-  const history = useHistory();
+  //const history = useHistory();
   const [isInfluencer, setInfluencer] = useState(false);
+  const [value, onChange] = useState(new Date())
+  const [datesDict, setDatesDict] = useState({})
+  //const [stringDates, setStringDates] = useEffect([])
   let dashboard;
 
-  const dates = [new Date(2021, 4, 25), new Date(2021, 4, 2) , new Date(2021, 4, 27), new Date(2021, 5, 4)]
+  const dates = []
 
-  const hello = new Date(2021, 4, 25)
-  console.log(hello.getDay())
+  const stringDates = []
+
+  for (const [key, value] of Object.entries(datesDict)) {
+    stringDates.push(key)
+  }
+
+  for (var i = 0; i<stringDates.length; i++) {
+    dates.push(new Date(stringDates[i]));
+  }
+
 
   const tileContent = ({ date, view }) => {
     return <TileContent date={date} selectedDates={dates} />;
   };
 
-  const [value, onChange] = useState(new Date())
-
-  console.log(value)
-
-
-
-  //value[1] = new Date(2021, 5, 22)
-  //alue[2] = new Date(2021, 5, 25)
-  //console.log(value);
 
 
   const handleInfluencer = (event) => {
@@ -41,16 +44,18 @@ export const Dashboard = () => {
     fetch('/dashboard')
   .then(response => {
     const statusCode = response.status;
-    return Promise.all([statusCode]);
+    const data = response.json();
+    return Promise.all([statusCode, data]);
   })
   .then((res) => {
     if (res[0] === 200) {
       console.log("customer is logged in!")
     } else if (res[0] === 202) {
+      setDatesDict(res[1])
       console.log("influencer is logged in!")
       handleInfluencer()
     }
-    console.log(res);
+    //console.log(res);
     //console.log(influencerDashboard);
   })
   .catch(error => {
@@ -58,6 +63,8 @@ export const Dashboard = () => {
     return { name: "network error", description: "" };
   });
 },[])
+
+  //console.log(datesDict)
 
   if (isInfluencer) {
     dashboard = <DashboardMenu />
@@ -76,7 +83,7 @@ export const Dashboard = () => {
         </div>
 
         <div className="calendar">
-          <Calendar className="react-calendar" calendarType="US" tileContent={tileContent} onChange={onChange}/>
+          <Calendar className="home-calendar" calendarType="US" tileContent={tileContent} onChange={onChange}/>
         </div>
       </div>
   );

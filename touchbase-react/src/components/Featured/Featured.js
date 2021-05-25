@@ -62,10 +62,10 @@ export const Featured = () => {
             return (
               <a className="featured-pros-div" key={key} href= {"/seller/" + value.id}>
                 <img src={placeholder} width="200" className="featured-pro"/>
-                <div className="influencer-name">
+                <div className="featured-influencer-name">
                   {value.firstName} {value.lastName}
                 </div>
-                <div className="influencer-category">
+                <div className="featured-influencer-category">
                   <div>{value.categories[0]}</div>
                   <div>{value.categories[1]}</div>
                   <div>{value.categories[2]}</div>

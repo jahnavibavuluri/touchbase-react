@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { LandingPage } from './components/LandingPage/LandingPage'
 import { SignupPage } from './components/SignupPage/SignupPage'
@@ -11,8 +11,10 @@ import { Profile } from './components/Profile/Profile'
 import { Featured } from './components/Featured/Featured'
 import { Explore } from './components/Explore/Explore'
 import { About } from './components/About/About'
-import Navbar from './components/NavBar/Navbar.js'
-import Footer from './components/Footer/Footer.js'
+import { InfluencerTouchbases } from './components/InfluencerTouchbases/InfluencerTouchbases'
+import { Iterations } from './components/Iterations/Iterations'
+//import Navbar from './components/NavBar/Navbar.js'
+//import Footer from './components/Footer/Footer.js'
 
 function App() {
 
@@ -24,6 +26,8 @@ function App() {
             <Route exact path="/" component={LandingPage} />
             <Route path="/featured" component={Featured} />
             <Route path="/signup" component={SignupPage} />
+            <Route path="/seller/:id" component={InfluencerTouchbases}/>
+            <Route path="/iterations" component={Iterations}/>
             <Route path="/about" component={About}/>
             <Route path="/login" component={Login}/>
             <Route path="/explore" component={Explore}/>

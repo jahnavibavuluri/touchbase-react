@@ -3,6 +3,15 @@ import './IndividualMeeting.css';
 import groupicon from '../../images/TouchbaseIcons/group-icon.png'
 
 const IndividualMeeting = props => {
+
+  let button;
+  const b = props.button;
+  if (b) {
+    button = <button className="join-button" type="button">Join</button>
+  } else {
+    button = null;
+  }
+
   return (
     <div className="individual-meeting">
 
@@ -28,9 +37,8 @@ const IndividualMeeting = props => {
           To: {props.endTime}
         </div>
         <div className="button">
-          <button className="join-button" type="button">Join</button>
+          {button}
         </div>
-
         </div>
 
 

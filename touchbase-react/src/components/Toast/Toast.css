@@ -1,0 +1,47 @@
+.notification-container {
+    font-size: 15px;
+    box-sizing: border-box;
+    position: fixed;
+    width: 87%;
+    float: right;
+    font-family: "HelveticaNeue-Medium", sans-serif;
+    transition: opacity 1s ease-in;
+}
+
+.top-right {
+    top: 12px;
+    right: 12px;
+    transition: transform .6s ease-in-out;
+    animation: toast-in-right .7s;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 12px;
+    -webkit-animation: right-to-left 5s linear forwards;
+    animation: right-to-left 5s linear forwards;
+}
+
+.top-left {
+    top: 12px;
+    left: 12px;
+    transition: transform .6s ease-in;
+    animation: toast-in-left .7s;
+}
+
+.bottom-left {
+    bottom: 12px;
+    left: 12px;
+    transition: transform .6s ease-in;
+    animation: toast-in-left .7s;
+}
+
+.toast-button {
+  margin-left: 98%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.message {
+  padding-bottom: 20px;
+}

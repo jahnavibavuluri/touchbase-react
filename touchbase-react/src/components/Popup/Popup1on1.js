@@ -5,6 +5,13 @@ import TimePicker from 'react-time-picker';
 import './Popup1on1.css'
 import moment from 'moment'
 import { useAlert } from 'react-alert'
+import checkIcon from '../../images/ToastIcons/check.svg';
+import errorIcon from '../../images/ToastIcons/error.svg';
+import infoIcon from '../../images/ToastIcons/info.svg';
+import warningIcon from '../../images/ToastIcons/warning.svg';
+import Toast from '../Toast/Toast.js'
+import 'react-calendar/dist/Calendar.css'
+import { differenceInCalendarDays } from 'date-fns';
 
 export const Popup1on1 = props => {
     const history = useHistory();
@@ -16,6 +23,9 @@ export const Popup1on1 = props => {
     const [title, setTouchbaseTitle] = useState("");
     const [description, setTouchbaseDescription] = useState("");
     const [repeat, setRepetitions] = useState(0);
+    const [toastList, setToastList] = useState([]);
+    const [isOpenToast, setIsOpenToast] = useState(false);
+    const [input, setInput] = useState(false);
 
     const handleCost = (event) => {
       setCost(event.target.value);
@@ -33,55 +43,118 @@ export const Popup1on1 = props => {
       setRepetitions(event.target.value);
     }
 
-    console.log(moment(startDateValue).format('YYYY-MM-DD'));
+    const toggleToast = () => {
+      setIsOpenToast(!isOpenToast);
+      console.log("inside toggle toast" + isOpenToast)
+    }
+
+    const handleSuccessToastList = (event) => {
+      setToastList([
+        {
+          id: 1,
+          title: 'Success',
+          description: 'New Touchbase has been added!',
+          backgroundColor: '#5cb85c',
+          icon: checkIcon,
+          handleClose: toggleToast()
+        },
+      ])
+    }
+
+    const handleErrorToastList = (event) => {
+      setToastList([
+        {
+          id: 1,
+          title: 'Error',
+          description: 'Please make sure your inputs are valid and try again.',
+          backgroundColor: '#d9534f',
+          icon: errorIcon,
+          handleClose: toggleToast()
+        },
+      ])
+    }
+
+    //checks if the string input is not empty -- returns true if the string is empty
+    const checkString = (props) => {
+      if (!props || props.length === 0 || !props.trim()) {
+        return true;
+      }
+    }
+
+    //checks if the cost input is a valid price. checks that the input is in xx.xx format returns true if not valid
+    const checkCost = (props) => {
+      if (isNaN(props) || props.toString().indexOf('.') != (props.length-3)) {
+        return true;
+      }
+    }
+
+    //checking that the start date is not after the end date
+    const isValidDate = a => b => {
+      return differenceInCalendarDays(a, b);
+    }
+
+    const checkInput = () => {
+      if (checkString(title) || checkString(description) || checkCost(cost) || isValidDate(startDateValue, endDateValue) < 0 || endTimeValue < startTimeValue) {
+        setInput(false)
+      } else {
+        setInput(true)
+      }
+    }
 
 
     const addTouchbase = (event) => {
       event.preventDefault();
-      fetch('/profile/addTouchbase/oneOnone', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          "Access-Control-Allow-Origin" : "*",
-          "Access-Control-Allow-Credentials" : true
-        },
-        body: JSON.stringify({
-          title:title,
-          description:description,
-          repeat:repeat,
-          startOn: moment(startDateValue).format('YYYY-MM-DD'),
-          endOn: moment(endDateValue).format('YYYY-MM-DD'),
-          startTime: startTimeValue,
-          endTime: endTimeValue,
-          cost: cost
+      checkInput();
+
+      if (!input) {
+        handleErrorToastList();
+      } else {
+        fetch('/profile/addTouchbase/oneOnone', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Credentials" : true
+          },
+          body: JSON.stringify({
+            title:title,
+            description:description,
+            repeat:repeat,
+            startOn: moment(startDateValue).format('YYYY-MM-DD'),
+            endOn: moment(endDateValue).format('YYYY-MM-DD'),
+            startTime: startTimeValue,
+            endTime: endTimeValue,
+            cost: cost
+          })
+        }).then(response => {
+           const statusCode = response.status;
+           return Promise.all([statusCode]);
         })
-      }).then(response => {
-         const statusCode = response.status;
-         return Promise.all([statusCode]);
-      })
-      .then((res) => {
-        console.log(res);
-        if (res[0] === 201) {
-
-        } else {
-          history.push('error')
-        }
-      })
-
+        .then((res) => {
+          console.log(res);
+          if (res[0] === 201) {
+            console.log("request went through!")
+            handleSuccessToastList()
+            console.log(toastList)
+          } else {
+            history.push('error')
+          }
+        })
+      }
     }
 
     return (
-      <div className="popup-box">
-        <div className="box">
-          <span className="close-icon" onClick={props.handleClose}>x</span>
+      <div className="popup-box-oneonone">
+        <div className="box-oneonone">
+          <span className="close-icon-oneonone" onClick={props.handleClose}>x</span>
           <h1>New 1:1 Touchbase</h1>
           <div className="headings">
-            <input className="touchbase-input" placeholder="Touchbase Title" onChange={handleTouchbaseTitle}/>
-            <input className="touchbase-input" placeholder="Touchbase Description" onChange={handleTouchbaseDescription}/>
+            <input className="touchbase-input-oneonone" placeholder="Touchbase Title" onChange={handleTouchbaseTitle}/>
+            <input className="touchbase-input-oneonone" placeholder="Touchbase Description" onChange={handleTouchbaseDescription}/>
             </div>
-          <div className="touchbase-date-and-time">
-            <div className="date-picker">
+          <div className="touchbase-date-and-time-oneonone">
+            <div className="date-picker-oneonone">
               Start on:
               <br />
               <DatePicker
@@ -89,7 +162,7 @@ export const Popup1on1 = props => {
                 value={startDateValue}
               />
             </div>
-            <div className="date-picker">
+            <div className="date-picker-oneonone">
               End on:
               <br />
               <DatePicker
@@ -97,7 +170,7 @@ export const Popup1on1 = props => {
                 value={endDateValue}
               />
             </div>
-            <div className="from-time-picker">
+            <div className="from-time-picker-oneonone">
               From:
               <br />
               <TimePicker
@@ -105,7 +178,7 @@ export const Popup1on1 = props => {
                 value={startTimeValue}
               />
             </div>
-            <div className="to-time-picker">
+            <div className="to-time-picker-oneonone">
               To:
               < br/>
               <TimePicker
@@ -114,7 +187,7 @@ export const Popup1on1 = props => {
               />
             </div>
           </div>
-          <div className="repeat-weeks">
+          <div className="repeat-weeks-oneonone">
             <p>Repeat every &lt;#&gt; of weeks </p>
             <select name="selectList" id="selectList" onChange={handleRepetitions}>
               <option value="0">0</option>
@@ -124,14 +197,21 @@ export const Popup1on1 = props => {
               <option value="4">4</option>
             </select>
           </div>
-          <div className="cost">
+          <div className="cost-oneonone">
             <p>Cost</p>
-            <input className="cost-input" onChange={handleCost}/>
+            <input className="cost-input-oneonone" onChange={handleCost}/>
           </div>
-          <div className="form-buttoms">
-            <button className="cancel-button" onClick={props.handleClose}>Cancel</button>
-            <button className="save-button" onClick={addTouchbase} >Save</button>
+          <div className="form-buttoms-oneonone">
+            <button className="cancel-button-oneonone" onClick={props.handleClose}>Cancel</button>
+            <button className="save-button-oneonone" onClick={addTouchbase} >Save</button>
           </div>
+        </div>
+        <div className="toast">
+          {isOpenToast && <Toast
+            toastList={toastList}
+            position="bottom-right"
+            handleClose={toggleToast}
+          />}
         </div>
       </div>
     );

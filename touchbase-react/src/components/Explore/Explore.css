@@ -40,11 +40,11 @@
   color: white;
 }
 
-.influencer-name {
+.explore-influencer-name {
   font-size: 25px;
 }
 
-.influencer-category {
+.explore-influencer-category {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   font-size: 15px;

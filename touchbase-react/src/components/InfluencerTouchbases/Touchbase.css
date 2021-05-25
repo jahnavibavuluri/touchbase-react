@@ -1,0 +1,29 @@
+.touchbase-content {
+  text-align: left;
+  border-bottom: 2px solid black;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+  padding-bottom: 1%;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.touchbase-title {
+  font-size: 25px;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+}
+
+.book-it-button {
+  color: white;
+  background-color: #5271ff;
+  font-size: 20px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  width: 200px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+}
+
+.touchbase-cost {
+  padding-bottom: 10px;
+}

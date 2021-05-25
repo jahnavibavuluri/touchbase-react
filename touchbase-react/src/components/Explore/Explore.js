@@ -53,10 +53,10 @@ export const Explore = () => {
               return (
                 <a className="explore-pros-div" key={key} href= {"/seller/" + value.influencer_id}>
                   <img src={placeholder} width="200" className="explore-pro"/>
-                  <div className="influencer-name">
+                  <div className="explore-influencer-name">
                     {value.influencer_name}
                   </div>
-                  <div className="influencer-category">
+                  <div className="explore-influencer-category">
                     <div>{value.categories[0]}</div>
                     <div>{value.categories[1]}</div>
                     <div>{value.categories[2]}</div>

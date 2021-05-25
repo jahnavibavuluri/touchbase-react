@@ -72,12 +72,12 @@
   padding: 100px;
 }
 
-.influencer-category {
+.featured-influencer-category {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   font-size: 15px;
 }
 
-.influencer-name {
+.featured-influencer-name {
   font-size: 25px;
 }

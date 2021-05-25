@@ -1,4 +1,4 @@
-import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
+//import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 export const DashboardItems= [
 

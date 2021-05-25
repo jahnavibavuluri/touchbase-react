@@ -1,0 +1,36 @@
+.main-content {
+  font-family: "HelveticaNeue-Light", sans-serif;
+  text-align: center;
+}
+
+.influencer-name {
+  font-size: 50px;
+  line-height: 2;
+  padding-top: 50px;
+  font-family: "HelveticaNeue-Bold", sans-serif;
+}
+
+.influencer-categories {
+  font-size: 20px;
+  line-height: 2;
+  padding-bottom: 50px;
+  //padding-top: 20px;
+}
+
+.available-bookings-header {
+  font-size: 30px;
+  line-height: 1.5;
+  padding-bottom: 50px;
+}
+
+.bookings {
+  //background-color: yellow;
+  margin-right: 30%;
+  margin-left: 30%;
+  border: 2px solid black;
+  margin-bottom: 100px;
+}
+
+.available-bookings-header {
+  font-family: "HelveticaNeue-Bold", sans-serif;
+}
