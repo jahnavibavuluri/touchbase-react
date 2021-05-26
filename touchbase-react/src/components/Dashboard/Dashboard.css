@@ -1,28 +1,38 @@
 .dashboard-content {
-  height: 100vh;
+  height: 90vh;
+  //background-color: red;
 }
 
 .calendar {
   width: auto;
   height: 90vh;
-  margin: 0 auto;
+  margin-left: 12%;
   overflow: hidden;
-  padding-top: 60px;
-  //background-color: red;
+  //background-color: yellow;
   position: relative;
+  margin-bottom: 1%;
 }
 
 .home-calendar {
   position: absolute;
-  bottom: 200px;
-  left: 55%;
-  transform: translateX(-50%);
+  //bottom: 200px;
+  //left: 55%;
+  //transform: translateX(-50%);
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-bottom: 1%;
+  margin-right: 1%;
 }
 
 .username {
-  padding-left: 53%;
-  padding-right: 47%;
-  padding-top: 3%;
+  padding-left: 15%;
+  //padding-right: 47%;
+  //padding-top: 3%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   font-family: "HelveticaNeue-Light", sans-serif;
   font-size: 40px;
+  line-height: 3;
+  //background-color: red;
 }

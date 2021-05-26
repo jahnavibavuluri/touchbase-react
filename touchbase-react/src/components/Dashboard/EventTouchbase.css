@@ -1,0 +1,54 @@
+.event-touchbase-content {
+  text-align: center;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 20px;
+  line-height: 1.25;
+  border-bottom: 2px solid black;
+  padding-top: 50px;
+}
+
+.event-touchbase-title {
+  font-size: 30px;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+}
+
+.event-touchbase-description {
+  font-size: 20px;
+}
+
+.event-touchbase-current-participants {
+  padding-bottom: 20px;
+}
+
+.event-touchbase-edit-btn {
+  color: white;
+  background-color: #5271ff;
+  font-size: 20px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  width: 100px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  margin-bottom: 20px;
+}
+
+.event-touchbase-delete-btn {
+  color: white;
+  background-color: #5271ff;
+  font-size: 20px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  width: 100px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  margin-bottom: 20px;
+}
+
+.event-touchbase-join-btn {
+  color: white;
+  background-color: #5271ff;
+  font-size: 20px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  width: 200px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  margin-bottom: 50px;
+}
