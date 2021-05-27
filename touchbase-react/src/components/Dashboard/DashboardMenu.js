@@ -8,16 +8,19 @@ import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 class DashboardMenu extends Component {
   render() {
     return (
-      <div className="dashboard-menu-content">
-        <div className="dashboard-menu">
+      <div className="dashboard-menu-content-influencer">
+        <div className="dashboard-menu-influencer">
+        <img src={logo} className="logo-influencer"width="100"/>
           <ul >
             {DashboardItems.map((item,index) => {
               return (
-                <li className="dashboard-items" key={index}>
-                  <a className={item.cName} href={item.url}>
-                    {item.title}
-                    <img src={item.src} className={item.cName} width="100"/>
-                  </a>
+                <li className="dashboard-items-influencer" key={index}>
+                  <div className="div">
+                    <a className={item.cName} href={item.url}>
+                      <img src={item.src} className="influencer-icons"/>
+                      {item.title}
+                    </a>
+                  </div>
                 </li>
               )
             })}

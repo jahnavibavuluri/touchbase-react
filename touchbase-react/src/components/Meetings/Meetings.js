@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom"
-import DashboardMenu from '../Dashboard/DashboardMenu.js'
-import DashboardMenuCustomer from '../Dashboard/DashboardMenuCustomer.js'
+import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
+import { MenuCustomer } from '../Menu/MenuCustomer.js'
 import oooicon from '../../images/TouchbaseIcons/one-on-one-icon.png'
 import groupicon from '../../images/TouchbaseIcons/group-icon.png'
 import IndividualMeeting from './IndividualMeeting.js'
@@ -72,9 +72,9 @@ export const Meetings = () => {
 
 
   if (isInfluencer) {
-    dashboard = <DashboardMenu />
+    dashboard = <MenuInfluencer />
   } else {
-    dashboard = <DashboardMenuCustomer />
+    dashboard = <MenuCustomer />
   }
 
   return (

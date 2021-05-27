@@ -1,0 +1,62 @@
+.ind-meeting-content-past {
+  //background-color: red;
+  margin-left: 11%;
+  margin-right: 1%;
+}
+
+.meet-heading-past {
+  margin-left: 11%;
+  margin-top: 3%;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+  font-size: 30px;
+  line-height: 1.5;
+  margin-bottom: 2%;
+}
+
+.meet-links-past {
+  margin-left: 11%;
+  margin-bottom: 2%;
+}
+
+.meet-link-past {
+  margin-right: 1%;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 20px;
+  color: #5271ff;
+}
+
+.meet-link-past:hover {
+  border-bottom: 3px solid black;
+  color: black;
+}
+
+.ind-meet-content-past {
+  //display: flex;
+  height: 5vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  //margin-bottom: 10px;
+  //background-color: blue;
+  border-radius: 20px;
+  display: grid;
+  grid-template: 5vh / 33vw 13vw 13vw 13vw 13vw ;
+  margin-left: 12.5%;
+  margin-right: 1%;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #a0a096;
+}
+
+.ind-meet-content-past > div {
+  margin-right: 7%;
+  margin-left: 7%;
+}
+
+.no-past-meetings {
+  text-align: center;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 20px;
+  margin-top: 4vh;
+}

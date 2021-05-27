@@ -3,7 +3,7 @@
   width: 70%;
 }
 
-.dashboard-menu{
+.dashboard-menu-influencer{
   height: 100%; /* 100% Full-height */
   position: fixed; /* Stay in place */
   width: 12%;
@@ -14,7 +14,7 @@
   overflow: hidden; /* Disable horizontal scroll */
 }
 
-.dashboard-items {
+.dashboard-items-influencer {
   list-style: none;
   display: flex;
   padding-top: 50px;
@@ -22,17 +22,23 @@
   //width: 5%;
 }
 
-.dashboard-links {
-  line-height: 30px;
+.dashboard-links-influencer {
+  //line-height: 30px;
   text-decoration: none;
-  font-size: 1.25vw;
+  font-size: 20px;
   color: white;
-  display: block;
+  display: flex;
   transition: 0.5s;
   font-family: "HelveticaNeue-Light", sans-serif;
   width: 15%;
+  //background-color: yellow;
+  height: 30px;
 }
 
-.dashboard-links:hover {
+.dashboard-links-influencer:hover {
   color: black;
+}
+
+.influencer-icons {
+  padding-right: 20px;
 }

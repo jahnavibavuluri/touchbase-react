@@ -8,7 +8,7 @@
   box-shadow: 0 0 10px #000;
   font-family: "HelveticaNeue-Light", sans-serif;
   line-height: 2;
-  padding: 30px;
+  //padding: 30px;
 }
 .calendar .react-calendar--doubleView {
   width: 10px;
@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 .calendar .react-calendar__navigation {
-  height: 70px;
+  height: 5vh;
   margin-bottom: 1em;
   font-size: 30px;
   font-family: "HelveticaNeue-Light", sans-serif;
@@ -100,7 +100,7 @@
   text-align: left;
   padding: 0.75em 0.5em;
   background: none;
-  height: 135px;
+  height: 10vh;
   font-size: 20px;
   font-family: "HelveticaNeue-Light", sans-serif;
 
@@ -116,7 +116,7 @@
   //border-radius: 50px;
 }
 .calendar .react-calendar__tile--now {
-  background: #c4c1c9;
+  background: #ffc3bf;
   //border-radius: 50px;
 }
 .calendar .react-calendar__tile--now:enabled:hover,

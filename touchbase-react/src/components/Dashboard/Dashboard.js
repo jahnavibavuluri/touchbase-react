@@ -9,6 +9,8 @@ import "./Calendar.css" //to fix the issue of this css file not loading, try cop
 import TileContent from "./TileContent.js";
 import { differenceInCalendarDays } from 'date-fns';
 import EventPopup from './EventPopup.js'
+import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
+import { MenuCustomer } from '../Menu/MenuCustomer.js'
 
 export const Dashboard = () => {
 
@@ -133,9 +135,9 @@ export const Dashboard = () => {
   //console.log(datesDict)
 
   if (isInfluencer) {
-    dashboard = <DashboardMenu />
+    dashboard = <MenuInfluencer />
   } else {
-    dashboard = <DashboardMenuCustomer />
+    dashboard = <MenuCustomer />
   }
 
   return (
@@ -145,7 +147,7 @@ export const Dashboard = () => {
         </div>
 
         <div className="username">
-          Welcome **User** !
+          Home 
         </div>
 
         <div className="calendar">

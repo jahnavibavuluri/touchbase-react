@@ -1,3 +1,91 @@
+.your-touchbases-content {
+  margin-left: 10%;
+  //background-color: yellow;
+}
+
+.your-touchbases-header {
+  //background-color: blue;
+  margin-top: 3%;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+  font-size: 30px;
+  line-height: 1.5;
+  margin-bottom: 2%;
+  margin-left: 1%;
+}
+
+.your-touchbases-grid {
+  display: grid;
+  grid-template-columns: 25vw 25vw 25vw ;
+  grid-template-rows: repeat(auto-fill, 10vh);
+  justify-content: center;
+  text-align: center;
+  //background-color: green;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  line-height: 1.25;
+  height: 10vh;
+}
+
+.your-touchbases-grid > div {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.your-touchbases-oneonone {
+  background-color: #bfddfa;
+  display: grid;
+  line-height: 10vh;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  //margin-top: 2vh;
+  //margin-bottom: 2vh;
+}
+
+.your-touchbases-class {
+  background-color: #f5c4c4;
+  display: grid;
+  line-height: 10vh;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.your-touchbases-breakout {
+  background-color: #f9e790;
+  display: grid;
+  line-height: 10vh;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.add-touchbase-button {
+  display:block;
+  height: 3.5vh;
+  width: 2vw;
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: white;
+  font-size: 20px;
+  position: absolute;
+  margin-top: 8vh;
+  margin-left: 10.25vw;
+  z-index: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .yourtouchbases-main {
   background-color: yellow;
 }
@@ -13,7 +101,7 @@
 .all-touchbases-content {
   padding-top: 60px;
   float: right;
-  width: 85%;
+  width: 91%;
   //background-color: red;
   margin: 0 auto;
   overflow: hidden;

@@ -13,6 +13,8 @@ import { Explore } from './components/Explore/Explore'
 import { About } from './components/About/About'
 import { InfluencerTouchbases } from './components/InfluencerTouchbases/InfluencerTouchbases'
 import { Iterations } from './components/Iterations/Iterations'
+import { MeetingsUpcoming } from './components/Meetings/MeetingsUpcoming'
+import { MeetingsPast } from './components/Meetings/MeetingsPast'
 //import Navbar from './components/NavBar/Navbar.js'
 //import Footer from './components/Footer/Footer.js'
 
@@ -39,7 +41,8 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/logout" component={Logout}/>
           <Route path="/dashboard/yourtouchbases" component={YourTouchbases}/>
-          <Route path="/dashboard/meetings" component={Meetings}/>
+          <Route path="/dashboard/meetings" component={MeetingsUpcoming}/>
+          <Route path="/dashboard/past-meetings" component={MeetingsPast}/>
           <Route path="/dashboard/profile" component={Profile}/>
         </Switch>
       </div>

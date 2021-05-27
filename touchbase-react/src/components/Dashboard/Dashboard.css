@@ -1,16 +1,16 @@
 .dashboard-content {
-  height: 90vh;
+  height: 85vh;
   //background-color: red;
 }
 
 .calendar {
   width: auto;
-  height: 90vh;
-  margin-left: 12%;
+  height: 85vh;
+  margin-left: 10%;
   overflow: hidden;
   //background-color: yellow;
   position: relative;
-  margin-bottom: 1%;
+  //margin-bottom: 1%;
 }
 
 .home-calendar {
@@ -20,19 +20,19 @@
   //transform: translateX(-50%);
   margin-top: 2%;
   margin-left: 5%;
-  margin-bottom: 1%;
+  //margin-bottom: 1%;
   margin-right: 1%;
 }
 
 .username {
-  padding-left: 15%;
-  //padding-right: 47%;
-  //padding-top: 3%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-family: "HelveticaNeue-Light", sans-serif;
-  font-size: 40px;
-  line-height: 3;
-  //background-color: red;
+  padding-left: 11%;
+  //display: flex;
+  //justify-content: flex-start;
+  //align-items: center;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+  font-size: 30px;
+  line-height: 1.5;
+  margin-top: 2.5%;
+  //margin-bottom: 2%;
+  margin-left: 1%;
 }
