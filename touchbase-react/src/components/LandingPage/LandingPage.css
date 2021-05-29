@@ -44,6 +44,7 @@
   padding: 10px 20px;
   border-radius: 12px;
   font-family: "HelveticaNeue-Light", sans-serif;
+  border: 1px solid white;
 }
 
 .content-panel-one {

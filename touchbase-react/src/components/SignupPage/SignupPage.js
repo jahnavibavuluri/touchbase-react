@@ -62,13 +62,19 @@ export const SignupPage = () => {
         password:password,
         isInfluencer: isInfluencer
       })
-    }).then(res => res.json()).then(data => {
-      if (data.state === "Success") {
-        history.push("/dashboard");
+    }).then(response => {
+       const statusCode = response.status;
+       return Promise.all([statusCode]);
+    }).then((res) => {
+      console.log(res);
+      if (res[0] === 202) {
+        history.push('/signup/influencer-info')
+      } else if (res[0] === 201) {
+        history.push('/dashboard')
       } else {
-        history.push("/error");
+        history.push('/error')
       }
-      console.log(data.state)});
+    })
   }
 
   return (

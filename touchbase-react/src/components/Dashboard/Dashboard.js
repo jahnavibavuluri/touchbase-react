@@ -147,7 +147,8 @@ export const Dashboard = () => {
         </div>
 
         <div className="username">
-          Home 
+          <div>Welcome.</div>
+          <div className="sub"> Here's how your schedule is looking like for the month. </div>
         </div>
 
         <div className="calendar">

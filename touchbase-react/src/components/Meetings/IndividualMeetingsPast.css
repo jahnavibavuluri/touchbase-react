@@ -8,9 +8,12 @@
   background-color: #E8E9ED;
   border-radius: 20px;
   display: grid;
-  grid-template: 10vh / 33vw 13vw 13vw 13vw 13vw ;
+  grid-template: 10vh / 25vw 13vw 13vw 13vw 13vw ;
   font-family: "HelveticaNeue-Light", sans-serif;
   font-size: 15px;
+  animation-name: slideInTop;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .ind-content-past > div {
@@ -21,4 +24,26 @@
 .ind-title-past {
   font-weight: 600;
   font-size: 20px;
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translate3d(0, 30%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(5%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }

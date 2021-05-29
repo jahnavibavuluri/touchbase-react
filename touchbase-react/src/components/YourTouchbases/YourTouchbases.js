@@ -157,20 +157,23 @@ export const YourTouchbases = () => {
       <div className="your-touchbases-content">
 
         <div className="your-touchbases-header">
-          Touchbases
+          <div>Touchbases</div>
+          <div className="sub"> Create more Touchbases to earn more and meet new clients.</div>
         </div>
 
         <div className="your-touchbases-grid">
           <div className="your-touchbases-oneonone">
             Your 1:1 Touchbases
+            <div className="touchbase-type-info">
+              1:1 Touchbases allow you to spend time with one client at a time.
+            </div>
             <input
               className="add-touchbase-button"
               type="button"
               value="+"
               onClick={togglePopup1on1}
             />
-            {isOpen1on1 && <Popup1on1 handleClose={togglePopup1on1}/>}
-            <div >
+            <div className="after-header">
                 {oneOnOnes.map(function(name, index){
                   //setNextIteration(name.nextIteration);
                   console.log(nextIteration);
@@ -181,14 +184,16 @@ export const YourTouchbases = () => {
 
           <div className="your-touchbases-class">
             Your Class Touchbases
+            <div className="touchbase-type-info">
+              Class Touchbases allow you to focus on a specific project with your clients.
+            </div>
             <input
               className="add-touchbase-button"
               type="button"
               value="+"
               onClick={togglePopupClass}
             />
-            {isOpenClass && <PopupClass handleClose={togglePopupClass}/>}
-            <div >
+            <div className="after-header">
                 {classtb.map(function(name, index){
                   return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
                 })}
@@ -197,14 +202,16 @@ export const YourTouchbases = () => {
 
           <div className="your-touchbases-breakout">
             Your Breakout Touchbases
+            <div className="touchbase-type-info">
+              Breakout Touchbases allow you to engage and have fun with your clients.
+            </div>
             <input
               className="add-touchbase-button"
               type="button"
               value="+"
               onClick={togglePopupBreakout}
             />
-            {isOpenBreakout && <PopupBreakout handleClose={togglePopupBreakout}/>}
-            <div >
+            <div className="after-header">
                 {breakouts.map(function(name, index){
                   return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
                 })}
@@ -214,7 +221,9 @@ export const YourTouchbases = () => {
         </div>
 
       </div>
-
+      {isOpen1on1 && <Popup1on1 handleClose={togglePopup1on1}/>}
+      {isOpenClass && <PopupClass handleClose={togglePopupClass}/>}
+      {isOpenBreakout && <PopupBreakout handleClose={togglePopupBreakout}/>}
     </div>
 
 

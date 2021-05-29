@@ -5,17 +5,23 @@
 }
 
 .meet-heading {
-  margin-left: 11%;
+  margin-left: 13vw;
   margin-top: 3%;
   font-family: "HelveticaNeue-Medium", sans-serif;
   font-size: 30px;
   line-height: 1.5;
   margin-bottom: 2%;
+  animation-name: slideInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .meet-links {
-  margin-left: 11%;
+  margin-left: 13vw;
   margin-bottom: 2%;
+  animation-name: slideInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .meet-link {
@@ -47,6 +53,9 @@
   text-transform: uppercase;
   font-weight: 600;
   color: #a0a096;
+  animation-name: slideInTop;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .ind-meet-content > div {
@@ -59,4 +68,26 @@
   font-family: "HelveticaNeue-Light", sans-serif;
   font-size: 20px;
   margin-top: 4vh;
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translate3d(0, 30%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(5%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }

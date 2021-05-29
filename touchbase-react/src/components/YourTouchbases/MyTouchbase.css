@@ -1,12 +1,32 @@
 .my-touchbase-content-ind {
   display: flex;
   flex-direction: column;
-  background-color: inherit;
-  line-height: 2vh;
+  background-color: #f0f2f5;
+  line-height: 3vh;
+  //border-radius: 10px;
+  //box-shadow: 3px 3px 3px #abb0b8;
   border-radius: 10px;
-  box-shadow: 0 0 10px #000;
-  margin-top: 2vh;
+  margin-top: 1vh;
   font-size: 15px;
+  //border-left: 1vw solid #5271ff;
+  transition: 1s ease-out;
+  text-align: left;
+  //height: 15vh;
+  color: black;
+}
+
+.my-touchbase-content-ind:hover {
+  background-color: #d4dbff;
+  background-position: left;
+}
+
+.my-touchbase-content-ind > div {
+  margin-left: 1vw;
+}
+
+.split {
+  background-color: orange;
+  width: 10%;
 }
 
 .my-touchbase-content-ind-title {
@@ -17,27 +37,33 @@
 
 
 .my-touchbase-content-edit {
-  color: white;
-  background-color: #5271ff;
-  color: white;
+  color: black;
+  background-color: white;
   font-size: 15px;
   padding: 6px 16px;
-  border-radius: 12px;
+  //border-radius: 12px;
+  border: 1px solid white;
+  //box-shadow: 2px 2px 2px #abb0b8;
   font-family: "HelveticaNeue-Light", sans-serif;
   margin-right: .5vw;
-  width: 3vw;
+  width: 4vw;
   margin-top: 2vh;
   margin-bottom: 1vh;
+  border-radius: 10px;
 }
 
 .my-touchbase-content-delete {
-  color: white;
-  background-color: #5271ff;
-  color: white;
+  color: black;
+  background-color: white;
   font-size: 15px;
   padding: 6px 16px;
-  border-radius: 12px;
+  //border-radius: 12px;
+  border: 1px solid white;
+  //box-shadow: 2px 2px 2px #abb0b8;
   font-family: "HelveticaNeue-Light", sans-serif;
-  margin-left: .5vw;
-  width: 3vw;
+  margin-right: .5vw;
+  width: 4vw;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  border-radius: 10px;
 }

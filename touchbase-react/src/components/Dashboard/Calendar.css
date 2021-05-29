@@ -3,13 +3,17 @@
   height: 80vh;
   max-width: 100%;
   background: white;
-  border: 3px solid #a0a096;
-  border-color: #5271ff;
-  box-shadow: 0 0 10px #000;
+  //border: 3px solid #a0a096;
+  //border-color: #5271ff;
+  //box-shadow: 0 0 10px #000;
+  background-color: #f0f2f5;
+  border: 1px solid #f0f2f5;
+  border-radius: 30px;
   font-family: "HelveticaNeue-Light", sans-serif;
   line-height: 2;
-  //padding: 30px;
+  padding: 30px;
 }
+
 .calendar .react-calendar--doubleView {
   width: 10px;
   //background-color: blue;
@@ -18,6 +22,7 @@
   display: flex;
   margin: -0.5em;
   //background-color: red;
+
 }
 .calendar .react-calendar--doubleView .calendar .react-calendar__viewContainer > * {
   width: 50%;
@@ -37,6 +42,9 @@
   margin: 0;
   border: 0;
   outline: none;
+  border: 3px solid white;
+  //border-radius: 10px;
+
 }
 .calendar .react-calendar button:enabled:hover {
   cursor: pointer;
@@ -44,27 +52,33 @@
 .calendar .react-calendar__navigation {
   height: 5vh;
   margin-bottom: 1em;
-  font-size: 30px;
-  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
 }
 .calendar .react-calendar__navigation button {
   min-width: 100px;
   background: none;
+  border: 3px solid #f0f2f5;
 }
 .calendar .react-calendar__navigation button:enabled:hover,
 .calendar .react-calendar__navigation button:enabled:focus {
   background-color: #b4c0fa;
+  transition: 1s ease-out;
   //border-radius: 50px;
 }
 .calendar .react-calendar__navigation button[disabled] {
   background-color: #c4c1c9;
 }
 .calendar .react-calendar__month-view__weekdays {
-  text-align: left;
-  //text-transform: uppercase;
-  //font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  outline: 0;
+  border-bottom: none;
+  font-weight: 400;
   font-size: 20px;
-  font-family: "HelveticaNeue-Medium", sans-serif;
+  font-family: "Roboto", sans-serif;
+  //background-color: red;
 }
 .calendar .react-calendar__month-view__weekdays__weekday {
   padding: 0.5em;
@@ -97,9 +111,9 @@
 .calendar .react-calendar__tile {
   max-width: 100%;
   max-height: 100%;
-  text-align: left;
+  text-align: center;
   padding: 0.75em 0.5em;
-  background: none;
+  border: 10px solid black;
   height: 10vh;
   font-size: 20px;
   font-family: "HelveticaNeue-Light", sans-serif;
@@ -112,6 +126,7 @@
 .calendar .react-calendar__tile:enabled:focus {
   background-color: #b4c0fa;
   color: black;
+  transition: 1s ease-out; 
   //color: yellow;
   //border-radius: 50px;
 }

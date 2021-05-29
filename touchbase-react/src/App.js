@@ -15,6 +15,9 @@ import { InfluencerTouchbases } from './components/InfluencerTouchbases/Influenc
 import { Iterations } from './components/Iterations/Iterations'
 import { MeetingsUpcoming } from './components/Meetings/MeetingsUpcoming'
 import { MeetingsPast } from './components/Meetings/MeetingsPast'
+import { InfluencerInfo } from './components/InfluencerInfo/InfluencerInfo'
+import { ChangeEmail } from './components/Settings/ChangeEmail'
+import { ChangePassword } from './components/Settings/ChangePassword'
 //import Navbar from './components/NavBar/Navbar.js'
 //import Footer from './components/Footer/Footer.js'
 
@@ -27,12 +30,13 @@ function App() {
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route path="/featured" component={Featured} />
-            <Route path="/signup" component={SignupPage} />
+            <Route exact path="/signup" component={SignupPage} />
             <Route path="/seller/:id" component={InfluencerTouchbases}/>
             <Route path="/iterations" component={Iterations}/>
             <Route path="/about" component={About}/>
             <Route path="/login" component={Login}/>
             <Route path="/explore" component={Explore}/>
+            <Route path="/signup/influencer-info" component={InfluencerInfo}/>
           </Switch>
       </div>
 
@@ -44,6 +48,8 @@ function App() {
           <Route path="/dashboard/meetings" component={MeetingsUpcoming}/>
           <Route path="/dashboard/past-meetings" component={MeetingsPast}/>
           <Route path="/dashboard/profile" component={Profile}/>
+          <Route path="/dashboard/change-email" component={ChangeEmail}/>
+          <Route path="/dashboard/change-password" component={ChangePassword}/>
         </Switch>
       </div>
     </Router>

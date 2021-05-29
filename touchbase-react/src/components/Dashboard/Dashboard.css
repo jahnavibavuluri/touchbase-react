@@ -22,10 +22,13 @@
   margin-left: 5%;
   //margin-bottom: 1%;
   margin-right: 1%;
+  animation-name: slideInTop;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .username {
-  padding-left: 11%;
+  padding-left: 14vw;
   //display: flex;
   //justify-content: flex-start;
   //align-items: center;
@@ -35,4 +38,36 @@
   margin-top: 2.5%;
   //margin-bottom: 2%;
   margin-left: 1%;
+  animation-name: slideInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.username .sub {
+  font-size: 20px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  animation-name: slideInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(5%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translate3d(0, 5%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }

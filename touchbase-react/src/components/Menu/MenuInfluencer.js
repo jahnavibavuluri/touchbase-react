@@ -30,7 +30,14 @@ export const MenuInfluencer = props => {
       <a href="/dashboard"><i class="fas fa-desktop"></i><span>Home</span></a>
       <a href="/dashboard/yourtouchbases"><i class="fas fa-cogs"></i><span>Touchbases</span></a>
       <a href="/dashboard/meetings"><i class="fas fa-table"></i><span>Meetings</span></a>
-      <a href="/dashboard/profile"><i class="fas fa-th"></i><span>Settings</span></a>
+      <div class="dropdown">
+        <i class="fas fa-th"></i>
+        <span class="dropbtn">Settings</span>
+        <div class="dropdown-content">
+          <a href="/dashboard/change-email">Change Email</a>
+          <a href="/dashboard/change-password">Change Password</a>
+        </div>
+      </div>
       <a href="/logout"><i class="fas fa-info-circle"></i><span>Logout</span></a>
     </div>
 
