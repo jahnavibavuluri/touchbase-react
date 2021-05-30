@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   background-color: #f0f2f5;
-  line-height: 3vh;
+  line-height: 3;
   //border-radius: 10px;
   //box-shadow: 3px 3px 3px #abb0b8;
   border-radius: 10px;
-  margin-top: 1vh;
+  margin: 0.5vh;
   font-size: 15px;
   //border-left: 1vw solid #5271ff;
   transition: 1s ease-out;
@@ -16,7 +16,7 @@
 }
 
 .my-touchbase-content-ind:hover {
-  background-color: #d4dbff;
+  background-color: #d7dade;
   background-position: left;
 }
 
@@ -24,15 +24,14 @@
   margin-left: 1vw;
 }
 
-.split {
-  background-color: orange;
-  width: 10%;
-}
-
 .my-touchbase-content-ind-title {
   font-size: 20px;
   font-family: "HelveticaNeue-Medium", sans-serif;
   margin-top: 1vh;
+}
+
+.my-touchbase-content-ind-description {
+  line-height: 1.5;
 }
 
 

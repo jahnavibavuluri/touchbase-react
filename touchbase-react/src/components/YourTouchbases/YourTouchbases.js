@@ -161,64 +161,71 @@ export const YourTouchbases = () => {
           <div className="sub"> Create more Touchbases to earn more and meet new clients.</div>
         </div>
 
-        <div className="your-touchbases-grid">
-          <div className="your-touchbases-oneonone">
-            Your 1:1 Touchbases
-            <div className="touchbase-type-info">
-              1:1 Touchbases allow you to spend time with one client at a time.
+        <div className="your-touchbases-grid-content">
+
+          <div className="your-touchbases-one-on-one">
+            <div className="one-on-one-heading">
+              <div>1:1</div>
+              <div>
+                <input
+                  className="add-touchbase-button"
+                  type="button"
+                  value="+"
+                  onClick={togglePopupClass}
+                />
+              </div>
             </div>
-            <input
-              className="add-touchbase-button"
-              type="button"
-              value="+"
-              onClick={togglePopup1on1}
-            />
-            <div className="after-header">
-                {oneOnOnes.map(function(name, index){
-                  //setNextIteration(name.nextIteration);
-                  console.log(nextIteration);
-                  return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
-                })}
+            <div className="ind-one-on-one">
+              {oneOnOnes.map(function(name, index){
+                //setNextIteration(name.nextIteration);
+                console.log(nextIteration);
+                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+              })}
             </div>
           </div>
 
           <div className="your-touchbases-class">
-            Your Class Touchbases
-            <div className="touchbase-type-info">
-              Class Touchbases allow you to focus on a specific project with your clients.
+            <div className="class-heading">
+              <div>Class</div>
+              <div>
+                <input
+                  className="add-touchbase-button"
+                  type="button"
+                  value="+"
+                  onClick={togglePopupClass}
+                />
+              </div>
             </div>
-            <input
-              className="add-touchbase-button"
-              type="button"
-              value="+"
-              onClick={togglePopupClass}
-            />
-            <div className="after-header">
-                {classtb.map(function(name, index){
-                  return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
-                })}
+            <div className="ind-class">
+              {classtb.map(function(name, index){
+                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+              })}
             </div>
           </div>
 
+
+
           <div className="your-touchbases-breakout">
-            Your Breakout Touchbases
-            <div className="touchbase-type-info">
-              Breakout Touchbases allow you to engage and have fun with your clients.
+            <div className="breakout-heading">
+              <div>Breakout</div>
+              <div>
+                <input
+                  className="add-touchbase-button"
+                  type="button"
+                  value="+"
+                  onClick={togglePopupClass}
+                />
+              </div>
             </div>
-            <input
-              className="add-touchbase-button"
-              type="button"
-              value="+"
-              onClick={togglePopupBreakout}
-            />
-            <div className="after-header">
-                {breakouts.map(function(name, index){
-                  return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
-                })}
+            <div className="ind-breakout">
+              {breakouts.map(function(name, index){
+                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+              })}
             </div>
           </div>
 
         </div>
+
 
       </div>
       {isOpen1on1 && <Popup1on1 handleClose={togglePopup1on1}/>}
@@ -238,7 +245,73 @@ export const YourTouchbases = () => {
   );
 }
 
-{/*<div className="yourtouchbases-main">
+{/*
+  <div className="your-touchbases-header">
+    <div>Touchbases</div>
+    <div className="sub"> Create more Touchbases to earn more and meet new clients.</div>
+  </div>
+
+  <div className="your-touchbases-grid">
+    <div className="your-touchbases-oneonone">
+      Your 1:1 Touchbases
+      <div className="touchbase-type-info">
+        1:1 Touchbases allow you to spend time with one client at a time.
+      </div>
+
+      <div className="after-header">
+          {oneOnOnes.map(function(name, index){
+            //setNextIteration(name.nextIteration);
+            console.log(nextIteration);
+            return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+          })}
+      </div>
+    </div>
+
+    <div className="your-touchbases-class">
+      Your Class Touchbases
+      <div className="touchbase-type-info">
+        Class Touchbases allow you to focus on a specific project with your clients.
+      </div>
+
+      <div className="after-header">
+          {classtb.map(function(name, index){
+            return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+          })}
+      </div>
+    </div>
+
+    <div className="your-touchbases-breakout">
+      Your Breakout Touchbases
+      <div className="touchbase-type-info">
+        Breakout Touchbases allow you to engage and have fun with your clients.
+      </div>
+
+      <div className="after-header">
+          {breakouts.map(function(name, index){
+            return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+          })}
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div className="yourtouchbases-main">
   {dashboard}
 
   <div className="all-touchbases-content">

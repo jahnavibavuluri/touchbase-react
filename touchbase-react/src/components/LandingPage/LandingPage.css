@@ -13,6 +13,8 @@
 
 .nav {
   background-color: #5271ff;
+  //background: url('../../images/LandingPage/icon4.jpg') no-repeat;
+  background-size: cover;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -24,6 +26,13 @@
   color: white;
   text-align: center;
   line-height: 1;
+}
+
+.typewrite {
+  color: white;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 3vw;
+  font-weight: 500;
 }
 
 .nav1 {
