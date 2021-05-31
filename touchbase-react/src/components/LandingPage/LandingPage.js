@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
 import './LandingPage.css';
 
@@ -9,9 +9,12 @@ import img1 from '../../images/LandingPage/touchbase_img_Q&A.png'
 import img2 from '../../images/LandingPage/touchbase_img_touchbases.png'
 import img3 from '../../images/LandingPage/touchbase_img_dms.png'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
+import graphic from '../../images/LandingPage/landing-page-main-icon1.png'
+//import graphic from '../../images/LandingPage/icon3.jpg'
 import Navbar from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import NavbarUser from '../NavBar/NavbarUser.js'
+import placeholder from '../../images/ProfilePics/profile-placeholder.png'
 
 
 export const LandingPage = () => {
@@ -79,27 +82,83 @@ export const LandingPage = () => {
         document.body.appendChild(css);*/
     };
 
+    const [influencers, setInfluencers] = useState({});
+
+    useEffect(() => {
+      fetch('/featured')
+      .then(response => {
+        const statusCode = response.status;
+        const data = response.json();
+        return Promise.all([statusCode, data]);
+      })
+      .then((res, data) => {
+        //console.log(res[1].data);
+        setInfluencers(res[1].data)
+      })
+      .catch(error => {
+        console.error(error);
+        return {name: "network error", description:""};
+      });
+    }, [])
+
 
 
   return (
     <div className="landingPage">
       <Navbar />
 
-      <div className="nav">
+      <div className="landing-page-header">
 
-      <h1 className="typewrite">
-        Meet your favorite
-        <a href="" class="typewrite" data-period="2000" data-type=' [ " pros", " experts", " designers", " artists", " influencers" ]'>
-          <span class="wrap"></span>
-        </a>
-      </h1>
-        <div className='nav1'>
-          Your questions. Their personalized advice, consulting, and insights. (And for a worthy cause.)
-        </div>
-          <div className="nav-button">
-            <button className="sign-in-button" onClick={handleExplore} type="button">Explore</button>
+
+
+          <h1 className="typewrite">
+            Meet your favorite
+            <a href="" class="typewrite" data-period="2000" data-type=' [ " pros", " experts", " designers", " artists", " influencers", " idols" ]'>
+              <span class="wrap"></span>
+            </a>
+          </h1>
+          <div className='sub-heading'>
+            Your questions. Their personalized advice, consulting, and insights. (And for a worthy cause.)
           </div>
+          <div className="nav-button">
+            <button className="go-to-explore-button" onClick={handleExplore} type="button">Explore</button>
+          </div>
+
+        <div className="nav-right-side">
+          <img className="landing-page-graphic" src={graphic} />
+        </div>
+        {/**/}
+
       </div>
+
+
+      <div className="landing-page-featured-list">
+        <div className="heading">
+          Check out some of our featured pros
+        </div>
+        <div className="featured-list">
+
+            {Object.entries(influencers).map( ([key, value]) => {
+              return (
+                <div className="list-item">
+                  <a className="pro" key={key} href= {"/seller/" + value.id}>
+                    {/*<img src={placeholder} width="200" className="pro-image"/>*/}
+                    <div className="pro-name">
+                      {value.firstName} {value.lastName}
+                    </div>
+                    <div className="pro-category">
+                      <div>{value.categories[0]}</div>
+                      <div>{value.categories[1]}</div>
+                      <div>{value.categories[2]}</div>
+                    </div>
+                  </a>
+                </div>
+              )
+            })}
+
+        </div>
+      </div>
+
 
       <div className="content-panel-one">
         <div className="content-panel-one-responsive">
