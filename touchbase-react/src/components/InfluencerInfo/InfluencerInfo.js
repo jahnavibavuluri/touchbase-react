@@ -5,8 +5,31 @@ import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch'
 import Navbar from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
+import Button from './Button.js'
 
 export const InfluencerInfo = () => {
+  const [categories, setCategories] = useState([]);
+
+  const handleCategory = (event) => {
+    if (isInArray(event.target.value)) {
+      const index = categories.indexOf(event.target.value);
+      if (index > -1) {
+        categories.splice(index, 1);
+      }
+    } else {
+      categories.push(event.target.value)
+    }
+    return categories
+  }
+
+  const isInArray = (props) => {
+    for (var i = 0; i<categories.length; i++) {
+      if (categories[i] === props) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 
   return (
@@ -33,25 +56,29 @@ export const InfluencerInfo = () => {
             <br />
             <input className="influencer-info-input" type="text" id="email" name="email" />
             <br />
-            <label className="sinfluencer-info-label" for="password">Categories</label>
+            <label className="influencer-info-label" for="venmo">Vemno Handle (This is how you will be paid!)</label>
             <br />
-            <input className="influencer-info-input" type="password" id="password" name="password" />
+            <input className="influencer-info-input" type="text" id="venmo" name="venmo" />
             <br />
-            <div className="select-categories">
-              <button>Food</button>
-              <button>Fashion</button>
-              <button>Gaming</button>
-              <button>Home Decor</button>
-              <button>Entertainment</button>
-              <button>Makeup</button>
-              <button>Fitness</button>
-              <button>Beauty</button>
-              <button>Technology</button>
-              <button>Photography</button>
-              <button>Design</button>
-              <button>Art</button>
-              <button>Dance</button>
-            </div>
+            <label className="influencer-info-label" for="password">Categories -- Please enter your categories with a comma in between</label>
+            <br />
+            <input className="influencer-info-input" type="text" id="venmo" name="venmo" />
+            <br />
+            {/*<div className="select-categories">
+              <button value="Food" onClick={handleCategory}>Food</button>
+              <button value="Fashion" onClick={handleCategory}>Fashion</button>
+              <button value="Gaming" onClick={handleCategory}>Gaming</button>
+              <button value="Home Decor" onClick={handleCategory}>Home Decor</button>
+              <button value="Entertainment" onClick={handleCategory}>Entertainment</button>
+              <button value="Makeup" onClick={handleCategory}>Makeup</button>
+              <button value="Fitness" onClick={handleCategory}>Fitness</button>
+              <button value="Beauty" onClick={handleCategory}>Beauty</button>
+              <button value="Technology" onClick={handleCategory}>Technology</button>
+              <button value="Photography" onClick={handleCategory}>Photography</button>
+              <button value="Design" onClick={handleCategory}>Design</button>
+              <button value="Art" onClick={handleCategory}>Art</button>
+              <button value="Dance" onClick={handleCategory}>Dance</button>
+            </div>*/}
             <div className="influencer-info-submit-div">
             <button className="influencer-info-button-submit">
               Agree & Join

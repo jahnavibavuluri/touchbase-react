@@ -107,6 +107,78 @@
   background-color: #d7dade;
 }
 
+.how-it-works .heading {
+  //background-color: yellow;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+  font-size: 50px;
+  line-height: 2;
+  font-weight: 500;
+  text-align: left;
+}
+
+.how-it-works {
+  //background-color: red;
+  margin-top: 100px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.how-it-works .cards {
+  margin-top: 30px;
+  //background-color: blue;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 200px;
+  grid-auto-rows: 300px;
+  //margin-right: 50px;
+  //margin-left: 100px;
+}
+
+.cards .one {
+  background-color: #f0f2f5;
+  border-radius: 20px;
+}
+
+.cards .two {
+  background-color: #f0f2f5;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.cards .three {
+  background-color: #f0f2f5;
+  border-radius: 20px;
+}
+
+.one .search {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.two .calendar {
+  width: 120px;
+  height: 120px;
+  //background-color: orange;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.three .video {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.cards .text {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 30px 50px 50px 50px;
+  line-height: 1.25;
+}
 /*.nav {
   //background-color: #5271ff;
   //background: url('../../images/LandingPage/icon4.jpg') no-repeat;
@@ -164,7 +236,7 @@
 
 
 .content-panel-one {
-  padding-top: 70px;
+  margin-top: 100px;
   padding-bottom: 70px;
   //background-color: yellow;
   width: 100%;
@@ -173,9 +245,8 @@
 
 .content-panel-one-responsive {
   //background-color: red;
-  width: 75%;
-  height: 75%;
-  margin: 0 auto;
+  margin-left: 10vw;
+  margin-right: 10vw;
   position: relative;
   overflow: hidden;
 }
@@ -189,9 +260,11 @@
 }
 
 .why-touchbase {
-  color: #5271ff;
-  font-size: 20px;
-  padding-bottom: 10px;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+  font-size: 50px;
+  line-height: 2;
+  font-weight: 500;
+  text-align: left;
 }
 
 .why-touchbase-header {
@@ -201,7 +274,8 @@
 }
 
 .why-touchbase-answer {
-  font-size: 20px;
+  font-size: 23px;
+  line-height: 1.5;
 }
 
 .content-panel-one-image {

@@ -10,9 +10,17 @@
   width:20%;
 }
 
-.button {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.meeting-content .button {
+  color: black;
+  background-color: white;
+  font-size: 18px;
+  border-radius: 12px;
+  margin: 15px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  border: 1px solid white;
+  width: 100px;
 }
 
 

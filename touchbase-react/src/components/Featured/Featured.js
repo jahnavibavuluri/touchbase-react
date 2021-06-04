@@ -57,7 +57,7 @@ export const Featured = () => {
 
       <div className="featured-content">
 
-        <ul>
+
           {Object.entries(influencers).map( ([key, value]) => {
             return (
               <a className="featured-pros-div" key={key} href= {"/seller/" + value.id}>
@@ -73,7 +73,7 @@ export const Featured = () => {
               </a>
             )
           })}
-      </ul>
+      
 
         {/*<ul >
           {FeaturedPros.map((item,index) => {

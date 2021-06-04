@@ -1,5 +1,5 @@
 .calendar .react-calendar {
-  width: 2000px;
+  width: 81vw;
   height: 80vh;
   max-width: 100%;
   background: white;
@@ -126,7 +126,7 @@
 .calendar .react-calendar__tile:enabled:focus {
   background-color: #b4c0fa;
   color: black;
-  transition: 1s ease-out; 
+  transition: 1s ease-out;
   //color: yellow;
   //border-radius: 50px;
 }
@@ -153,7 +153,7 @@
 
 .calendar .react-calendar__tile--active:enabled:hover,
 .calendar .react-calendar__tile--active:enabled:focus {
-  background: #5271ff;
+  background: #f0f2f5;
 }
 .calendar .react-calendar--selectRange .calendar .react-calendar__tile--hover {
   background-color: #e6e6e6;

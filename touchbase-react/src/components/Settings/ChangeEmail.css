@@ -1,0 +1,90 @@
+.popup-box-email {
+  position: fixed;
+  background: #00000050;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  //background-color: red;
+  margin-left: 5%;
+  overflow: hidden;
+}
+
+.box-email {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  height: 40vh;
+  max-height: 40vh;
+  margin-top: calc(100vh - 70vh - 20px);
+  background: #E8E9ED;
+  border-radius: 4px;
+  padding: 20px;
+  border: 4px solid #999;
+  overflow: auto;
+}
+
+/*.close-icon-email {
+  content: 'x';
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  //top: 35%;
+  top: calc(100vh - 70vh - 33px);
+  //background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid black;
+  font-size: 30px;
+}*/
+
+.headings-email {
+  font-family: "HelveticaNeue-Light", sans-serif;
+  padding: 15px;
+  display: grid;
+  grid-gap: 20px;
+}
+
+.email-input {
+  width: 100%;
+  height: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border-width: thin;
+}
+
+/*.cancel-button-email {
+  color: white;
+  background-color: #5271ff;
+  font-size: 15px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  margin: 20px;
+}*/
+
+.save-button-email {
+  color: black;
+  background-color: white;
+  font-size: 18px;
+  //padding: 6px 16px;
+  border-radius: 12px;
+  margin: 15px;
+  margin-top: 10px;
+  //font-weight: 540;
+  padding: 10px 20px;
+  //border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  border: 1px solid white;
+  width: 100px;
+  //grid-column-start: 1;
+
+}
+
+.form-buttoms-email {
+  padding-top: 20px;
+  text-align: center;
+}

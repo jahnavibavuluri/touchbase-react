@@ -17,6 +17,10 @@ const IndividualMeetingPast = props => {
         {props.type}
       </div>
 
+      <div className="ind-part-past">
+        {props.customers}
+      </div>
+
       <div className="ind-date-past">
         {props.date}
       </div>

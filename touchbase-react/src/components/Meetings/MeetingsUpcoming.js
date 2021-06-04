@@ -62,6 +62,26 @@ export const MeetingsUpcoming = props => {
     dashboard = <MenuCustomer />
   }
 
+  function getType(type) {
+    let touchbase;
+    switch(type) {
+      case "oneOnone":
+        touchbase = "1:1"
+        break;
+      case "class":
+        touchbase="Class"
+        break
+      case "breakout":
+        touchbase="Breakout";
+        break
+      default:
+        touchbase = "Touchbase!"
+        break;
+    }
+    return touchbase;
+  }
+
+
   console.log(upcomingMeetings)
 
   return (
@@ -73,7 +93,7 @@ export const MeetingsUpcoming = props => {
       </div>
 
       <div className="meet-links">
-        <a className="meet-link" href='/dashboard/meetings'>Upcoming</a>
+        <a className="meet-link-active" href='/dashboard/meetings'>Upcoming</a>
         <a className="meet-link" href='/dashboard/past-meetings'>Past</a>
       </div>
 
@@ -85,6 +105,10 @@ export const MeetingsUpcoming = props => {
 
         <div className="ind-meet-type">
           Type
+        </div>
+
+        <div className="ind-meet-part">
+          Current participants
         </div>
 
         <div className="ind-meet-date">
@@ -109,7 +133,7 @@ export const MeetingsUpcoming = props => {
         <ul >
           {Object.entries(upcomingMeetings).map( ([key, value]) => {
             return (
-              <IndividualMeetingUpcoming key={key} type={value.tb_type} date={value.date} startTime={value.startTime} endTime={value.endTime} title={value.title}/>
+              <IndividualMeetingUpcoming key={key} type={getType(value.tb_type)} date={(value.date).substring(0, (value.date.length - 13))} startTime={value.startTime} endTime={value.endTime} title={value.title} customers={value.customers.length}/>
             )
           })}
         </ul>

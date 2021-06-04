@@ -171,7 +171,7 @@ export const YourTouchbases = () => {
                   className="add-touchbase-button"
                   type="button"
                   value="+"
-                  onClick={togglePopupClass}
+                  onClick={togglePopup1on1}
                 />
               </div>
             </div>
@@ -213,7 +213,7 @@ export const YourTouchbases = () => {
                   className="add-touchbase-button"
                   type="button"
                   value="+"
-                  onClick={togglePopupClass}
+                  onClick={togglePopupBreakout}
                 />
               </div>
             </div>

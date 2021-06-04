@@ -28,10 +28,29 @@
   margin-right: 1%;
   font-family: "HelveticaNeue-Light", sans-serif;
   font-size: 20px;
-  color: #5271ff;
+  color: white;
+  background-color: #a0a096;
+  padding: 10px;
+  border-radius: 10px;
+}
+.meet-link-active {
+  margin-right: 1%;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 20px;
+  color: white;
+  background-color: #a0a096;
+  padding: 10px;
+  border-radius: 10px;
+  border-bottom: 3px solid black;
+  color: black;
 }
 
 .meet-link:hover {
+  border-bottom: 3px solid black;
+  color: black;
+}
+
+.meet-link-active:hover {
   border-bottom: 3px solid black;
   color: black;
 }
@@ -46,7 +65,7 @@
   //background-color: blue;
   border-radius: 20px;
   display: grid;
-  grid-template: 5vh / 30vw 10vw 10vw 10vw 10vw 15vw ;
+  grid-template: 5vh / 20vw 10vw 10vw 10vw 10vw 10vw 15vw ;
   margin-left: 12.5%;
   margin-right: 1%;
   font-size: 15px;

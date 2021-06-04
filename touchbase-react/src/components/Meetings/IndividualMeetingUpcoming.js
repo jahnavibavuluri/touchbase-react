@@ -6,6 +6,8 @@ import { MenuCustomer } from '../Menu/MenuCustomer.js'
 
 const IndividualMeetingUpcoming = props => {
 
+  console.log(props.customers)
+
   return (
     <div className="ind-content">
 
@@ -15,6 +17,10 @@ const IndividualMeetingUpcoming = props => {
 
       <div className="ind-type">
         {props.type}
+      </div>
+
+      <div className="ind-current-part">
+        {props.customers}
       </div>
 
       <div className="ind-date">

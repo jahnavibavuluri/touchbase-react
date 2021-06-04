@@ -24,7 +24,7 @@
   margin-right: 2rem;
   display: inline;
   font-size: 20px;
-  font-family: "HelveticaNeue-Light", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .menu-items {
@@ -38,6 +38,18 @@
   transition: 0.5s;
 }
 
+.nav-links-sign-up {
+  color: white;
+  border-radius: 10px;
+  transition: 0.5s;
+  background-color: #5271ff;
+  padding: 15px;
+}
+
 .nav-links:hover {
   color: #5271ff;
+}
+
+.nav-links-sign-up:hover {
+  color: black;
 }

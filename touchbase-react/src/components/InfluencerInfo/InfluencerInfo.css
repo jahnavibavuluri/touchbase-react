@@ -39,8 +39,9 @@
   margin-right: 1vh;
   font-family:"HelveticaNeue-Light", sans-serif;
   //width: 3vw;
-  height: 2vh;
+  //height: 2vh;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .select-categories button:hover {
@@ -49,7 +50,7 @@
 }
 
 .select-categories button:active {
-  background-color: 
+  background-color: red;
 }
 
 .influencer-info-header {

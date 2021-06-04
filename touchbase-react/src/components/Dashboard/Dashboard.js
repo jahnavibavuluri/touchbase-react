@@ -36,11 +36,18 @@ export const Dashboard = () => {
 
   //console.log(stringDates)
 
+  function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() - days);
+    return result;
+  }
+
   for (const [key, value] of Object.entries(stringDates)) {
     //dates.push(new Date(stringDates[i]));
     //dates.push(new Date(stringDates[i]));
     for (var i = 0; i<value; i++) {
-      dates.push(new Date(key))
+      let d = new Date(key)
+      dates.push(new Date(d.setTime( d.getTime() + 86400000 )));
     }
     //dates.push(key)
   }
@@ -51,7 +58,8 @@ export const Dashboard = () => {
     for (const [key, value] of Object.entries(datesDict)) {
       //console.log("key is: " + new Date(key))
       //console.log("date is: " + date)
-      if (differenceInCalendarDays(new Date(key), date) === 0) {
+      let d = new Date(key)
+      if (differenceInCalendarDays(new Date(d.setTime( d.getTime() + 86400000 )), date) === 0) {
         //console.log("the length is: " + value.length)
         for (var i = 0; i<value.length; i++) {
           let touchbase;
@@ -78,6 +86,8 @@ export const Dashboard = () => {
     //console.log(dict)
     return dict;
   }
+
+  console.log("the dates are: " + dates)
 
 
   const tileContent = ({ date, view }) => {
@@ -154,7 +164,7 @@ export const Dashboard = () => {
         <div className="calendar">
           <Calendar className="home-calendar" calendarType="US" tileContent={tileContent} onChange={onChange} onClickDay={handleDatePopup}/>
         </div>
-        {isOpenPopup && <EventPopup handleClose={togglePopup} dict={iteration}/>}
+        {/*{isOpenPopup && <EventPopup handleClose={togglePopup} dict={iteration}/>}*/}
       </div>
   );
 }

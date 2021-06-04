@@ -55,6 +55,24 @@ export const MeetingsPast = props => {
     });
   }, [])
 
+  function getType(type) {
+    let touchbase;
+    switch(type) {
+      case "oneOnone":
+        touchbase = "1:1"
+        break;
+      case "class":
+        touchbase="Class"
+        break
+      case "breakout":
+        touchbase="Breakout";
+        break
+      default:
+        touchbase = "Touchbase!"
+        break;
+    }
+    return touchbase;
+  }
 
   if (isInfluencer) {
     dashboard = <MenuInfluencer />
@@ -74,7 +92,7 @@ export const MeetingsPast = props => {
 
       <div className="meet-links-past">
         <a className="meet-link-past" href='/dashboard/meetings'>Upcoming</a>
-        <a className="meet-link-past" href='/dashboard/past-meetings'>Past</a>
+        <a className="meet-link-past-active" href='/dashboard/past-meetings'>Past</a>
       </div>
 
       <div className="ind-meet-content-past">
@@ -85,6 +103,10 @@ export const MeetingsPast = props => {
 
         <div className="ind-meet-type-past">
           Type
+        </div>
+
+        <div className="ind-meet-part-past">
+          Participants
         </div>
 
         <div className="ind-meet-date-past">
@@ -105,7 +127,7 @@ export const MeetingsPast = props => {
         <ul >
           {Object.entries(pastMeetings).map( ([key, value]) => {
             return (
-              <IndividualMeetingsPast key={key} type={value.tb_type} date={value.date} startTime={value.startTime} endTime={value.endTime} title={value.title}/>
+              <IndividualMeetingsPast key={key} type={getType(value.tb_type)} date={(value.date).substring(0, (value.date.length - 13))} startTime={value.startTime} endTime={value.endTime} title={value.title} customers={value.customers.length}/>
             )
           })}
         </ul>

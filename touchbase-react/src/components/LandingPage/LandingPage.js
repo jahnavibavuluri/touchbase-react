@@ -10,6 +10,9 @@ import img2 from '../../images/LandingPage/touchbase_img_touchbases.png'
 import img3 from '../../images/LandingPage/touchbase_img_dms.png'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import graphic from '../../images/LandingPage/landing-page-main-icon1.png'
+import stepOne from '../../images/LandingPage/search.png'
+import stepTwo from '../../images/LandingPage/calendar.png'
+import stepThree from '../../images/LandingPage/video.png'
 //import graphic from '../../images/LandingPage/icon3.jpg'
 import Navbar from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
@@ -92,7 +95,7 @@ export const LandingPage = () => {
         return Promise.all([statusCode, data]);
       })
       .then((res, data) => {
-        //console.log(res[1].data);
+        console.log(res[1].data);
         setInfluencers(res[1].data)
       })
       .catch(error => {
@@ -113,7 +116,7 @@ export const LandingPage = () => {
 
           <h1 className="typewrite">
             Meet your favorite
-            <a href="" class="typewrite" data-period="2000" data-type=' [ " pros", " experts", " designers", " artists", " influencers", " idols" ]'>
+            <a href="" class="typewrite" data-period="2000" data-type=' [ " pros", " experts", " designers", " artists", " influencers" ]'>
               <span class="wrap"></span>
             </a>
           </h1>
@@ -159,6 +162,32 @@ export const LandingPage = () => {
         </div>
       </div>
 
+      <div className="how-it-works">
+        <div className="heading">
+          How it works
+        </div>
+        <div className="cards">
+          <div className="one">
+            <img className="search" src={stepOne} />
+            <div className="text">
+              Search among our many experts and influencers and find the ones who fit your needs.
+            </div>
+          </div>
+          <div className="two">
+            <img className="calendar" src={stepTwo} />
+            <div className="text">
+              Our user friendly platform makes it effortless for you to book a touch base at your preferred date and time.
+            </div>
+          </div>
+          <div className="three">
+            <img className="video" src={stepThree} />
+            <div className="text">
+              Join your touch base at the scheduled time via our reliable, safe, and fast platform and get the personalized advice you need!
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <div className="content-panel-one">
         <div className="content-panel-one-responsive">
@@ -180,7 +209,7 @@ export const LandingPage = () => {
         </div>
       </div>
 
-      <div className="content-panel-four">
+      {/*<div className="content-panel-four">
         <div className="content-panel-four-responsive">
           <div className="how-it-works">
             How it works
@@ -206,7 +235,7 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>*/}
 
 
       <div className="content-panel-two">
