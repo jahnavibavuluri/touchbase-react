@@ -26,6 +26,7 @@ export const Popup1on1 = props => {
     const [toastList, setToastList] = useState([]);
     const [isOpenToast, setIsOpenToast] = useState(false);
     const [input, setInput] = useState(false);
+    const [type, setType] = useState("");
 
     const handleCost = (event) => {
       setCost(event.target.value);
@@ -43,36 +44,83 @@ export const Popup1on1 = props => {
       setRepetitions(event.target.value);
     }
 
-    const toggleToast = () => {
-      setIsOpenToast(!isOpenToast);
-      console.log("inside toggle toast" + isOpenToast)
+    const showToast = type => {
+      const id = Math.floor((Math.random() * 101) + 1);
+
+      switch(type) {
+        case 'success':
+          setToastList([
+            {
+              id,
+              title: 'Success',
+              description: 'This is a success toast component',
+              backgroundColor: '#5cb85c',
+              icon: checkIcon
+            }
+          ])
+          break;
+        case 'danger':
+          setToastList([
+            {
+              id,
+              title: 'Danger',
+              description: 'This is a error toast component',
+              backgroundColor: '#d9534f',
+              icon: errorIcon
+            }
+          ])
+          break;
+        case 'info':
+          setToastList([
+            {
+              id,
+              title: 'Info',
+              description: 'This is an info toast component',
+              backgroundColor: '#5bc0de',
+              icon: infoIcon
+            }
+          ])
+          break;
+        case 'warning':
+          setToastList([
+            {
+              id,
+              title: 'Warning',
+              description: 'This is a warning toast component',
+              backgroundColor: '#f0ad4e',
+              icon: warningIcon
+            }
+          ])
+          break;
+
+          default:
+            setToastList([]);
+        }
     }
 
-    const handleSuccessToastList = (event) => {
+  /*const handleSuccessToastList = () => {
       setToastList([
         {
           id: 1,
           title: 'Success',
           description: 'New Touchbase has been added!',
           backgroundColor: '#5cb85c',
-          icon: checkIcon,
-          handleClose: toggleToast()
+          icon: checkIcon
         },
       ])
     }
 
-    const handleErrorToastList = (event) => {
+    const handleErrorToastList = () => {
       setToastList([
         {
           id: 1,
           title: 'Error',
           description: 'Please make sure your inputs are valid and try again.',
           backgroundColor: '#d9534f',
-          icon: errorIcon,
-          handleClose: toggleToast()
+          icon: errorIcon
         },
       ])
-    }
+    }*/
 
     //checks if the string input is not empty -- returns true if the string is empty
     const checkString = (props) => {
@@ -94,6 +142,7 @@ export const Popup1on1 = props => {
     }
 
     const checkInput = () => {
+      setToastList([])
       if (checkString(title) || checkString(description) || checkCost(cost) || isValidDate(startDateValue, endDateValue) < 0 || endTimeValue < startTimeValue) {
         setInput(false)
       } else {
@@ -101,13 +150,58 @@ export const Popup1on1 = props => {
       }
     }
 
+    const getToastType = (event) => {
+      //event.preventDefault();
+      checkInput();
+      if (!input) {
+        setType("danger");
+        console.log("danger! did not go through")
+      } else {
+          fetch('/profile/addTouchbase/oneOnone', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              "Access-Control-Allow-Origin" : "*",
+              "Access-Control-Allow-Credentials" : true
+            },
+            body: JSON.stringify({
+              title:title,
+              description:description,
+              repeat:repeat,
+              startOn: moment(startDateValue).format('YYYY-MM-DD'),
+              endOn: moment(endDateValue).format('YYYY-MM-DD'),
+              startTime: startTimeValue,
+              endTime: endTimeValue,
+              cost: cost
+            })
+          }).then(response => {
+             const statusCode = response.status;
+             return Promise.all([statusCode]);
+          })
+          .then((res) => {
+            console.log(res);
+            if (res[0] === 201) {
+              setType("success")
+              console.log("request went through!")
+            } else {
+              setType("danger")
+              console.log("error")
+            }
+          })
+      }
+      console.log("showing toast")
+      showToast(type)
+    }
 
-    const addTouchbase = (event) => {
+
+    /*const addTouchbase = (event) => {
       event.preventDefault();
       checkInput();
 
       if (!input) {
-        handleErrorToastList();
+        console.log("request did not go through")
+        handleErrorToastList(event.type);
       } else {
         fetch('/profile/addTouchbase/oneOnone', {
           method: 'POST',
@@ -142,7 +236,8 @@ export const Popup1on1 = props => {
           }
         })
       }
-    }
+
+    }*/
 
     return (
       <div className="popup-box-oneonone">
@@ -203,15 +298,16 @@ export const Popup1on1 = props => {
           </div>
           <div className="form-buttoms-oneonone">
             <button className="cancel-button-oneonone" onClick={props.handleClose}>Cancel</button>
-            <button className="save-button-oneonone" onClick={addTouchbase} >Save</button>
+            <button className="save-button-oneonone" onClick={getToastType} >Save</button>
           </div>
         </div>
         <div className="toast">
-          {isOpenToast && <Toast
+          <Toast
             toastList={toastList}
             position="bottom-right"
-            handleClose={toggleToast}
-          />}
+            autoDelete={true}
+            dismissTime={3000}
+          />
         </div>
       </div>
     );

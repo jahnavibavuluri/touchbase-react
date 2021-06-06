@@ -115,6 +115,7 @@
 .one-on-one-heading {
   grid-column-start: 1;
   background-color: #4c98ed;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,12 +124,13 @@
   font-size: 1.5vw;
   font-weight: 600;
   color: white;
-  //border-radius: 10px;
+  border-radius: 10px;
 }
 
 .class-heading {
   grid-column-start: 1;
   background-color: #ef7d7d;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,12 +139,13 @@
   font-size: 1.5vw;
   font-weight: 600;
   color: white;
-  //border-radius: 10px;
+  border-radius: 10px;
 }
 
 .breakout-heading {
   grid-column-start: 1;
   background-color: #f4b959;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,7 +154,7 @@
   font-size: 1vw;
   font-weight: 600;
   color: white;
-  //border-radius: 10px;
+  border-radius: 10px;
 }
 
 /*.your-touchbases-grid {
