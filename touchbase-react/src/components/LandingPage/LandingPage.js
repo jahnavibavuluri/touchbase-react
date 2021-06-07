@@ -10,6 +10,8 @@ import img2 from '../../images/LandingPage/touchbase_img_touchbases.png'
 import img3 from '../../images/LandingPage/touchbase_img_dms.png'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import graphic from '../../images/LandingPage/landing-page-main-icon1.png'
+import graphic2 from '../../images/LandingPage/graphic_1.png'
+import graphic3 from '../../images/LandingPage/icon3.png'
 import stepOne from '../../images/LandingPage/search.png'
 import stepTwo from '../../images/LandingPage/calendar.png'
 import stepThree from '../../images/LandingPage/video.png'
@@ -192,7 +194,8 @@ export const LandingPage = () => {
       <div className="content-panel-one">
         <div className="content-panel-one-responsive">
           <div className="content-panel-one-image">
-            <img src={img1} className="img1" ></img>
+            <img src={graphic2} className="why-touchbase-img1" ></img>
+            <img src={graphic3} className="why-touchbase-img2" ></img>
           </div>
           <div className="content-panel-one-text">
             <div className="why-touchbase">
@@ -258,7 +261,7 @@ export const LandingPage = () => {
         </div>
       </div>
 
-      <div className="content-panel-three">
+      {/*<div className="content-panel-three">
         <div className="content-panel-three-responsive">
           <div className="content-panel-three-image">
             <img src={img3} className = "img3"></img>
@@ -277,9 +280,8 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>*/}
       <Footer />
     </div>
-
   );
 }

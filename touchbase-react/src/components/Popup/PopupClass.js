@@ -4,6 +4,13 @@ import DatePicker from 'react-date-picker';
 import TimePicker from 'react-time-picker';
 import './PopupClass.css'
 import moment from 'moment'
+import checkIcon from '../../images/ToastIcons/check.svg';
+import errorIcon from '../../images/ToastIcons/error.svg';
+import infoIcon from '../../images/ToastIcons/info.svg';
+import warningIcon from '../../images/ToastIcons/warning.svg';
+import Toast from '../Toast/Toast.js'
+import 'react-calendar/dist/Calendar.css'
+import { differenceInCalendarDays } from 'date-fns';
 
 export const PopupClass = props => {
   const history = useHistory();
@@ -16,6 +23,9 @@ export const PopupClass = props => {
   const [description, setTouchbaseDescription] = useState("");
   const [participants, setParticipants] = useState(0);
   const [repeat, setRepetitions] = useState(0);
+  const [toastList, setToastList] = useState([]);
+  const [input, setInput] = useState(false);
+  const [type, setType] = useState("");
 
   const handleCost = (event) => {
     setCost(event.target.value);
@@ -37,8 +47,163 @@ export const PopupClass = props => {
     setParticipants(event.target.value);
   }
 
+  const showToast = type => {
+    const id = Math.floor((Math.random() * 101) + 1);
 
-  const addTouchbase = (event) => {
+    switch(type) {
+      case 'success':
+        setToastList([
+          {
+            id,
+            title: 'Success',
+            description: 'This is a success toast component',
+            backgroundColor: '#5cb85c',
+            icon: checkIcon
+          }
+        ])
+        break;
+      case 'danger':
+        setToastList([
+          {
+            id,
+            title: 'Danger',
+            description: 'This is a error toast component',
+            backgroundColor: '#d9534f',
+            icon: errorIcon
+          }
+        ])
+        break;
+      case 'info':
+        setToastList([
+          {
+            id,
+            title: 'Info',
+            description: 'This is an info toast component',
+            backgroundColor: '#5bc0de',
+            icon: infoIcon
+          }
+        ])
+        break;
+      case 'warning':
+        setToastList([
+          {
+            id,
+            title: 'Warning',
+            description: 'This is a warning toast component',
+            backgroundColor: '#f0ad4e',
+            icon: warningIcon
+          }
+        ])
+        break;
+
+        default:
+          setToastList([]);
+      }
+  }
+
+/*const handleSuccessToastList = () => {
+    setToastList([
+      {
+        id: 1,
+        title: 'Success',
+        description: 'New Touchbase has been added!',
+        backgroundColor: '#5cb85c',
+        icon: checkIcon
+      },
+    ])
+  }
+
+  const handleErrorToastList = () => {
+    setToastList([
+      {
+        id: 1,
+        title: 'Error',
+        description: 'Please make sure your inputs are valid and try again.',
+        backgroundColor: '#d9534f',
+        icon: errorIcon
+      },
+    ])
+  }*/
+
+  //checks if the string input is not empty -- returns true if the string is empty
+  const checkString = (props) => {
+    if (!props || props.length === 0 || !props.trim()) {
+      return true;
+    }
+  }
+
+  //checks if the cost input is a valid price. checks that the input is in xx.xx format returns true if not valid
+  const checkCost = (props) => {
+    if (isNaN(props) || props.toString().indexOf('.') != (props.length-3)) {
+      return true;
+    }
+  }
+
+  //checking that the start date is not after the end date
+  const isValidDate = a => b => {
+    return differenceInCalendarDays(a, b);
+  }
+
+  const checkInput = () => {
+    if (checkString(title) || checkString(description) || checkCost(cost) || isValidDate(startDateValue, endDateValue) < 0 || endTimeValue < startTimeValue) {
+      setInput(false)
+    } else {
+      setInput(true)
+    }
+  }
+
+  const getToastType = (event) => {
+    //event.preventDefault();
+    checkInput();
+    if (!input) {
+      setType("danger");
+      console.log("danger! did not go through")
+      console.log("the title is: " + title)
+      console.log("showing toast")
+      showToast(type)
+    } else {
+        fetch('/profile/addTouchbase/class', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Credentials" : true
+          },
+          body: JSON.stringify({
+            title:title,
+            description:description,
+            repeat:repeat,
+            startOn: moment(startDateValue).format('YYYY-MM-DD'),
+            endOn: moment(endDateValue).format('YYYY-MM-DD'),
+            startTime: startTimeValue,
+            endTime: endTimeValue,
+            maxParticipants: participants,
+            cost: cost
+          })
+        }).then(response => {
+           const statusCode = response.status;
+           return Promise.all([statusCode]);
+        })
+        .then((res) => {
+          console.log(res);
+          if (res[0] === 201) {
+            setType("success")
+            console.log("request went through!")
+            console.log("showing toast")
+            showToast(type)
+          } else {
+            setType("danger")
+            console.log("error")
+            console.log("showing toast")
+            showToast(type)
+          }
+        })
+    }
+  }
+
+
+  /*const addTouchbase = (event) => {
     event.preventDefault();
     fetch('/profile/addTouchbase/class', {
       method: 'POST',
@@ -72,7 +237,7 @@ export const PopupClass = props => {
       }
     })
 
-  }
+  }*/
 
   return (
     <div className="popup-box">
@@ -128,7 +293,7 @@ export const PopupClass = props => {
           </select>
         </div>
         <div className="cost">
-          <p>Mex Participants</p>
+          <p>Max Participants</p>
           <input className="cost-input" onChange={handleParticipants}/>
         </div>
         <div className="cost">
@@ -137,9 +302,15 @@ export const PopupClass = props => {
         </div>
         <div className="form-buttoms">
           <button className="cancel-button" onClick={props.handleClose}>Cancel</button>
-          <button className="save-button" onClick={addTouchbase} >Save</button>
+          <button className="save-button" onClick={getToastType} >Save</button>
         </div>
       </div>
+      <Toast
+        toastList={toastList}
+        position="bottom-right"
+        autoDelete={true}
+        dismissTime={3000}
+      />
     </div>
   );
 }

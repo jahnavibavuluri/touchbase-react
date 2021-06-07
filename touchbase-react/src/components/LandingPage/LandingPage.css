@@ -5,7 +5,7 @@
 .landing-page-header {
   background-color: #5271ff;
   //display: grid;
-  height: 850px;
+  height: 70vh;
   margin-bottom: 100px;
 }
 
@@ -29,6 +29,11 @@
   //background-color: red;
   line-height: 1.5;
   color: white;
+}
+
+.landing-page-graphic {
+  height: auto;
+  width: 45%;
 }
 
 .nav-button {
@@ -56,8 +61,8 @@
 
 .landing-page-featured-list {
   //background-color: red;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
 }
 
 .landing-page-featured-list .heading {
@@ -119,8 +124,8 @@
 .how-it-works {
   //background-color: red;
   margin-top: 100px;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
 }
 
 .how-it-works .cards {
@@ -128,7 +133,7 @@
   //background-color: blue;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 200px;
+  gap: 10vw;
   grid-auto-rows: 300px;
   //margin-right: 50px;
   //margin-left: 100px;
@@ -174,7 +179,8 @@
 
 .cards .text {
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size:calc(12px + 0.4vw);
+  //font-size: 0.8vw;
   font-weight: 300;
   margin: 30px 50px 50px 50px;
   line-height: 1.25;
@@ -245,8 +251,8 @@
 
 .content-panel-one-responsive {
   //background-color: red;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
   position: relative;
   overflow: hidden;
 }
@@ -257,6 +263,7 @@
   align-items: center;
   font-family: "HelveticaNeue-Light", sans-serif;
   //background-color: purple;
+  margin-top: 10%;
 }
 
 .why-touchbase {
@@ -282,15 +289,30 @@
   float: right;
   width: 50%;
   height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
   //background-color: blue;
+  //position: relative;
+  //text-align: center;
 }
 
-.img1 {
-  width: 100%;
+.why-touchbase-img1 {
+  width: 80%;
   height: auto;
+  //background-color: red;
+  position: relative;
+  left: 10vw;
+  border-radius: 100px;
+}
+
+.why-touchbase-img2 {
+  //background-color: green;
+  width: 60%;
+  height: auto;
+  position: relative;
+  bottom: 5vh;
+  left: 30px;
 }
 
 .content-panel-two {
@@ -329,9 +351,11 @@
 }
 
 .types-of-touchbases {
-  color: #5271ff;
-  font-size: 20px;
-  padding-bottom: 10px;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+  font-size: 50px;
+  line-height: 2;
+  font-weight: 500;
+  text-align: left;
 }
 
 .types-of-touchbases-header {
@@ -341,7 +365,8 @@
 }
 
 .types-of-touchbases-answers {
-  font-size: 20px;
+  font-size: 23px;
+  line-height: 1.5;
 }
 
 .img2 {

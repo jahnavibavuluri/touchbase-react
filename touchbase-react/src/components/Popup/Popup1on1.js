@@ -24,7 +24,6 @@ export const Popup1on1 = props => {
     const [description, setTouchbaseDescription] = useState("");
     const [repeat, setRepetitions] = useState(0);
     const [toastList, setToastList] = useState([]);
-    const [isOpenToast, setIsOpenToast] = useState(false);
     const [input, setInput] = useState(false);
     const [type, setType] = useState("");
 
@@ -142,7 +141,6 @@ export const Popup1on1 = props => {
     }
 
     const checkInput = () => {
-      setToastList([])
       if (checkString(title) || checkString(description) || checkCost(cost) || isValidDate(startDateValue, endDateValue) < 0 || endTimeValue < startTimeValue) {
         setInput(false)
       } else {
@@ -156,6 +154,9 @@ export const Popup1on1 = props => {
       if (!input) {
         setType("danger");
         console.log("danger! did not go through")
+        console.log("the title is: " + title)
+        console.log("showing toast")
+        showToast(type)
       } else {
           fetch('/profile/addTouchbase/oneOnone', {
             method: 'POST',
@@ -184,14 +185,16 @@ export const Popup1on1 = props => {
             if (res[0] === 201) {
               setType("success")
               console.log("request went through!")
+              console.log("showing toast")
+              showToast(type)
             } else {
               setType("danger")
               console.log("error")
+              console.log("showing toast")
+              showToast(type)
             }
           })
       }
-      console.log("showing toast")
-      showToast(type)
     }
 
 
