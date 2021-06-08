@@ -1,4 +1,59 @@
-.touchbase-content {
+.my-touchbase-content-ind {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5;
+  line-height: 2.5;
+  border-radius: 10px;
+  //margin: 0.5vh;
+  font-size: 15px;
+  transition: 1s ease-out;
+  text-align: left;
+  color: black;
+}
+
+.my-touchbase-content-ind:hover {
+  background-color: #d7dade;
+  background-position: left;
+}
+
+.my-touchbase-content-ind > div {
+  margin-left: 1vw;
+}
+
+.my-touchbase-content-ind-title {
+  font-size: 20px;
+  font-family: "HelveticaNeue-Medium", sans-serif;
+  margin-top: 1vh;
+}
+
+.my-touchbase-content-ind-description {
+  line-height: 1.5;
+}
+
+.view-bookings {
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  //font-weight: 540;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  border: 1px solid white;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.view-bookings:hover {
+  background-color: #2f323a;
+  color: white;
+  transition: 1s ease-out;
+}
+
+
+
+/*.touchbase-content {
   text-align: left;
   border-bottom: 2px solid black;
   margin-left: 10%;
@@ -26,4 +81,4 @@
 
 .touchbase-cost {
   padding-bottom: 10px;
-}
+}*/

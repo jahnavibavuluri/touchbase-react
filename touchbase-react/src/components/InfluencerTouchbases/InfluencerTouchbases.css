@@ -1,9 +1,60 @@
 .influencer-touchbases-content {
   text-align: center;
   font-family: "HelveticaNeue-Light", sans-serif;
+  //background-color: blue;
+  margin-left: 200px;
+  //width: 1000px;
 }
 
-.influencer-name {
+.influencer-left-side-info {
+  background-color: #2f323a;
+  z-index: 1;
+  top: 0;
+  margin-top: 88px;
+  padding-top: 30px;
+  position: absolute;
+  left: 0;
+  width: 300px;
+  //width: 10%;
+  //height: 100%;
+  transition: 0.5s;
+  transition-property: left;
+  overflow-y: auto;
+  color: white;
+}
+
+.seller-categories {
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+.seller-name {
+  font-size: 30px;
+  line-height: 1.5;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.seller-handles {
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.seller-bio {
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*.influencer-name {
   font-size: 50px;
   line-height: 2;
   padding-top: 50px;
@@ -51,4 +102,4 @@
 .oooicon {
   width: 50%;
   height: 50%;
-}
+}*/

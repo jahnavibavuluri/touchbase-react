@@ -6,6 +6,7 @@ import oooicon from '../../images/TouchbaseIcons/one-on-one-icon.png'
 import groupicon from '../../images/TouchbaseIcons/group-icon.png'
 import grouphangouticon from '../../images/TouchbaseIcons/group-hangout-icon.png'
 import Touchbase from './Touchbase'
+import logo from '../../images/TouchbaseIcons/touchbase_logo.png';
 
 export const InfluencerTouchbases = ({match:{params:{id}}}) => {
 
@@ -16,6 +17,7 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
   const [breakoutList, setBreakoutList] = useState({});
   const [name, setName] = useState("")
   const [categories, setCategories] = useState("")
+  const [influencer_id, setInfluencerId] = useState(0);
   //props.id = 4
 
 
@@ -33,6 +35,7 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
       setBreakoutList(res[1].breakouts)
       setName(res[1].firstName + " " + res[1].lastName)
       setCategories(res[1].categories)
+      setInfluencerId(res[1].influencer_id)
     })
     .catch(error => {
       console.error(error);
@@ -40,9 +43,9 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
     });
   }, [])
 
-  console.log(oneList)
-  console.log(classList)
-  console.log(breakoutList)
+  //console.log(oneList)
+  //console.log(classList)
+  //console.log(breakoutList)
 
   return (
 
@@ -51,7 +54,64 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
 
       <div className="influencer-touchbases-content">
 
-        <div className="influencer-heading">
+      <div className="influencer-left-side-info">
+        {/*<a href='/'>
+          <img src={logo} width="200" height="60"/>
+        </a>*/}
+        <div className="seller-name">{name}</div>
+        <div className="seller-handles">@Twitter_Handle</div>
+        <div className="seller-handles">@Instagram_Handle</div>
+        <div className="seller-categories">
+          {Object.entries(categories).map( ([key, value]) => {
+            //setNextIteration(name.nextIteration);
+            return <div>{value}</div>;
+          })}
+        </div>
+        <div className="seller-bio">Hi! My name is ____ and I love to cook! Come join me and learn new recipes with me!</div>
+      </div>
+
+        <div className="your-touchbases-grid-content">
+
+          <div className="your-touchbases-one-on-one">
+            <div className="one-on-one-heading">
+              <div>1:1</div>
+            </div>
+            <div className="ind-one-on-one">
+              {Object.entries(oneList).map( ([key, value]) => {
+                //setNextIteration(name.nextIteration);
+                return <Touchbase key={key} title={value.touchbase_title} description={value.touchbase_description} cost={value.cost} spots={value.openSpots} nextTime={(value.nextIterationTime).substring(0, (value.nextIterationTime.length-3))} nextDate={(value.nextIterationDate).substring(0, (value.nextIterationDate.length - 13))} influencer_id={influencer_id} touchbase_id={value.touchbase_id}/>;
+              })}
+            </div>
+          </div>
+
+          <div className="your-touchbases-class">
+            <div className="class-heading">
+              <div>Class</div>
+            </div>
+            <div className="ind-class">
+              {Object.entries(classList).map( ([key, value]) => {
+                return <Touchbase key={key} title={value.touchbase_title} description={value.touchbase_description} cost={value.cost} spots={value.openSpots} nextTime={(value.nextIterationTime).substring(0, (value.nextIterationTime.length-3))} nextDate={(value.nextIterationDate).substring(0, (value.nextIterationDate.length - 13))}/>;
+              })}
+            </div>
+          </div>
+
+
+
+          <div className="your-touchbases-breakout">
+            <div className="breakout-heading">
+              <div>Breakout</div>
+            </div>
+            <div className="ind-breakout">
+              {Object.entries(breakoutList).map( ([key, value]) => {
+                return <Touchbase key={key} title={value.touchbase_title} description={value.touchbase_description} cost={value.cost} spots={value.openSpots} nextTime={(value.nextIterationTime).substring(0, (value.nextIterationTime.length-3))} nextDate={(value.nextIterationDate).substring(0, (value.nextIterationDate.length - 13))}/>;
+              })}
+            </div>
+          </div>
+
+        </div>
+
+
+        {/*<div className="influencer-heading">
           <div className="influencer-name">
             {name}
           </div>
@@ -113,12 +173,13 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
           <br/>
           <br/>
 
-        </div>
+        </div>*/}
 
       </div>
 
-
-      <Footer />
+      <div className="seller-footer">
+        <Footer />
+      </div>
     </div>
   );
 

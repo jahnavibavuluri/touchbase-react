@@ -31,8 +31,8 @@ function App() {
             <Route exact path="/" component={LandingPage} />
             <Route path="/featured" component={Featured} />
             <Route exact path="/signup" component={SignupPage} />
-            <Route path="/seller/:id" component={InfluencerTouchbases}/>
-            <Route path="/iterations" component={Iterations}/>
+            <Route exact path="/seller/:id" component={InfluencerTouchbases}/>
+            <Route path="/seller/:id1/iterations/:id2" component={Iterations}/>
             <Route path="/about" component={About}/>
             <Route path="/login" component={Login}/>
             <Route path="/explore" component={Explore}/>

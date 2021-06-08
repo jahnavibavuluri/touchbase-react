@@ -1,6 +1,13 @@
 .main-content {
   font-family: "HelveticaNeue-Light", sans-serif;
   text-align: center;
+  //background-color: yellow;
+  //margin-left: 100px;
+  //margin-top: 50px;
+}
+
+.main-content-responsive {
+
 }
 
 .influencer-name {
@@ -23,14 +30,60 @@
   padding-bottom: 50px;
 }
 
-.bookings {
+.influencer-left-side-info-iteration {
+  background-color: #2f323a;
+  z-index: 1;
+  top: 0;
+  margin-top: 88px;
+  padding-top: 30px;
+  position: absolute;
+  left: 0;
+  width: 300px;
+  //width: 10%;
+  //height: 100%;
+  transition: 0.5s;
+  transition-property: left;
+  overflow-y: auto;
+  color: white;
+}
+
+/*.bookings {
   //background-color: yellow;
   margin-right: 30%;
   margin-left: 30%;
   border: 2px solid black;
   margin-bottom: 100px;
-}
+}*/
 
 .available-bookings-header {
   font-family: "HelveticaNeue-Bold", sans-serif;
+}
+
+.ind-meet-content {
+  //background-color: red;
+  height: 5vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  display: grid;
+  grid-template: 5vh / 20vw 10vw 10vw 10vw 10vw 10vw 15vw ;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #a0a096;
+  animation-name: slideInTop;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+
+}
+
+.ind-meet-content > div {
+  margin-right: 7%;
+  margin-left: 7%;
+}
+
+.bookings {
+  margin-left: 310px;
+  margin-right: 20px;
 }

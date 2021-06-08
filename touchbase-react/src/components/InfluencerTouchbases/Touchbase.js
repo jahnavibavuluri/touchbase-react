@@ -1,4 +1,39 @@
-import React from "react";
+import React from 'react';
+import './Touchbase.css';
+import { useHistory } from "react-router-dom";
+
+
+const Touchbase = props => {
+
+  const history = useHistory();
+
+  const handleInteration = (event) => {
+    history.push("/seller/" + props.influencer_id + "/iterations/" + props.touchbase_id);
+  }
+
+  return(
+    <div className="my-touchbase-content-ind">
+      <div className="my-touchbase-content-ind-title">{props.title}</div>
+      <div className="my-touchbase-content-ind-description">{props.description}</div>
+      <div><b>Cost</b>: ${props.cost}</div>
+      <div><b>Open Spots</b>: {props.spots}</div>
+      <div><b>Next Booking</b>: {props.nextDate} at {props.nextTime}</div>
+      {/*<div className="my-touchbase-content-buttons">
+        <button className="my-touchbase-content-edit">Edit</button>
+        <button className="my-touchbase-content-delete">Delete</button>
+      </div>href= {"/seller/" + value.id}*/}
+      <button className="view-bookings" href={"/seller/" + props.influencer_id + "/iterations/" + props.touchbase_id} onClick={handleInteration}>View Bookings</button>
+    </div>
+  );
+
+}
+
+export default Touchbase;
+
+
+
+
+/*import React from "react";
 import './Touchbase.css'
 
 const Touchbase = props => {
@@ -40,4 +75,4 @@ const Touchbase = props => {
   );
 }
 
-export default Touchbase;
+export default Touchbase;*/

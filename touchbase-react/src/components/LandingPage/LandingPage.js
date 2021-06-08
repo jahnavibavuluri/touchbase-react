@@ -6,15 +6,15 @@ import number_one from '../../images/LandingPage/1.png'
 import number_two from '../../images/LandingPage/2.png'
 import number_three from '../../images/LandingPage/3.png'
 import img1 from '../../images/LandingPage/touchbase_img_Q&A.png'
-import img2 from '../../images/LandingPage/touchbase_img_touchbases.png'
+import img2 from '../../images/LandingPage/types-of-touchbases.png'
 import img3 from '../../images/LandingPage/touchbase_img_dms.png'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import graphic from '../../images/LandingPage/landing-page-main-icon1.png'
 import graphic2 from '../../images/LandingPage/graphic_1.png'
 import graphic3 from '../../images/LandingPage/icon3.png'
-import stepOne from '../../images/LandingPage/search.png'
-import stepTwo from '../../images/LandingPage/calendar.png'
-import stepThree from '../../images/LandingPage/video.png'
+import stepOne from '../../images/LandingPage/how-it-works-1.png'
+import stepTwo from '../../images/LandingPage/how-it-works-2.png'
+import stepThree from '../../images/LandingPage/how-it-works-3.png'
 //import graphic from '../../images/LandingPage/icon3.jpg'
 import Navbar from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
@@ -26,7 +26,7 @@ export const LandingPage = () => {
   const history = useHistory();
 
   const handleExplore = () => {
-    history.push("/explore");
+    history.push("/signup");
   };
 
   //Styling for the heading
@@ -90,15 +90,15 @@ export const LandingPage = () => {
     const [influencers, setInfluencers] = useState({});
 
     useEffect(() => {
-      fetch('/featured')
+      fetch('/explore')
       .then(response => {
         const statusCode = response.status;
         const data = response.json();
         return Promise.all([statusCode, data]);
       })
       .then((res, data) => {
-        console.log(res[1].data);
-        setInfluencers(res[1].data)
+        console.log(res[1].influencers);
+        setInfluencers(res[1].influencers)
       })
       .catch(error => {
         console.error(error);
@@ -118,7 +118,7 @@ export const LandingPage = () => {
 
           <h1 className="typewrite">
             Meet your favorite
-            <a href="" class="typewrite" data-period="2000" data-type=' [ " pros", " experts", " designers", " artists", " influencers" ]'>
+            <a href="" class="typewrite" data-period="2000" data-type=' [ " pros", " experts", " creators", " influencers" ]'>
               <span class="wrap"></span>
             </a>
           </h1>
@@ -126,7 +126,7 @@ export const LandingPage = () => {
             Your questions. Their personalized advice, consulting, and insights. (And for a worthy cause.)
           </div>
           <div className="nav-button">
-            <button className="go-to-explore-button" onClick={handleExplore} type="button">Explore</button>
+            <button className="go-to-explore-button" onClick={handleExplore} type="button">Sign Up</button>
           </div>
 
         <div className="nav-right-side">
@@ -137,54 +137,59 @@ export const LandingPage = () => {
       </div>
 
 
-      <div className="landing-page-featured-list">
-        <div className="heading">
-          Check out some of our featured pros
-        </div>
-        <div className="featured-list">
+      <div className="landing-page-featured-list-main">
+        <div className="landing-page-featured-list">
+          <div className="heading">
+            Check out our featured pros
+          </div>
+          <div className="featured-list">
 
-            {Object.entries(influencers).map( ([key, value]) => {
-              return (
-                <div className="list-item">
-                  <a className="pro" key={key} href= {"/seller/" + value.id}>
-                    {/*<img src={placeholder} width="200" className="pro-image"/>*/}
-                    <div className="pro-name">
-                      {value.firstName} {value.lastName}
+              {Object.entries(influencers).map( ([key, value]) => {
+                return (
+                  <div className="list-item">
+                    <div className="pro" key={key} href= {"/seller/" + value.id}>
+                      {/*<img src={placeholder} width="200" className="pro-image"/>*/}
+                      <div className="pro-name">
+                        {value.influencer_name}
+                      </div>
+                      <div className="pro-category">
+                        <div>{value.categories[0]}</div>
+                        <div>{value.categories[1]}</div>
+                        <div>{value.categories[2]}</div>
+                      </div>
+                      <a className="pro-link-landing-page" key={key} href= {"/seller/" + value.influencer_id}>Go to Touchbases &#62;</a>
                     </div>
-                    <div className="pro-category">
-                      <div>{value.categories[0]}</div>
-                      <div>{value.categories[1]}</div>
-                      <div>{value.categories[2]}</div>
-                    </div>
-                  </a>
-                </div>
-              )
-            })}
+                  </div>
+                )
+              })}
 
+          </div>
         </div>
       </div>
 
-      <div className="how-it-works">
-        <div className="heading">
-          How it works
-        </div>
-        <div className="cards">
-          <div className="one">
-            <img className="search" src={stepOne} />
-            <div className="text">
-              Search among our many experts and influencers and find the ones who fit your needs.
-            </div>
+      <div className="how-it-works-main">
+        <div className="how-it-works">
+          <div className="heading">
+            Designed for you
           </div>
-          <div className="two">
-            <img className="calendar" src={stepTwo} />
-            <div className="text">
-              Our user friendly platform makes it effortless for you to book a touch base at your preferred date and time.
+          <div className="cards">
+            <div className="one">
+              <img className="search" src={stepOne} />
+              <div className="text">
+                Search among our many experts and influencers and find the ones who fit your needs.
+              </div>
             </div>
-          </div>
-          <div className="three">
-            <img className="video" src={stepThree} />
-            <div className="text">
-              Join your touch base at the scheduled time via our reliable, safe, and fast platform and get the personalized advice you need!
+            <div className="two">
+              <img className="calendar" src={stepTwo} />
+              <div className="text">
+                Our platform makes it effortless for you to book a touchbase at your preferred date and time.
+              </div>
+            </div>
+            <div className="three">
+              <img className="video" src={stepThree} />
+              <div className="text">
+                Join your touchbase at the scheduled time via our reliable fast platform and meet your favorite pros!
+              </div>
             </div>
           </div>
         </div>
@@ -243,9 +248,6 @@ export const LandingPage = () => {
 
       <div className="content-panel-two">
         <div className="content-panel-two-responsive">
-          <div className="content-panel-two-image">
-            <img src={img2} className="img2" ></img>
-          </div>
           <div className="content-panel-two-text">
             <div className="types-of-touchbases">
               Types of Touchbases
@@ -257,6 +259,18 @@ export const LandingPage = () => {
               It's not just for advice. Choose from a variety of offerings that let you engage
               with your favorite leaders and influencers.
             </div>
+          </div>
+          <div className="content-panel-two-image">
+            <img src={img2} className="img2" ></img>
+          </div>
+        </div>
+      </div>
+
+      <div className="join-as-influencer">
+        <div className="join-as-influencer-content">
+          <div className="join-as-influencer-text">
+            Get started today by joining as either an influencer or a customer.
+            <div><button className="join-as-influencer-button"> Sign up </button></div>
           </div>
         </div>
       </div>

@@ -9,8 +9,42 @@ const Booking = props => {
   let spotsOpen = 3
   let cost = "19.99"
 
-  return(
-    <div className="booking-main-content">
+  return (
+    <div className="ind-content">
+
+      <div className="ind-title">
+        Touchbase Title {/*props.title*/}
+      </div>
+
+      <div className="ind-date">
+        {date}{/*props.date*/}
+      </div>
+
+      <div className="ind-start-time">
+        {startTime}{/*props.startTime*/}
+      </div>
+
+      <div className="ind-end-time">
+        {endTime}{/*props.endTime*/}
+      </div>
+
+      <div className="ind-current-part">
+        {spotsOpen}{/*props.customers*/}
+      </div>
+
+      <div className="ind-current-cost">
+        {cost}{/*props.customers*/}
+      </div>
+
+      <div className="ind-join">
+        <button className="ind-book-button">Book it</button>
+      </div>
+
+    </div>
+
+
+
+    /*<div className="booking-main-content">
 
       <div className="side right">
         <div className="booking-date">{date}</div>
@@ -25,7 +59,7 @@ const Booking = props => {
           <button className="bookings-it-button">Book it</button>
         </div>
       </div>
-    </div>
+    </div>*/
   );
 }
 

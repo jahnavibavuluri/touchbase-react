@@ -1,4 +1,70 @@
-.bookings-it-button {
+.ind-content {
+  //display: flex;
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2%;
+  background-color: #E8E9ED;
+  border-radius: 20px;
+  display: grid;
+  grid-template: 10vh / 20vw 10vw 10vw 10vw 10vw 10vw 15vw ;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 15px;
+  animation-name: slideInTop;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.ind-content > div {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.ind-book-button {
+  color: black;
+  background-color: white;
+  font-size: 18px;
+  border-radius: 12px;
+  margin: 15px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  border: 1px solid white;
+  width: 200px;
+  border: 2px solid black;
+  font-weight: 600;
+}
+
+.ind-title {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translate3d(0, 30%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(5%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+/*.bookings-it-button {
   color: white;
   background-color: #5271ff;
   font-size: 20px;
@@ -42,4 +108,4 @@
 
 .side {
   flex:1;
-}
+}*/
