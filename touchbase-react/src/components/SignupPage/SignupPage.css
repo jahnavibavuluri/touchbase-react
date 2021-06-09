@@ -45,6 +45,7 @@
   border-width: thin;
   //padding-top: 10px;
   //padding-bottom: 10px;
+  border: 2px solid white;
 }
 
 .sign-up-label {
@@ -63,7 +64,7 @@
 .agreement {
   text-align: center;
   font-family: "HelveticaNeue-Light", sans-serif;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .submit-div {
@@ -107,9 +108,26 @@
   //width: 50%;
 }
 
-
 .login-link {
   font-family: "HelveticaNeue-Light", sans-serif;
   font-size: 15px;
   color: #5271ff;
+}
+
+@media screen and (max-width: 800px) {
+
+  .sign-up-form {
+    background-color: #E8E9ED;
+    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 40px;
+    width: 80%;
+    margin: auto;
+  }
+
+  .sign-up-header {
+    font-size: 25px;
+  }
+
 }

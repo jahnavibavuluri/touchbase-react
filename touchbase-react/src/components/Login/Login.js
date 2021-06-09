@@ -62,7 +62,7 @@ export const Login = () => {
         email:email,
         password:password,
         isInfluencer: isInfluencer,
-        rememberMe: rememberMe
+        rememberMe: true
       })
     }).then(response => {
       const statusCode = response.status;
@@ -113,9 +113,9 @@ export const Login = () => {
               <label for="influencer" className="login-label">Logging in as an Influencer?</label>
               <ToggleSwitch id="influencer" className="toggle-switch-checkbox" checked={isInfluencer} onChange={setInfluencer}/>
             </div>
-            <div className="remember-me">
+            {/*<div className="remember-me">
               <p>Remember me? <ToggleSwitch className="remember-me-toggle" checked={rememberMe} onChange={setRememberMe}/></p>
-            </div>
+            </div>*/}
             <div className="submit-div">
             <button className="login-button-submit">
               Login

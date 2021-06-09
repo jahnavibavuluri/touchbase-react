@@ -175,19 +175,23 @@ export const LandingPage = () => {
           <div className="cards">
             <div className="one">
               <img className="search" src={stepOne} />
+
               <div className="text">
+                <div className="cards-heading">Search</div>
                 Search among our many experts and influencers and find the ones who fit your needs.
               </div>
             </div>
             <div className="two">
-              <img className="calendar" src={stepTwo} />
+              <img className="calendar-landing-page" src={stepTwo} />
               <div className="text">
+              <div className="cards-heading"><b>Book</b></div>
                 Our platform makes it effortless for you to book a touchbase at your preferred date and time.
               </div>
             </div>
             <div className="three">
               <img className="video" src={stepThree} />
               <div className="text">
+              <div className="cards-heading"><b>Join</b></div>
                 Join your touchbase at the scheduled time via our reliable fast platform and meet your favorite pros!
               </div>
             </div>
@@ -198,10 +202,6 @@ export const LandingPage = () => {
 
       <div className="content-panel-one">
         <div className="content-panel-one-responsive">
-          <div className="content-panel-one-image">
-            <img src={graphic2} className="why-touchbase-img1" ></img>
-            <img src={graphic3} className="why-touchbase-img2" ></img>
-          </div>
           <div className="content-panel-one-text">
             <div className="why-touchbase">
               Why Touchbase?
@@ -213,6 +213,10 @@ export const LandingPage = () => {
               Get personalized help and advice - from people that you already know, trust,
               and follow. Whether it's personal or for business, our experts are excited to chat.
             </div>
+          </div>
+          <div className="content-panel-one-image">
+            <img src={graphic2} className="why-touchbase-img1" ></img>
+            <img src={graphic3} className="why-touchbase-img2" ></img>
           </div>
         </div>
       </div>

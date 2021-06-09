@@ -100,8 +100,8 @@
 .redirect-to-signup {
   padding-top: 20px;
   font-family: "HelveticaNeue-Light", sans-serif;
-  font-size: 15px;
   color: black;
+  font-size: 30px;
   text-align: center;
   //position: relative;
   //min-width: 55%;
@@ -109,9 +109,24 @@
   //width: 50%;
 }
 
+.redirect-to-signup p {
+  font-size: 20px;
+}
 
 .signup-link {
   font-family: "HelveticaNeue-Light", sans-serif;
   font-size: 15px;
   color: #5271ff;
+}
+
+@media screen and (max-width: 800px) {
+  .login-form {
+    background-color: #E8E9ED;
+    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 40px;
+    width: 80%;
+    margin: auto;
+  }
 }

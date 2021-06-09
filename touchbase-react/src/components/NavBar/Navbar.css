@@ -1,10 +1,11 @@
 .navbar-items {
-  //background-color: yellow;
+  background-color: white;
   height: 100%;
   width: 100%;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  z-index: 9999;
 }
 
 .navbar-logo {
@@ -12,6 +13,11 @@
   width: 25%;
   padding-left: 30px;
   padding-top: 10px;
+}
+
+.navbar-logo .logo {
+  width: 200px;
+  height: 100%;
 }
 
 .nav-items {
@@ -52,4 +58,17 @@
 
 .nav-links-sign-up:hover {
   color: black;
+}
+
+@media screen and (max-width: 600px) {
+
+  .navbar-logo .logo {
+    width: 160px;
+    height: 100%;
+    //margin-top: 5px;
+  }
+
+  .menu-items {
+    padding-top: 10px;
+  }
 }

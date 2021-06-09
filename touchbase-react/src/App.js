@@ -29,13 +29,10 @@ function App() {
       <div className="public-pages">
           <Switch>
             <Route exact path="/" component={LandingPage} />
-            <Route path="/featured" component={Featured} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/seller/:id" component={InfluencerTouchbases}/>
             <Route path="/seller/:id1/iterations/:id2" component={Iterations}/>
-            <Route path="/about" component={About}/>
             <Route path="/login" component={Login}/>
-            <Route path="/explore" component={Explore}/>
             <Route path="/signup/influencer-info" component={InfluencerInfo}/>
           </Switch>
       </div>
@@ -47,7 +44,6 @@ function App() {
           <Route path="/dashboard/yourtouchbases" component={YourTouchbases}/>
           <Route path="/dashboard/meetings" component={MeetingsUpcoming}/>
           <Route path="/dashboard/past-meetings" component={MeetingsPast}/>
-          <Route path="/dashboard/profile" component={Profile}/>
           <Route path="/dashboard/change-email" component={ChangeEmail}/>
           <Route path="/dashboard/change-password" component={ChangePassword}/>
         </Switch>

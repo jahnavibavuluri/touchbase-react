@@ -1,6 +1,7 @@
 .calendar .react-calendar {
   width: 81vw;
   height: 80vh;
+  min-height: 680px;
   max-width: 100%;
   background: white;
   //border: 3px solid #a0a096;
@@ -51,12 +52,13 @@
 }
 .calendar .react-calendar__navigation {
   height: 5vh;
+  min-height: 50px;
   margin-bottom: 1em;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
 }
 .calendar .react-calendar__navigation button {
-  min-width: 100px;
+  min-width: 50px;
   background: none;
   border: 3px solid #f0f2f5;
 }
@@ -111,13 +113,14 @@
 .calendar .react-calendar__tile {
   max-width: 100%;
   max-height: 100%;
+  min-height: 80px;
   text-align: center;
   padding: 0.75em 0.5em;
   border: 10px solid black;
   height: 10vh;
-  font-size: 20px;
+  font-size: 15px;
   font-family: "HelveticaNeue-Light", sans-serif;
-
+  //background-color: yellow;
 }
 .calendar .react-calendar__tile:disabled {
   background-color: orange;

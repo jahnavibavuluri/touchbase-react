@@ -25,7 +25,6 @@ export const MenuInfluencer = props => {
     <div class="sidebar">
       <div class="profile_info">
         <img src={favicon} class="profile_image" alt=""></img>
-        <h4>{props.user}</h4>
       </div>
       <a href="/dashboard"><i class="fas fa-desktop"></i><span>Home</span></a>
       <a href="/dashboard/yourtouchbases"><i class="fas fa-cogs"></i><span>Touchbases</span></a>

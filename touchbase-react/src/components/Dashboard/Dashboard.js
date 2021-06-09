@@ -151,20 +151,18 @@ export const Dashboard = () => {
   }
 
   return (
-      <div className="dashboard-content">
-        <div className="dashboard-menu">
+        <div className="dashboard-content">
           {dashboard}
-        </div>
 
-        <div className="username">
-          <div>Welcome.</div>
-          <div className="sub"> Here's how your schedule is looking like for the month. </div>
-        </div>
+          <div className="username">
+            <div>Welcome.</div>
+            <div className="sub"> Here's how your schedule is looking like for the month. </div>
+          </div>
 
-        <div className="calendar">
-          <Calendar className="home-calendar" calendarType="US" tileContent={tileContent} onChange={onChange} onClickDay={handleDatePopup}/>
+          <div className="calendar">
+            <Calendar className="home-calendar" calendarType="US" tileContent={tileContent} onChange={onChange} onClickDay={handleDatePopup}/>
+          </div>
+          {/*{isOpenPopup && <EventPopup handleClose={togglePopup} dict={iteration}/>}*/}
         </div>
-        {/*{isOpenPopup && <EventPopup handleClose={togglePopup} dict={iteration}/>}*/}
-      </div>
   );
 }

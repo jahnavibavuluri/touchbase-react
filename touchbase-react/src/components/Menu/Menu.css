@@ -56,11 +56,13 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  //background-color: yellow;
+  //width: 20%;
 }
 
 .sidebar .profile_info .profile_image{
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border-radius: 100px;
   margin-bottom: 10px;
 }
@@ -77,10 +79,15 @@ body{
   width: 100%;
   line-height: 60px;
   text-decoration: none;
-  padding-left: 40px;
+  padding-left: 10px;
   box-sizing: border-box;
   transition: 0.5s;
   transition-property: background;
+  //background-color: red;
+}
+
+.sidebar > div {
+  padding-left: 10px;
 }
 
 .sidebar a:hover{
@@ -199,7 +206,7 @@ label #sidebar_btn:hover{
 
 /* Responsive CSS */
 
-@media screen and (max-width: 780px){
+@media screen and (max-width: 1100px){
   .sidebar{
     display: none;
   }
@@ -220,18 +227,19 @@ label #sidebar_btn:hover{
   }
 
   .mobile_nav{
-    display: block;
+    display: flex;
     width: calc(100% - 0%);
   }
 
   .nav_bar{
     background: #222;
-    width: (100% - 0px);
-    margin-top: 70px;
+    width: inherit;
+    //margin-top: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    //background-color: purple;
   }
 
   .nav_bar .mobile_profile_image{
@@ -253,7 +261,7 @@ label #sidebar_btn:hover{
   }
 
   .mobile_nav_items{
-    background: #2F323A;
+    //background: #2F323A;
     display: none;
   }
 
