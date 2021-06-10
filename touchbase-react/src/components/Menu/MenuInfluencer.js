@@ -1,6 +1,7 @@
 import React from 'react';
 import './Menu.css'
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
+import menu_icon from '../../images/TouchbaseIcons/mobile-menu-icon.png'
 
 export const MenuInfluencer = props => {
 
@@ -20,6 +21,17 @@ export const MenuInfluencer = props => {
         <a href="/dashboard/profile"><i class="fas fa-th"></i><span>Settings</span></a>
         <a href="/logout"><i class="fas fa-info-circle"></i><span>Logout</span></a>
       </div>
+        <div class="dropdown-menu-icon">
+          <i class="fas fa-th"></i>
+          <span class="dropbtn-menu-icon"><img className="menu-icon-class" src={menu_icon}/></span>
+          <div class="dropdown-content-menu-icon">
+            <a href="/dashboard">Home</a>
+            <a href="/dashboard/yourtouchbases">Touchbases</a>
+            <a href="/dashboard/meetings">Meetings</a>
+            <a href="/dashboard/profile">Settings</a>
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
     </div>
 
     <div class="sidebar">

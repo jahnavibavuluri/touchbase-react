@@ -9,6 +9,7 @@
   transition: 1s ease-out;
   text-align: left;
   color: black;
+  padding: 30px;
 }
 
 .my-touchbase-content-ind:hover {
@@ -41,7 +42,8 @@
   border: 1px solid white;
   width: 200px;
   margin-bottom: 10px;
-  margin-left: 20px;
+  //margin-left: 20px;
+  margin-top: 20px;
   font-weight: 600;
 }
 

@@ -207,6 +207,87 @@
     margin-left: 1vw;
   }
 
+  .your-touchbases-one-on-one {
+    display: block;
+    grid-template-columns: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .your-touchbases-class {
+    display: block;
+    grid-template-columns: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .your-touchbases-breakout {
+    display: block;
+    grid-template-columns: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .one-on-one-heading {
+    grid-column-start: 1;
+    background-color: #4c98ed;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    border-radius: 10px;
+    height: 100px;
+  }
+
+  .class-heading {
+    grid-column-start: 1;
+    background-color: #ef7d7d;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    border-radius: 10px;
+    height: 100px;
+  }
+
+  .breakout-heading {
+    grid-column-start: 1;
+    background-color: #f4b959;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    border-radius: 10px;
+    height: 100px;
+  }
+
+  .add-touchbase-button {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 200;
+    margin-top: 20px;
+    background: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 50px;
+    height: 30px;
+  }
+
 }
 
 @media screen and (max-width: 700px) {

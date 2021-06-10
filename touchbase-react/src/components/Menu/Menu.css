@@ -204,6 +204,64 @@ label #sidebar_btn:hover{
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
+.menu-icon-class {
+  width: 50px;
+  height: auto;
+  background-color: #2f323a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-menu-icon {
+  //position: relative;
+  display: inline-block;
+  color: #fff;
+  display: block;
+  //width: 100%;
+  //line-height: 60px;
+  text-decoration: none;
+  padding-right: 30px;
+  padding-top: 15px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+  background-color: #2f323a;
+}
+
+.dropdown-menu-icon:hover {
+  //background-color: #5271ff;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content-menu-icon {
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: 70px;
+  background-color: #f1f1f1;
+  //background-color: red;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+/* Links inside the dropdown */
+.dropdown-content-menu-icon a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content-menu-icon a:hover {
+  background-color: #5271ff;
+  color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown-menu-icon:hover .dropdown-content-menu-icon {display: block;}
+
 /* Responsive CSS */
 
 @media screen and (max-width: 1100px){
