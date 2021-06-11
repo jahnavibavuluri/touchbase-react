@@ -18,19 +18,19 @@ const IndividualMeetingPast = props => {
       </div>
 
       <div className="ind-part-past">
-        {props.customers}
+        <div className="ind-meeting-past-heading">Participants: </div>{props.customers}
       </div>
 
       <div className="ind-date-past">
-        {props.date}
+        <div className="ind-meeting-past-heading">Date: </div>{props.date}
       </div>
 
       <div className="ind-start-time-past">
-        {props.startTime}
+        <div className="ind-meeting-past-heading">Start at: </div>{props.startTime}
       </div>
 
       <div className="ind-end-time-past">
-        {props.endTime}
+        <div className="ind-meeting-past-heading">End at: </div>{props.endTime}
       </div>
 
     </div>

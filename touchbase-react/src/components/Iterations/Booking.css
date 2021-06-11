@@ -1,4 +1,4 @@
-.ind-content {
+.ind-content-booking {
   //display: flex;
   height: 10vh;
   align-items: center;
@@ -16,12 +16,12 @@
   animation-fill-mode: both;
 }
 
-.ind-content > div {
+.ind-content-booking > div {
   margin-right: 5%;
   margin-left: 5%;
 }
 
-.ind-book-button {
+.ind-book-button-booking {
   color: black;
   background-color: white;
   font-size: 18px;
@@ -31,14 +31,17 @@
   padding: 10px 20px;
   font-family: "HelveticaNeue-Light", sans-serif;
   border: 1px solid white;
-  width: 200px;
-  border: 2px solid black;
+  width: 150px;
   font-weight: 600;
 }
 
-.ind-title {
+.ind-title-booking {
   font-weight: 600;
   font-size: 20px;
+}
+
+.ind-meeting-booking-heading {
+  display: none;
 }
 
 @keyframes slideInTop {
@@ -60,6 +63,25 @@
 
   to {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@media screen and (max-width: 1500px) {
+
+  .ind-content-booking {
+    //background-color: pink;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 20px;
+  }
+  .ind-content-booking > div {
+    padding-top: 10px;
+  }
+
+  .ind-meeting-booking-heading {
+    display: inline;
+    font-weight: 600;
   }
 }
 

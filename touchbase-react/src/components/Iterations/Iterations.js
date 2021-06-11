@@ -14,11 +14,13 @@ export const Iterations = () => {
     <div className="header-footer">
       <Navbar />
 
+      <div className="iterations-content">
+
       <div className="influencer-left-side-info-iteration">
         {/*<a href='/'>
           <img src={logo} width="200" height="60"/>
         </a>*/}
-        <div className="seller-name">Influencer Name</div>
+        <div className="seller-name">Jahnavi Bavuluri</div>
         <div className="seller-handles">@Twitter_Handle</div>
         <div className="seller-handles">@Instagram_Handle</div>
         <div className="seller-categories">
@@ -33,7 +35,7 @@ export const Iterations = () => {
 
         <div className="main-content">
           <div className="main-content-responsive">
-            <div className="ind-meet-content">
+            <div className="ind-meet-content-iterations">
 
               <div className="ind-meet-title">
                 Title
@@ -86,6 +88,7 @@ export const Iterations = () => {
           </div>
         </div>
 
+        </div>
 
       <Footer/>
     </div>

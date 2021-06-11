@@ -32,13 +32,16 @@
   font-family: "HelveticaNeue-Light", sans-serif;
   border: 1px solid white;
   width: 100px;
-  border: 2px solid black;
   font-weight: 600;
 }
 
 .ind-title {
   font-weight: 600;
   font-size: 20px;
+}
+
+.ind-meeting-upcoming-heading {
+  display: none;
 }
 
 @keyframes slideInTop {
@@ -60,5 +63,23 @@
 
   to {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .ind-content {
+    //background-color: pink;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 20px;
+  }
+  .ind-content > div {
+    padding-top: 10px;
+  }
+
+  .ind-meeting-upcoming-heading {
+    display: inline;
+    font-weight: 600;
   }
 }

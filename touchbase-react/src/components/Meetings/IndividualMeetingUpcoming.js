@@ -20,19 +20,19 @@ const IndividualMeetingUpcoming = props => {
       </div>
 
       <div className="ind-current-part">
-        {props.customers}
+        <div className="ind-meeting-upcoming-heading">Current Participants: </div>{props.customers}
       </div>
 
       <div className="ind-date">
-        {props.date}
+        <div className="ind-meeting-upcoming-heading">Date: </div>{props.date}
       </div>
 
       <div className="ind-start-time">
-        {props.startTime}
+        <div className="ind-meeting-upcoming-heading">Start at: </div>{props.startTime}
       </div>
 
       <div className="ind-end-time">
-        {props.endTime}
+        <div className="ind-meeting-upcoming-heading">End at: </div>{props.endTime}
       </div>
 
       <div className="ind-join">

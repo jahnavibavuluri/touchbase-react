@@ -10,34 +10,34 @@ const Booking = props => {
   let cost = "19.99"
 
   return (
-    <div className="ind-content">
+    <div className="ind-content-booking">
 
-      <div className="ind-title">
+      <div className="ind-title-booking">
         Touchbase Title {/*props.title*/}
       </div>
 
-      <div className="ind-date">
-        {date}{/*props.date*/}
+      <div className="ind-date-booking">
+        <div className="ind-meeting-booking-heading">Date: </div>{date}{/*props.date*/}
       </div>
 
-      <div className="ind-start-time">
-        {startTime}{/*props.startTime*/}
+      <div className="ind-start-time-booking">
+        <div className="ind-meeting-booking-heading">Start at: </div>{startTime}{/*props.startTime*/}
       </div>
 
-      <div className="ind-end-time">
-        {endTime}{/*props.endTime*/}
+      <div className="ind-end-time-booking">
+        <div className="ind-meeting-booking-heading">End at: </div>{endTime}{/*props.endTime*/}
       </div>
 
-      <div className="ind-current-part">
-        {spotsOpen}{/*props.customers*/}
+      <div className="ind-current-part-booking">
+        <div className="ind-meeting-booking-heading">Current Participants: </div>{spotsOpen}{/*props.customers*/}
       </div>
 
-      <div className="ind-current-cost">
+      <div className="ind-current-cost-booking">
         {cost}{/*props.customers*/}
       </div>
 
-      <div className="ind-join">
-        <button className="ind-book-button">Book it</button>
+      <div className="ind-join-booking">
+        <button className="ind-book-button-booking">Book it</button>
       </div>
 
     </div>
