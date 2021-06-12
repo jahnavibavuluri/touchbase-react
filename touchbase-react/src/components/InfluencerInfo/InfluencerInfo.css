@@ -105,3 +105,17 @@
   border-radius: 12px;
   font-family: "HelveticaNeue-Light", sans-serif;
 }
+
+
+
+@media screen and (max-width: 1300px) {
+  .influencer-info-form {
+    //background-color: red;
+    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 40px;
+    width: 80%;
+    margin: auto;
+  }
+}

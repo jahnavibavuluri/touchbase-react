@@ -300,8 +300,8 @@ export const PopupBreakout = props => {
           <input className="cost-input" onChange={handleCost}/>
         </div>
         <div className="form-buttoms">
-          <button className="cancel-button" onClick={props.handleClose}>Cancel</button>
-          <button className="save-button" onClick={getToastType} >Save</button>
+          <button className="cancel-button-breakout" onClick={props.handleClose}>Cancel</button>
+          <button className="save-button-breakout" onClick={getToastType} >Save</button>
         </div>
       </div>
       <div className="toast">

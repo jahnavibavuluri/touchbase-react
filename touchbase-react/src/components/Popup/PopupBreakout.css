@@ -90,20 +90,32 @@
   padding-top: 50px;
 }
 
-.cancel-button {
-  color: white;
-  background-color: #5271ff;
+.cancel-button-breakout {
+  color: black;
+  background-color: #E8E9ED;
+  border: 1px solid #E8E9ED;
   font-size: 15px;
   padding: 6px 16px;
   border-radius: 12px;
   font-family: "HelveticaNeue-Light", sans-serif;
+  margin-right: 5px;
 }
 
-.save-button {
-  color: white;
-  background-color: #5271ff;
+.save-button-breakout {
+  color: black;
+  background-color: #E8E9ED;
+  border: 1px solid #E8E9ED;
   font-size: 15px;
   padding: 6px 16px;
   border-radius: 12px;
   font-family: "HelveticaNeue-Light", sans-serif;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+
+  .popup-box {
+    margin-left: 0px;
+  }
+
 }

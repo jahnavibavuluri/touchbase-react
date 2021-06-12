@@ -205,7 +205,7 @@ label #sidebar_btn:hover{
 .dropdown:hover .dropdown-content {display: block;}
 
 .menu-icon-class {
-  width: 50px;
+  width: 30px;
   height: auto;
   background-color: #2f323a;
   display: flex;
@@ -222,11 +222,11 @@ label #sidebar_btn:hover{
   //line-height: 60px;
   text-decoration: none;
   padding-right: 30px;
-  padding-top: 15px;
+  padding-top: 25px;
   box-sizing: border-box;
   transition: 0.5s;
   transition-property: background;
-  background-color: #2f323a;
+  background-color: #222222;
 }
 
 .dropdown-menu-icon:hover {
@@ -264,7 +264,7 @@ label #sidebar_btn:hover{
 
 /* Responsive CSS */
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1100px) {
   .sidebar{
     display: none;
   }

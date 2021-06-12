@@ -86,21 +86,25 @@
 }
 
 .cancel-button-oneonone{
-  color: white;
-  background-color: #5271ff;
+  color: black;
+  background-color: #E8E9ED;
+  border: 1px solid #E8E9ED;
   font-size: 15px;
   padding: 6px 16px;
   border-radius: 12px;
   font-family: "HelveticaNeue-Light", sans-serif;
+  margin-right: 5px;
 }
 
 .save-button-oneonone {
-  color: white;
-  background-color: #5271ff;
+  color: black;
+  background-color: #E8E9ED;
+  border: 1px solid #E8E9ED;
   font-size: 15px;
   padding: 6px 16px;
   border-radius: 12px;
   font-family: "HelveticaNeue-Light", sans-serif;
+  margin-left: 5px;
 }
 
 .toast {
@@ -126,4 +130,12 @@
 @keyframes right-to-left{
     from{left:0}
     to{left:100%}
+}
+
+@media screen and (max-width: 1100px) {
+
+  .popup-box-oneonone {
+    margin-left: 0px;
+  }
+
 }

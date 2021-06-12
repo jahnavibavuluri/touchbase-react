@@ -301,8 +301,8 @@ export const PopupClass = props => {
           <input className="cost-input" onChange={handleCost}/>
         </div>
         <div className="form-buttoms">
-          <button className="cancel-button" onClick={props.handleClose}>Cancel</button>
-          <button className="save-button" onClick={getToastType} >Save</button>
+          <button className="cancel-button-class" onClick={props.handleClose}>Cancel</button>
+          <button className="save-button-class" onClick={getToastType} >Save</button>
         </div>
       </div>
       <Toast
