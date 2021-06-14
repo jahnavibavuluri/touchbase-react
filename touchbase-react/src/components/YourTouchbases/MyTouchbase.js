@@ -10,7 +10,6 @@ const MyTouchbase = props => {
       <div>Cost: ${props.cost}</div>
       <div>{props.next}</div>
       <div className="my-touchbase-content-buttons">
-        <button className="my-touchbase-content-edit">Edit</button>
         <button className="my-touchbase-content-delete">Delete</button>
       </div>
     </div>

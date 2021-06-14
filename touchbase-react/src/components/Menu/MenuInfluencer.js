@@ -28,10 +28,10 @@ export const MenuInfluencer = props => {
             <a href="/dashboard">Home</a>
             <a href="/dashboard/yourtouchbases">Touchbases</a>
             <a href="/dashboard/meetings">Meetings</a>
-            <div class="dropdown">
+            <div class="dropdown-mobile">
               <i class="fas fa-th"></i>
-              <span class="dropbtn">Settings</span>
-              <div class="dropdown-content">
+              <span class="dropbtn-mobile">Settings</span>
+              <div class="dropdown-content-mobile">
                 <a href="/dashboard/change-email">Change Email</a>
                 <a href="/dashboard/change-password">Change Password</a>
               </div>
