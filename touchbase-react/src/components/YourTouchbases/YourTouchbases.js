@@ -181,6 +181,7 @@ export const YourTouchbases = () => {
                 console.log(nextIteration);
                 return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
               })}
+              {oneOnOnes.length === 0 && <div className="no-upcoming-tbs">You have no 1:1 Touchbases! Add one and have the chance to have one on one sessions with your fans.</div>}
             </div>
           </div>
 
@@ -200,6 +201,7 @@ export const YourTouchbases = () => {
               {classtb.map(function(name, index){
                 return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
               })}
+              {classtb.length === 0 && <div className="no-upcoming-tbs">You have no Class Touchbases! Add one and focus on a specific project of discussion with your fans.</div>}
             </div>
           </div>
 
@@ -221,6 +223,7 @@ export const YourTouchbases = () => {
               {breakouts.map(function(name, index){
                 return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
               })}
+              {breakouts.length === 0 && <div className="no-upcoming-tbs">You have no Breakout Touchbases! Add one and have the chance to engage and have fun with your fans.</div>}
             </div>
           </div>
 

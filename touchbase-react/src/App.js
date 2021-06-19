@@ -18,6 +18,7 @@ import { MeetingsPast } from './components/Meetings/MeetingsPast'
 import { InfluencerInfo } from './components/InfluencerInfo/InfluencerInfo'
 import { ChangeEmail } from './components/Settings/ChangeEmail'
 import { ChangePassword } from './components/Settings/ChangePassword'
+import { Error } from './components/Error/Error'
 //import Navbar from './components/NavBar/Navbar.js'
 //import Footer from './components/Footer/Footer.js'
 
@@ -34,6 +35,7 @@ function App() {
             <Route path="/seller/:id1/iterations/:id2" component={Iterations}/>
             <Route path="/login" component={Login}/>
             <Route path="/signup/influencer-info" component={InfluencerInfo}/>
+            <Route path="/error" component={Error} />
           </Switch>
       </div>
 

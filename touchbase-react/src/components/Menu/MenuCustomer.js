@@ -34,7 +34,7 @@ export const MenuCustomer = props => {
 
   <div class="sidebar">
     <div class="profile_info">
-      <img src={favicon} class="profile_image" alt=""></img>
+      <img href="/" src={favicon} class="profile_image" alt=""></img>
     </div>
     <a href="/dashboard"><i class="fas fa-desktop"></i><span>Home</span></a>
     <a href="/dashboard/meetings"><i class="fas fa-table"></i><span>Meetings</span></a>

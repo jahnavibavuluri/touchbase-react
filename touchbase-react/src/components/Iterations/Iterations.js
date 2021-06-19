@@ -1,14 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import './Iterations.css'
 import Booking from './Booking.js'
 
-export const Iterations = () => {
+export const Iterations = ({match:{params:{id1, id2}}}) => {
 
   let influencerName = "John Smith"
   let categories = ["Gaming, Streaming, Technology, Cooking, Baking, Food"]
   let touchbase = "How to make a webpage with React!"
+
+  useEffect(() => {
+    fetch(`/seller/${id1}/iterations/${id2}`)
+    .then(response => {
+      const statusCode = response.status;
+      const data = response.json();
+      return Promise.all([statusCode, data]);
+    })
+    .then((res, data) => {
+      console.log(res[1]);
+      //setOneList(res[1].oneOnones)
+      //setClassList(res[1].classes)
+      //setBreakoutList(res[1].breakouts)
+      //setName(res[1].firstName + " " + res[1].lastName)
+      //setCategories(res[1].categories)
+      //setInfluencerId(res[1].influencer_id)
+    })
+    .catch(error => {
+      console.error(error);
+      return {name: "network error", description:""};
+    });
+  }, [])
 
   return(
     <div className="header-footer">

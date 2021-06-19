@@ -274,7 +274,7 @@ export const LandingPage = () => {
         <div className="join-as-influencer-content">
           <div className="join-as-influencer-text">
             Get started today by joining as either an influencer or a customer.
-            <div><button className="join-as-influencer-button"> Sign up </button></div>
+            <div><button className="join-as-influencer-button" onClick={handleExplore}> Sign up </button></div>
           </div>
         </div>
       </div>

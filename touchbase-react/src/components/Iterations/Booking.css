@@ -35,6 +35,12 @@
   font-weight: 600;
 }
 
+.ind-book-button-booking:hover {
+  background-color: #2f323a;
+  color: white;
+  transition: 1s ease-out;
+}
+
 .ind-title-booking {
   font-weight: 600;
   font-size: 20px;

@@ -157,6 +157,19 @@
   border-radius: 10px;
 }
 
+.no-upcoming-tbs {
+  background-color: #f0f2f5;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  //width: 600px;
+}
+
 @keyframes slideInTop {
   from {
     transform: translate3d(0, 10%, 0);
