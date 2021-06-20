@@ -3,10 +3,27 @@ import './IndividualMeetingNew.css'
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
 import { MenuCustomer } from '../Menu/MenuCustomer.js'
+import { differenceInCalendarDays } from 'date-fns';
 
 const IndividualMeetingUpcoming = props => {
 
-  console.log(props.customers)
+  //console.log(props.date)
+  let button;
+  let date = Date.now()
+  let date2 = new Date(props.date)
+
+  const isValidDate = a => b => {
+    return differenceInCalendarDays(a, b);
+  }
+  console.log("date is: " + date)
+  console.log("date2 is: " + date2)
+  console.log(differenceInCalendarDays(date2, date))
+
+  if (differenceInCalendarDays(date2, date) < 1) {
+    button = <button className="ind-join-button">Join</button>
+  } else {
+    button = <button className="ind-cancel-button">Cancel</button>
+  }
 
   return (
     <div className="ind-content">
@@ -36,7 +53,7 @@ const IndividualMeetingUpcoming = props => {
       </div>
 
       <div className="ind-join">
-        <button className="ind-join-button">Join</button>
+        {button}
       </div>
 
     </div>

@@ -133,7 +133,7 @@ export const MeetingsUpcoming = props => {
         <ul >
           {Object.entries(upcomingMeetings).map( ([key, value]) => {
             return (
-              <IndividualMeetingUpcoming key={key} type={getType(value.tb_type)} date={(value.date).substring(0, (value.date.length - 13))} startTime={value.startTime} endTime={value.endTime} title={value.title} customers={value.customers.length}/>
+              <IndividualMeetingUpcoming key={key} type={getType(value.tb_type)} date={(value.date)} startTime={value.startTime} endTime={value.endTime} title={value.title} customers={value.customers.length}/>
             )
           })}
         </ul>
@@ -144,3 +144,5 @@ export const MeetingsUpcoming = props => {
   );
 
 }
+
+/*{(value.date).substring(0, (value.date.length - 13))}*/

@@ -32,7 +32,23 @@
   font-family: "HelveticaNeue-Light", sans-serif;
   border: 1px solid white;
   width: 100px;
-  font-weight: 600;
+  //font-weight: 600;
+  border: 3px solid #5271ff;
+}
+
+.ind-cancel-button {
+  color: black;
+  background-color: white;
+  font-size: 18px;
+  border-radius: 12px;
+  margin: 15px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  border: 1px solid white;
+  width: 100px;
+  //font-weight: 600;
+  border: 2px solid gray;
 }
 
 .ind-title {
