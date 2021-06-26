@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../NavBar/Navbar.js'
+import {Navbar} from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import './InfluencerTouchbases.css'
 import oooicon from '../../images/TouchbaseIcons/one-on-one-icon.png'
@@ -17,12 +17,15 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
   const [breakoutList, setBreakoutList] = useState({});
   const [name, setName] = useState("")
   const [categories, setCategories] = useState("")
+  const [bio, setBio] = useState("")
+  const [twitterHandle, setTwitterHandle] = useState("")
+  const [instagramHandle, setInstagramHandle] = useState("")
   const [influencer_id, setInfluencerId] = useState(0);
   //props.id = 4
 
 
   useEffect(() => {
-    fetch(`/seller/${id}`)
+    fetch(`/api/seller/${id}`)
     .then(response => {
       const statusCode = response.status;
       const data = response.json();
@@ -35,6 +38,9 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
       setBreakoutList(res[1].breakouts)
       setName(res[1].firstName + " " + res[1].lastName)
       setCategories(res[1].categories)
+      setBio(res[1].bio)
+      setTwitterHandle(res[1].twitterHandle)
+      setInstagramHandle(res[1].instagramHandle)
       setInfluencerId(res[1].influencer_id)
     })
     .catch(error => {
@@ -59,15 +65,16 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
           <img src={logo} width="200" height="60"/>
         </a>*/}
         <div className="seller-name">{name}</div>
-        <div className="seller-handles">@Twitter_Handle</div>
-        <div className="seller-handles">@Instagram_Handle</div>
+        <div className="seller-handles"><b>Twitter: </b>{twitterHandle}</div>
+        <div className="seller-handles"><b>Instagram: </b>{instagramHandle}</div>
         <div className="seller-categories">
+          <b>Categories:</b>
           {Object.entries(categories).map( ([key, value]) => {
             //setNextIteration(name.nextIteration);
             return <div>{value}</div>;
           })}
         </div>
-        <div className="seller-bio">Hi! My name is ____ and I love to cook! Come join me and learn new recipes with me!</div>
+        <div className="seller-bio">{bio}</div>
       </div>
 
         <div className="your-touchbases-grid-content-influencer">
@@ -90,7 +97,7 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
             </div>
             <div className="ind-class-influencer">
               {Object.entries(classList).map( ([key, value]) => {
-                return <Touchbase key={key} title={value.touchbase_title} description={value.touchbase_description} cost={value.cost} spots={value.openSpots} nextTime={(value.nextIterationTime).substring(0, (value.nextIterationTime.length-3))} nextDate={(value.nextIterationDate).substring(0, (value.nextIterationDate.length - 13))}/>;
+                return <Touchbase key={key} title={value.touchbase_title} description={value.touchbase_description} cost={value.cost} spots={value.openSpots} nextTime={(value.nextIterationTime).substring(0, (value.nextIterationTime.length-3))} nextDate={(value.nextIterationDate).substring(0, (value.nextIterationDate.length - 13))} influencer_id={influencer_id} touchbase_id={value.touchbase_id}/>;
               })}
             </div>
           </div>
@@ -103,7 +110,7 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
             </div>
             <div className="ind-breakout-influencer">
               {Object.entries(breakoutList).map( ([key, value]) => {
-                return <Touchbase key={key} title={value.touchbase_title} description={value.touchbase_description} cost={value.cost} spots={value.openSpots} nextTime={(value.nextIterationTime).substring(0, (value.nextIterationTime.length-3))} nextDate={(value.nextIterationDate).substring(0, (value.nextIterationDate.length - 13))}/>;
+                return <Touchbase key={key} title={value.touchbase_title} description={value.touchbase_description} cost={value.cost} spots={value.openSpots} nextTime={(value.nextIterationTime).substring(0, (value.nextIterationTime.length-3))} nextDate={(value.nextIterationDate).substring(0, (value.nextIterationDate.length - 13))} influencer_id={influencer_id} touchbase_id={value.touchbase_id}/>;
               })}
             </div>
           </div>
@@ -178,7 +185,7 @@ export const InfluencerTouchbases = ({match:{params:{id}}}) => {
       </div>
 
       <div className="seller-footer">
-        <Footer />
+        {/*<Footer />*/}
       </div>
     </div>
   );

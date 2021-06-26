@@ -20,7 +20,7 @@ export const Meetings = () => {
   }
 
   useEffect(() => {
-    fetch('/dashboard')
+    fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);
@@ -43,7 +43,7 @@ export const Meetings = () => {
 
 
   useEffect(() => {
-    fetch('/profile/meetings')
+    fetch('/api/profile/meetings')
     .then(response => {
       const statusCode = response.status;
       const data = response.json();

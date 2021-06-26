@@ -20,7 +20,7 @@ export const EditEmailPopup = props => {
 
     const changeEmail = (event) => {
       event.preventDefault();
-      fetch('/profile/edit/email', {
+      fetch('/api/profile/edit/email', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

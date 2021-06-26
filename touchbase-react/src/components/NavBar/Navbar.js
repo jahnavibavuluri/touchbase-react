@@ -1,10 +1,33 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { MenuItems } from "./MenuItems";
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png';
 import './Navbar.css'
 
-class Navbar extends Component {
-  render() {
+export const Navbar = () => {
+
+  const [username, setUsername] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    fetch('/api/isLoggedIn')
+  .then(response => {
+    const statusCode = response.status;
+    const data = response.json();
+    return Promise.all([statusCode, data]);
+  })
+  .then((res) => {
+    if (res[0] === 201 || res[0] === 202) {
+      setLoggedIn(true);
+      setUsername(res[1].firstName + " " + res[1].lastName);
+    }
+    console.log(res);
+  })
+  .catch(error => {
+    console.error(error);
+    return { name: "network error", description: "" };
+  });
+},[])
+
     return (
       <nav className="navbar-items">
         <div className="navbar-logo">
@@ -13,7 +36,7 @@ class Navbar extends Component {
           </a>
         </div>
         <div className="menu-items">
-          <ul >
+          {!loggedIn && <ul >
             {MenuItems.map((item,index) => {
               return (
                 <li className="nav-items" key={index}>
@@ -23,11 +46,18 @@ class Navbar extends Component {
                 </li>
               )
             })}
-          </ul>
+          </ul>}
+          {loggedIn && <ul>
+              <li className="nav-items">
+                <a className="nav-links-sign-up" href="/dashboard">
+                  {username}
+                </a>
+              </li>
+            </ul>
+          }
         </div>
       </nav>
-    )
+    );
   }
-}
 
-export default Navbar
+//export default Navbar

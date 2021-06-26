@@ -100,7 +100,7 @@ export const YourTouchbases = () => {
   ];*/
 
   useEffect(() => {
-    fetch('/dashboard')
+    fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);
@@ -122,14 +122,14 @@ export const YourTouchbases = () => {
   },[])
 
   useEffect(() => {
-    fetch('/profile/myTouchbases')
+    fetch('/api/profile/myTouchbases')
     .then(response => {
       const statusCode = response.status;
       const data = response.json();
       return Promise.all([statusCode, data]);
     })
     .then((res, data) => {
-      //console.log(res[1].oneOnones)
+      console.log(res[1])
       setOneOnOnes(res[1].oneOnones)
       setClass(res[1].classes)
       setBreakouts(res[1].breakouts)
@@ -179,7 +179,7 @@ export const YourTouchbases = () => {
               {oneOnOnes.map(function(name, index){
                 //setNextIteration(name.nextIteration);
                 console.log(nextIteration);
-                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost} tb_id={name.tb_id}/>;
               })}
               {oneOnOnes.length === 0 && <div className="no-upcoming-tbs">You have no 1:1 Touchbases! Add one and have the chance to have one on one sessions with your fans.</div>}
             </div>

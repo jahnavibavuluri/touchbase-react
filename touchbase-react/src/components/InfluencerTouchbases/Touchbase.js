@@ -8,7 +8,7 @@ const Touchbase = props => {
   const history = useHistory();
 
   const handleInteration = (event) => {
-    history.push("/seller/" + props.influencer_id + "/iterations/" + props.touchbase_id);
+    history.push("/api/seller/" + props.influencer_id + "/iterations/" + props.touchbase_id);
   }
 
   return(

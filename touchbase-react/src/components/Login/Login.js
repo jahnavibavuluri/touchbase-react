@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import './Login.css'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch'
-import Navbar from '../NavBar/Navbar.js'
+import {Navbar} from '../NavBar/Navbar.js'
 
 export const Login = () => {
 
@@ -12,7 +12,7 @@ export const Login = () => {
 //this section takes care of the person in session
 //same thing as compenentDidLoad
   useEffect(() => {
-    fetch('/login')
+    fetch('/api/login')
   .then(response => {
     const statusCode = response.status;
     //const data = response.json();
@@ -52,7 +52,7 @@ export const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     //const { email, firstName, lastName, password } = this.state
-    fetch('/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

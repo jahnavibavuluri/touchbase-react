@@ -6,7 +6,7 @@ export const Logout = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch('/logout')
+    fetch('/api/logout')
       .then(response => {
         const statusCode = response.status;
         return Promise.all([statusCode]);

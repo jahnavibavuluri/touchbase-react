@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import './InfluencerInfo.css'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch'
-import Navbar from '../NavBar/Navbar.js'
+import {Navbar} from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import Button from './Button.js'
 

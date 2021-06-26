@@ -16,7 +16,7 @@ export const MeetingsUpcoming = props => {
   }
 
   useEffect(() => {
-    fetch('/dashboard')
+    fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);
@@ -38,7 +38,7 @@ export const MeetingsUpcoming = props => {
 },[])
 
   useEffect(() => {
-    fetch('/profile/meetings')
+    fetch('/api/profile/meetings')
     .then(response => {
       const statusCode = response.status;
       const data = response.json();
@@ -133,7 +133,7 @@ export const MeetingsUpcoming = props => {
         <ul >
           {Object.entries(upcomingMeetings).map( ([key, value]) => {
             return (
-              <IndividualMeetingUpcoming key={key} type={getType(value.tb_type)} date={(value.date)} startTime={value.startTime} endTime={value.endTime} title={value.title} customers={value.customers.length}/>
+              <IndividualMeetingUpcoming key={key} type={getType(value.tb_type)} date={(value.date)} startTime={value.startTime} endTime={value.endTime} title={value.title} customers={value.customers.length} tb_id={value.touchbase_id} iter_id={value.iteration_id}/>
             )
           })}
         </ul>

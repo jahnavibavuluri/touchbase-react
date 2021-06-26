@@ -126,7 +126,7 @@ export const PopupBreakout = props => {
       console.log("input is wrong")
       history.push("/error")
     } else {
-        fetch('/profile/addTouchbase/breakout', {
+        fetch('/api/profile/addTouchbase/breakout', {
           method: 'POST',
           headers: {
             Accept: 'application/json',

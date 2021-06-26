@@ -126,7 +126,7 @@ export const PopupClass = props => {
       history.push("/error")
     }
     else {
-        fetch('/profile/addTouchbase/class', {
+        fetch('/api/profile/addTouchbase/class', {
           method: 'POST',
           headers: {
             Accept: 'application/json',

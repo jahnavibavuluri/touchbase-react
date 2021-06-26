@@ -36,7 +36,7 @@ export const Profile = () => {
   }
 
   useEffect(() => {
-    fetch('/dashboard')
+    fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);

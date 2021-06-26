@@ -32,7 +32,7 @@ function App() {
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/seller/:id" component={InfluencerTouchbases}/>
-            <Route path="/seller/:id1/iterations/:id2" component={Iterations}/>
+            <Route path="/api/seller/:id1/iterations/:id2" component={Iterations}/>
             <Route path="/login" component={Login}/>
             <Route path="/signup/influencer-info" component={InfluencerInfo}/>
             <Route path="/error" component={Error} />

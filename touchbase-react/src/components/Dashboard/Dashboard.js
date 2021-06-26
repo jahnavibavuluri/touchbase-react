@@ -119,7 +119,7 @@ export const Dashboard = () => {
   }
 
   useEffect(() => {
-    fetch('/dashboard')
+    fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
     const data = response.json();

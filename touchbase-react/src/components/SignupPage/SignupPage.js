@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import './SignupPage.css'
 import logo from '../../images/TouchbaseIcons/touchbase_logo.png'
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch'
-import Navbar from '../NavBar/Navbar.js'
+import {Navbar} from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 
 export const SignupPage = () => {
@@ -70,7 +70,7 @@ export const SignupPage = () => {
     event.preventDefault();
     //const { email, firstName, lastName, password } = this.state;
 
-    fetch('/signup', {
+    fetch('/api/signup', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -93,7 +93,7 @@ export const SignupPage = () => {
     }).then((res) => {
       //console.log(res);
       if (res[0] === 202) {
-        fetch('/signup/influencerStripe')
+        fetch('/api/signup/influencerStripe')
         .then(response => {
           const statusCode = response.status;
           const data = response.json();
@@ -101,7 +101,7 @@ export const SignupPage = () => {
         })
         .then((res) => {
           console.log(res);
-          history.push(res[1].link)
+          history.push(res[1].link)  /*ERROR HERE THIS SHOULD PUSH TO JUST HTTPS NOT LOCALHOST*/
         })
         .catch(error => {
           console.error(error);

@@ -32,13 +32,13 @@ class Footer extends Component {
         </div>
 
         <div className="touchbase-social-icons">
-          <a href='/twitter'>
+          <a href='http://twitter.com'>
             <img src={twitter} />
           </a>
-          <a href='/instagram'>
+          <a href='http://instagram.com'>
             <img src={insta} />
           </a>
-          <a href='/facebook'>
+          <a href='http://facebook.com'>
             <img src={facebook} />
           </a>
         </div>

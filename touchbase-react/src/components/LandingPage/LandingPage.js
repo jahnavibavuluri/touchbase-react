@@ -16,7 +16,7 @@ import stepOne from '../../images/LandingPage/how-it-works-1.png'
 import stepTwo from '../../images/LandingPage/how-it-works-2.png'
 import stepThree from '../../images/LandingPage/how-it-works-3.png'
 //import graphic from '../../images/LandingPage/icon3.jpg'
-import Navbar from '../NavBar/Navbar.js'
+import {Navbar} from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import NavbarUser from '../NavBar/NavbarUser.js'
 import placeholder from '../../images/ProfilePics/profile-placeholder.png'
@@ -90,7 +90,7 @@ export const LandingPage = () => {
     const [influencers, setInfluencers] = useState({});
 
     useEffect(() => {
-      fetch('/explore')
+      fetch('/api/explore')
       .then(response => {
         const statusCode = response.status;
         const data = response.json();

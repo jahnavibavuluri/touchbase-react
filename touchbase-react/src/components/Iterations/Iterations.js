@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../NavBar/Navbar.js'
+import {Navbar} from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import './Iterations.css'
 import Booking from './Booking.js'
 
 export const Iterations = ({match:{params:{id1, id2}}}) => {
 
-  let influencerName = "John Smith"
-  let categories = ["Gaming, Streaming, Technology, Cooking, Baking, Food"]
-  let touchbase = "How to make a webpage with React!"
+  //let influencerName = "John Smith"
+  //let categories = ["Gaming, Streaming, Technology, Cooking, Baking, Food"]
+  //let touchbase = "How to make a webpage with React!"
+  const [name, setName] = useState("")
+  const [categories, setCategories] = useState("")
+  const [bio, setBio] = useState("")
+  const [twitterHandle, setTwitterHandle] = useState("")
+  const [instagramHandle, setInstagramHandle] = useState("")
+  const [tbtitle, setTbTitle] = useState("")
+  const [iteration, setIterations] = useState({})
+  const [cost, setCost] = useState(0)
+  //const [iterationID, setIterationID] = useState(0)
 
   useEffect(() => {
-    fetch(`/seller/${id1}/iterations/${id2}`)
+    fetch(`/api/seller/${id1}/iterations/${id2}`)
     .then(response => {
       const statusCode = response.status;
       const data = response.json();
@@ -19,12 +28,14 @@ export const Iterations = ({match:{params:{id1, id2}}}) => {
     })
     .then((res, data) => {
       console.log(res[1]);
-      //setOneList(res[1].oneOnones)
-      //setClassList(res[1].classes)
-      //setBreakoutList(res[1].breakouts)
-      //setName(res[1].firstName + " " + res[1].lastName)
-      //setCategories(res[1].categories)
-      //setInfluencerId(res[1].influencer_id)
+      setName(res[1].influencerName)
+      setCategories(res[1].categories)
+      setTwitterHandle(res[1].twitterHandle)
+      setInstagramHandle(res[1].instagramHandle)
+      setTbTitle(res[1].touchbaseTitle)
+      setIterations(res[1].iterations)
+      setCost(res[1].cost)
+      //setIterationID(id2)
     })
     .catch(error => {
       console.error(error);
@@ -38,20 +49,21 @@ export const Iterations = ({match:{params:{id1, id2}}}) => {
 
       <div className="iterations-content">
 
-      <div className="influencer-left-side-info-iteration">
+      <div className="influencer-left-side-info">
         {/*<a href='/'>
           <img src={logo} width="200" height="60"/>
         </a>*/}
-        <div className="seller-name">Jahnavi Bavuluri</div>
-        <div className="seller-handles">@Twitter_Handle</div>
-        <div className="seller-handles">@Instagram_Handle</div>
+        <div className="seller-name">{name}</div>
+        <div className="seller-handles"><b>Twitter: </b>{twitterHandle}</div>
+        <div className="seller-handles"><b>Instagram: </b>{instagramHandle}</div>
         <div className="seller-categories">
+          <b>Categories:</b>
           {Object.entries(categories).map( ([key, value]) => {
             //setNextIteration(name.nextIteration);
             return <div>{value}</div>;
           })}
         </div>
-        <div className="seller-bio">Hi! My name is ____ and I love to cook! Come join me and learn new recipes with me!</div>
+        <div className="seller-bio">{bio}</div>
       </div>
 
 
@@ -101,10 +113,11 @@ export const Iterations = ({match:{params:{id1, id2}}}) => {
           </div>*/}
 
             <div className="bookings">
-              <Booking />
-              <Booking />
-              <Booking />
-              <Booking />
+              {Object.entries(iteration).map( ([key, value]) => {
+                return <Booking key={key} tb_title={tbtitle} cost={cost} date={value.date} start={value.startTime} end={value.endTime} current={value.numParticipants} open={value.remainingSpace} iter_id={value.iteration_id}/>
+              })}
+
+
             </div>
 
           </div>
@@ -112,7 +125,7 @@ export const Iterations = ({match:{params:{id1, id2}}}) => {
 
         </div>
 
-      <Footer/>
+      {/*<Footer/>*/}
     </div>
   );
 

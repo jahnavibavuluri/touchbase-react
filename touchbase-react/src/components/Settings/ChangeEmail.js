@@ -27,7 +27,7 @@ export const ChangeEmail = () => {
 
   const changeEmail = (event) => {
     event.preventDefault();
-    fetch('/profile/edit/email', {
+    fetch('/api/profile/edit/email', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -55,7 +55,7 @@ export const ChangeEmail = () => {
   }
 
   useEffect(() => {
-    fetch('/dashboard')
+    fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);

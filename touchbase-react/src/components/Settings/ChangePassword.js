@@ -28,7 +28,7 @@ export const ChangePassword = () => {
 
   const changePassword = (event) => {
     event.preventDefault();
-    fetch('/profile/edit/password', {
+    fetch('/api/profile/edit/password', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -56,7 +56,7 @@ export const ChangePassword = () => {
   }
 
   useEffect(() => {
-    fetch('/dashboard')
+    fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);

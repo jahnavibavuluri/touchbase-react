@@ -16,7 +16,7 @@ export const MeetingsPast = props => {
   }
 
   useEffect(() => {
-    fetch('/dashboard')
+    fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);
@@ -38,7 +38,7 @@ export const MeetingsPast = props => {
 },[])
 
   useEffect(() => {
-    fetch('/profile/meetings')
+    fetch('/api/profile/meetings')
     .then(response => {
       const statusCode = response.status;
       const data = response.json();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Featured.css'
 import { useHistory } from "react-router-dom";
 import { FeaturedPros } from './FeaturedPros.js'
-import Navbar from '../NavBar/Navbar.js'
+import {Navbar} from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import placeholder from '../../images/ProfilePics/profile-placeholder.png'
 
@@ -73,7 +73,7 @@ export const Featured = () => {
               </a>
             )
           })}
-      
+
 
         {/*<ul >
           {FeaturedPros.map((item,index) => {

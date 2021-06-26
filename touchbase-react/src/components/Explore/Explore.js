@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Explore.css'
 import { useHistory } from "react-router-dom";
 import { ExploreExampleInfluencers } from './ExploreExampleInfluencers.js'
-import Navbar from '../NavBar/Navbar.js'
+import {Navbar} from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import placeholder from '../../images/ProfilePics/profile-placeholder.png'
 

@@ -122,7 +122,7 @@ export const Popup1on1 = props => {
         console.log("input is wrong")
         history.push("/error")
       } else {
-          fetch('/profile/addTouchbase/oneOnone', {
+          fetch('/api/profile/addTouchbase/oneOnone', {
             method: 'POST',
             headers: {
               Accept: 'application/json',

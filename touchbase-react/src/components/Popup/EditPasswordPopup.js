@@ -20,7 +20,7 @@ export const EditPasswordPopup = props => {
 
     const changePassword = (event) => {
       event.preventDefault();
-      fetch('/profile/edit/password', {
+      fetch('/api/profile/edit/password', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

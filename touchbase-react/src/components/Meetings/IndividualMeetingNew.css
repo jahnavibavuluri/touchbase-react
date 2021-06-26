@@ -59,7 +59,6 @@
 .ind-meeting-upcoming-heading {
   display: none;
 }
-
 @keyframes slideInTop {
   from {
     transform: translate3d(0, 30%, 0);
