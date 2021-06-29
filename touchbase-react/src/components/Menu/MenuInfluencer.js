@@ -1,9 +1,17 @@
 import React from 'react';
 import './Menu.css'
+import { useHistory } from "react-router-dom";
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 import menu_icon from '../../images/TouchbaseIcons/mobile-menu-icon.png'
 
 export const MenuInfluencer = props => {
+
+  const history = useHistory();
+
+  const backToHome = () => {
+    history.push('/')
+    window.location.reload();
+  }
 
   return (
 
@@ -11,7 +19,8 @@ export const MenuInfluencer = props => {
 
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src={favicon} class="mobile_profile_image" alt=""></img>
+        <img src={favicon} class="mobile_profile_image" alt="" onClick={backToHome}></img>
+        <a href="/"/>
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -43,7 +52,7 @@ export const MenuInfluencer = props => {
 
     <div class="sidebar">
       <div class="profile_info">
-        <img src={favicon} class="profile_image" alt=""></img>
+        <img src={favicon} class="profile_image" alt="" onClick={backToHome} ></img>
       </div>
       <a href="/dashboard"><i class="fas fa-desktop"></i><span>Home</span></a>
       <a href="/dashboard/yourtouchbases"><i class="fas fa-cogs"></i><span>Touchbases</span></a>

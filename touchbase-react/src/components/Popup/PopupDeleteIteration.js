@@ -19,7 +19,7 @@ const PopupDeleteIteration = props => {
       .then((res) => {
         console.log(res);
         if (res[0] === 404) {
-          //history.push('/error')
+          history.push('/error')
         }
       })
       .catch(error => {

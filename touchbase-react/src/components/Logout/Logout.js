@@ -14,6 +14,7 @@ export const Logout = () => {
       .then((res) => {
         if (res[0] == 200) {
           history.push('/')
+          window.location.reload();
         } else {
           history.push('/error')
         }

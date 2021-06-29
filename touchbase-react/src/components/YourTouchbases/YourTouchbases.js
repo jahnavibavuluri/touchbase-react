@@ -111,6 +111,8 @@ export const YourTouchbases = () => {
     } else if (res[0] === 202) {
       console.log("influencer is logged in!")
       handleInfluencer()
+    } else {
+      history.push('/error')
     }
     //console.log(res);
     //console.log(influencerDashboard);

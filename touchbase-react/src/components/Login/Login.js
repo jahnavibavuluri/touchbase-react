@@ -11,7 +11,30 @@ export const Login = () => {
 
 //this section takes care of the person in session
 //same thing as compenentDidLoad
+
   useEffect(() => {
+    fetch('/api/isLoggedIn')
+  .then(response => {
+    const statusCode = response.status;
+    const data = response.json();
+    return Promise.all([statusCode, data]);
+  })
+  .then((res) => {
+    if (res[0] === 201 || res[0] === 202) {
+      history.push('/dashboard')
+    } else {
+      history.push('/error')
+    }
+    console.log(res);
+  })
+  .catch(error => {
+    console.error(error);
+    return { name: "network error", description: "" };
+  });
+  },[])
+
+
+  /*useEffect(() => {
     fetch('/api/login')
   .then(response => {
     const statusCode = response.status;
@@ -28,7 +51,7 @@ export const Login = () => {
     console.error(error);
     return { name: "network error", description: "" };
   });
-},[])
+},[])*/
 
 
 
@@ -72,6 +95,8 @@ export const Login = () => {
     .then((res) => {
       if (res[0] === 200) {
         history.push('/dashboard')
+      } else {
+        history.push('/error')
       }
       console.log(res)
     })

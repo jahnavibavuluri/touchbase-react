@@ -37,15 +37,23 @@ checkoutButton.addEventListener('click', function() {
     .then(response => {
       const statusCode = response.status;
       const data = response.json();
+      if (statusCode === 402) {
+        history.push('/login')
+      }
       return Promise.all([statusCode, data]);
     })
     .then((res) => {
-      console.log(res[1].session_id);
-      stripe.redirectToCheckout ({
-        sessionId: res[1].session_id,
-      }).then(function (result) {
+      console.log(res)
+      if (res[0] === 402) {
+        history.push('/login')
+      } else {
+        console.log(res[1].session_id);
+        stripe.redirectToCheckout ({
+          sessionId: res[1].session_id,
+        }).then(function (result) {
 
-      });
+        });
+      }
     })
     .catch(error => {
       console.error(error);

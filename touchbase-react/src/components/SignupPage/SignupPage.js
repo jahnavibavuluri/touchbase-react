@@ -10,15 +10,46 @@ export const SignupPage = () => {
   const history = useHistory();
   //let influencerSignupInfo;
 
-/*
   useEffect(() => {
-    fetch('/signup').then(response => {
-      if (response.status === 200) {
-        console.log("hey, we are good to go!")
-      }
-    })
+    fetch('/api/isLoggedIn')
+  .then(response => {
+    const statusCode = response.status;
+    const data = response.json();
+    return Promise.all([statusCode, data]);
+  })
+  .then((res) => {
+    if (res[0] === 201 || res[0] === 202) {
+      history.push('/dashboard')
+    } else {
+      history.push('/error')
+    }
+    console.log(res);
+  })
+  .catch(error => {
+    console.error(error);
+    return { name: "network error", description: "" };
+  });
   },[])
-*/
+
+
+  /*useEffect(() => {
+    fetch('/api/login')
+  .then(response => {
+    const statusCode = response.status;
+    //const data = response.json();
+    return Promise.all([statusCode]);
+  })
+  .then((res) => {
+    if (res[0] === 300) {
+      history.push('/dashboard')
+    }
+    console.log(res);
+  })
+  .catch(error => {
+    console.error(error);
+    return { name: "network error", description: "" };
+  });
+},[])*/
 
   const handleLogin = () => {
     history.push("/login");

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom"
 //import { useHistory, useLocation } from "react-router-dom"
 import "./Dashboard.css"
 import DashboardMenu from './DashboardMenu.js'
@@ -14,7 +15,50 @@ import { MenuCustomer } from '../Menu/MenuCustomer.js'
 
 export const Dashboard = () => {
 
-  //const history = useHistory();
+  const history = useHistory();
+
+  useEffect(() => {
+    fetch('/api/dashboard')
+  .then(response => {
+    const statusCode = response.status;
+    return Promise.all([statusCode]);
+  })
+  .then((res) => {
+    if (res[0] === 200) {
+      console.log("customer is logged in!")
+    } else if (res[0] === 202) {
+      console.log("influencer is logged in!")
+      handleInfluencer()
+    } 
+    //console.log(res);
+    //console.log(influencerDashboard);
+  })
+  .catch(error => {
+    console.error(error);
+    return { name: "network error", description: "" };
+  });
+  },[])
+
+
+  /*useEffect(() => {
+    fetch('/api/login')
+  .then(response => {
+    const statusCode = response.status;
+    //const data = response.json();
+    return Promise.all([statusCode]);
+  })
+  .then((res) => {
+    if (res[0] === 404) {
+      history.push('/login')
+    }
+    console.log(res);
+  })
+  .catch(error => {
+    console.error(error);
+    return { name: "network error", description: "" };
+  });
+},[])*/
+
   const [isInfluencer, setInfluencer] = useState(false);
   const [value, onChange] = useState(new Date())
   const [datesDict, setDatesDict] = useState({})
@@ -117,30 +161,6 @@ export const Dashboard = () => {
   const handleInfluencer = (event) => {
     setInfluencer(true);
   }
-
-  useEffect(() => {
-    fetch('/api/dashboard')
-  .then(response => {
-    const statusCode = response.status;
-    const data = response.json();
-    return Promise.all([statusCode, data]);
-  })
-  .then((res) => {
-    if (res[0] === 200) {
-      console.log("customer is logged in!")
-    } else if (res[0] === 202) {
-      setDatesDict(res[1])
-      console.log("influencer is logged in!")
-      handleInfluencer()
-    }
-    console.log(res);
-    //console.log(influencerDashboard);
-  })
-  .catch(error => {
-    console.error(error);
-    return { name: "network error", description: "" };
-  });
-},[])
 
   //console.log(datesDict)
 

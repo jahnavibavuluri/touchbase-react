@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './MeetingsNew.css'
+import { Link, useHistory } from "react-router-dom"
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
 import { MenuCustomer } from '../Menu/MenuCustomer.js'
@@ -8,6 +9,7 @@ import IndividualMeetingUpcoming from './IndividualMeetingUpcoming'
 export const MeetingsUpcoming = props => {
 
   let dashboard;
+  const history = useHistory();
   const [isInfluencer, setInfluencer] = useState(false);
   const [upcomingMeetings, setUpcomingMeetings] = useState({});
 
@@ -27,6 +29,8 @@ export const MeetingsUpcoming = props => {
     } else if (res[0] === 202) {
       console.log("influencer is logged in!")
       handleInfluencer()
+    } else {
+      history.push('/error')
     }
     console.log(res);
     //console.log(influencerDashboard);
@@ -38,7 +42,7 @@ export const MeetingsUpcoming = props => {
 },[])
 
   useEffect(() => {
-    fetch('/api/profile/meetings')
+    fetch('/api/dashboard/meetings')
     .then(response => {
       const statusCode = response.status;
       const data = response.json();
@@ -46,7 +50,7 @@ export const MeetingsUpcoming = props => {
     })
     .then((res, data) => {
       console.log(res[1]);
-      setUpcomingMeetings(res[1].future_iterations)
+      setUpcomingMeetings(res[1].future_meetings)
       //setMeetings(res[1].iterations)
     })
     .catch(error => {
@@ -133,7 +137,7 @@ export const MeetingsUpcoming = props => {
         <ul >
           {Object.entries(upcomingMeetings).map( ([key, value]) => {
             return (
-              <IndividualMeetingUpcoming key={key} type={getType(value.tb_type)} date={(value.date)} startTime={value.startTime} endTime={value.endTime} title={value.title} customers={value.customers.length} tb_id={value.touchbase_id} iter_id={value.iteration_id}/>
+              <IndividualMeetingUpcoming key={key} type={getType(value.tb_type)} date={(value.date)} startTime={value.startTime} customers={value.customers} endTime={value.endTime} title={value.title} tb_id={value.touchbase_id} iter_id={value.iteration_id}/>
             )
           })}
         </ul>

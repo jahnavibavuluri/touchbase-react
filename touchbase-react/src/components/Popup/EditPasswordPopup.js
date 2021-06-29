@@ -41,7 +41,7 @@ export const EditPasswordPopup = props => {
         if (res[0] === 202 || res[0] === 200) {
 
         } else {
-          history.push('error')
+          history.push('/error')
         }
       })
 

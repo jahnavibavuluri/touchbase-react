@@ -1,9 +1,17 @@
 import React from 'react';
 import './Menu.css'
+import { useHistory } from "react-router-dom";
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 import menu_icon from '../../images/TouchbaseIcons/mobile-menu-icon.png'
 
 export const MenuCustomer = props => {
+
+  const history = useHistory();
+
+  const backToHome = () => {
+    history.push('/')
+    window.location.reload();
+  }
 
   return (
 
@@ -11,7 +19,7 @@ export const MenuCustomer = props => {
 
   <div class="mobile_nav">
     <div class="nav_bar">
-      <img src={favicon} class="mobile_profile_image" alt=""></img>
+      <img src={favicon} class="mobile_profile_image" alt="" onClick={backToHome} ></img>
       <i class="fa fa-bars nav_btn"></i>
     </div>
     <div class="mobile_nav_items">
@@ -26,7 +34,14 @@ export const MenuCustomer = props => {
         <div class="dropdown-content-menu-icon">
           <a href="/dashboard">Home</a>
           <a href="/dashboard/meetings">Meetings</a>
-          <a href="/dashboard/profile">Settings</a>
+          <div class="dropdown-mobile">
+            <i class="fas fa-th"></i>
+            <span class="dropbtn-mobile">Settings</span>
+            <div class="dropdown-content-mobile">
+              <a href="/dashboard/change-email">Change Email</a>
+              <a href="/dashboard/change-password">Change Password</a>
+            </div>
+          </div>
           <a href="/logout">Logout</a>
         </div>
       </div>
@@ -34,7 +49,7 @@ export const MenuCustomer = props => {
 
   <div class="sidebar">
     <div class="profile_info">
-      <img href="/" src={favicon} class="profile_image" alt=""></img>
+     <img src={favicon} class="profile_image" alt="" onClick={backToHome}></img>
     </div>
     <a href="/dashboard"><i class="fas fa-desktop"></i><span>Home</span></a>
     <a href="/dashboard/meetings"><i class="fas fa-table"></i><span>Meetings</span></a>

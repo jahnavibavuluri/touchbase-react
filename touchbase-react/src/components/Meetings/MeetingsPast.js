@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './MeetingsPast.css'
+import { Link, useHistory } from "react-router-dom"
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
 import { MenuCustomer } from '../Menu/MenuCustomer.js'
@@ -8,6 +9,7 @@ import IndividualMeetingsPast from './IndividualMeetingsPast'
 export const MeetingsPast = props => {
 
   let dashboard;
+  const history = useHistory();
   const [isInfluencer, setInfluencer] = useState(false);
   const [pastMeetings, setPastMeetings] = useState({});
 
@@ -27,6 +29,8 @@ export const MeetingsPast = props => {
     } else if (res[0] === 202) {
       console.log("influencer is logged in!")
       handleInfluencer()
+    } else {
+      history.push('/error')
     }
     console.log(res);
     //console.log(influencerDashboard);
@@ -38,7 +42,7 @@ export const MeetingsPast = props => {
 },[])
 
   useEffect(() => {
-    fetch('/api/profile/meetings')
+    fetch('/api/dashboard/meetings')
     .then(response => {
       const statusCode = response.status;
       const data = response.json();
@@ -47,7 +51,7 @@ export const MeetingsPast = props => {
     .then((res, data) => {
       console.log(res[1]);
       //setUpcomingMeetings(res[1].future_iterations)
-      setPastMeetings(res[1].past_iterations)
+      setPastMeetings(res[1].past_meetings)
     })
     .catch(error => {
       console.error(error);
