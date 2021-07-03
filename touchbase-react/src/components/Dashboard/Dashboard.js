@@ -21,15 +21,19 @@ export const Dashboard = () => {
     fetch('/api/dashboard')
   .then(response => {
     const statusCode = response.status;
-    return Promise.all([statusCode]);
+    const data = response.json();
+    return Promise.all([statusCode, data]);
   })
   .then((res) => {
+    console.log(res)
     if (res[0] === 200) {
       console.log("customer is logged in!")
+      setDatesDict(res[1])
     } else if (res[0] === 202) {
       console.log("influencer is logged in!")
       handleInfluencer()
-    } 
+      setDatesDict(res[1])
+    }
     //console.log(res);
     //console.log(influencerDashboard);
   })
@@ -39,25 +43,6 @@ export const Dashboard = () => {
   });
   },[])
 
-
-  /*useEffect(() => {
-    fetch('/api/login')
-  .then(response => {
-    const statusCode = response.status;
-    //const data = response.json();
-    return Promise.all([statusCode]);
-  })
-  .then((res) => {
-    if (res[0] === 404) {
-      history.push('/login')
-    }
-    console.log(res);
-  })
-  .catch(error => {
-    console.error(error);
-    return { name: "network error", description: "" };
-  });
-},[])*/
 
   const [isInfluencer, setInfluencer] = useState(false);
   const [value, onChange] = useState(new Date())

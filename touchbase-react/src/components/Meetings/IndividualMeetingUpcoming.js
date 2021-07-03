@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './IndividualMeetingNew.css'
+import './IndividualMeetingUpcoming.css'
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
 import { MenuCustomer } from '../Menu/MenuCustomer.js'

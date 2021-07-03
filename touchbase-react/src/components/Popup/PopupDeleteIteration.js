@@ -6,6 +6,8 @@ const PopupDeleteIteration = props => {
 
   let tb_id = props.tb_id
   let iter_id = props.iter_id
+  console.log('the tb id is: ' + tb_id)
+  console.log('the iteration id is: ' + iter_id)
   const history = useHistory();
 
   const handleDelete = (event) => {

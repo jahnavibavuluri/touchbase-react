@@ -1,0 +1,37 @@
+.no-touchbase {
+  font-size: 15px;
+  padding: 6px 16px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid white;
+  background: white;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  border-radius: 10px
+}
+
+.no-touchbase:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  transition: 1s;
+  font-weight: 600
+}
+
+.yes-touchbase {
+  font-size: 15px;
+  padding: 6px 16px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid white;
+  background: white;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  border-radius: 10px
+}
+
+.yes-touchbase:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  transition: 1s;
+  font-weight: 600
+}

@@ -113,6 +113,10 @@ export const Login = () => {
       //console.log(data.state)});*/
   }
 
+  const handleForgotPassword = (event) => {
+    history.push('/forgotpassword')
+  }
+
 
   return (
     <div className="login-page-div">
@@ -134,6 +138,8 @@ export const Login = () => {
             <br />
             <input className="login-input" type="password" id="password" name="password" onChange={handlePassword}/>
             <br />
+            <br/>
+            <a className="forgot-password" onClick={handleForgotPassword}> Forgot Password? </a>
             <div className="isInfluencer">
               <label for="influencer" className="login-label">Logging in as an Influencer?</label>
               <ToggleSwitch id="influencer" className="toggle-switch-checkbox" checked={isInfluencer} onChange={setInfluencer}/>

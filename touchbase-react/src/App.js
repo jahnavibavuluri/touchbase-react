@@ -6,7 +6,6 @@ import { Dashboard } from './components/Dashboard/Dashboard'
 import { Login } from './components/Login/Login'
 import { Logout } from './components/Logout/Logout'
 import { YourTouchbases } from './components/YourTouchbases/YourTouchbases'
-import { Meetings } from './components/Meetings/Meetings'
 import { Profile } from './components/Profile/Profile'
 import { Featured } from './components/Featured/Featured'
 import { Explore } from './components/Explore/Explore'
@@ -19,6 +18,8 @@ import { InfluencerInfo } from './components/InfluencerInfo/InfluencerInfo'
 import { ChangeEmail } from './components/Settings/ChangeEmail'
 import { ChangePassword } from './components/Settings/ChangePassword'
 import { Error } from './components/Error/Error'
+import { ForgotPassword } from './components/Login/ForgotPassword'
+import { ResetPassword } from './components/Login/ResetPassword'
 //import Navbar from './components/NavBar/Navbar.js'
 //import Footer from './components/Footer/Footer.js'
 
@@ -36,6 +37,8 @@ function App() {
             <Route path="/login" component={Login}/>
             <Route path="/signup/influencer-info" component={InfluencerInfo}/>
             <Route path="/error" component={Error} />
+            <Route exact path='/forgotpassword' component={ForgotPassword}/>
+            <Route path='/forgotpassword/:token' component={ResetPassword}/>
           </Switch>
       </div>
 

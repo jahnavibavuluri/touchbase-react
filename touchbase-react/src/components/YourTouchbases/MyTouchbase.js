@@ -1,10 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import './MyTouchbase.css';
 import { useHistory } from "react-router-dom";
+import DeleteTouchbase from '../Popup/DeleteTouchbase.js'
 
 const MyTouchbase = props => {
 
   const history = useHistory();
+  const [isOpenDelete, setIsOpenDelete] = useState(false);
+  const toggleDelete = () => {
+    setIsOpenDelete(!isOpenDelete);
+  }
+
+  const handleDelete = (event) => {
+
+  }
 
   /*const handleDelete = (event) => {
     fetch('/api/isLoggedIn')
@@ -54,8 +63,9 @@ const MyTouchbase = props => {
       <div>Cost: ${props.cost}</div>
       <div>{props.next}</div>
       <div className="my-touchbase-content-buttons">
-        <button className="my-touchbase-content-delete">Delete</button>
+        <button className="my-touchbase-content-delete" onClick={toggleDelete}>Delete</button>
       </div>
+      {isOpenDelete && <DeleteTouchbase handleClose={toggleDelete}/>}
     </div>
   );
 

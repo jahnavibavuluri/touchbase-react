@@ -119,6 +119,12 @@
   color: #5271ff;
 }
 
+.forgot-password {
+  color: #5271ff;
+  font-family: "HelveticaNeue-Light", sans-serif;
+  font-size: 15px;
+}
+
 @media screen and (max-width: 800px) {
   .login-form {
     background-color: #E8E9ED;

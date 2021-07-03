@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './MeetingsNew.css'
+import './MeetingsUpcoming.css'
 import { Link, useHistory } from "react-router-dom"
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
@@ -12,6 +12,7 @@ export const MeetingsUpcoming = props => {
   const history = useHistory();
   const [isInfluencer, setInfluencer] = useState(false);
   const [upcomingMeetings, setUpcomingMeetings] = useState({});
+  let meeting;
 
   const handleInfluencer = (event) => {
     setInfluencer(true);
@@ -41,6 +42,7 @@ export const MeetingsUpcoming = props => {
   });
 },[])
 
+
   useEffect(() => {
     fetch('/api/dashboard/meetings')
     .then(response => {
@@ -50,7 +52,7 @@ export const MeetingsUpcoming = props => {
     })
     .then((res, data) => {
       console.log(res[1]);
-      setUpcomingMeetings(res[1].future_meetings)
+      setUpcomingMeetings(res[1].future_iterations)
       //setMeetings(res[1].iterations)
     })
     .catch(error => {
@@ -87,6 +89,32 @@ export const MeetingsUpcoming = props => {
 
 
   console.log(upcomingMeetings)
+
+  /*if (isInfluencer === true) {
+    meeting = <IndividualMeetingUpcoming key={key}
+                type={getType(value.tb_type)}
+                date={(value.date).substring(0, value.date.length-13)}
+                startTime={(value.startTime).substring(0, (value.startTime.length-3))}
+                customers={Object.entries(customers).map(([key, value]) => {return (<div>{value}</div>)})}
+                endTime={(value.endTime).substring(0,(value.endTime.length-3))}
+                title={value.title}
+                tb_id={value.touchbase_id}
+                iter_id={value.iteration_id}
+              />
+  } else {
+    meeting = <IndividualMeetingUpcoming key={key}
+                type={getType(value.tb_type)}
+                date={(value.date).substring(0, value.date.length-13)}
+                startTime={(value.startTime).substring(0, (value.startTime.length-3))}
+                customers={value.customers}
+                endTime={(value.endTime).substring(0,(value.endTime.length-3))}
+                title={value.title}
+                tb_id={value.touchbase_id}
+                iter_id={value.iteration_id}
+              />
+  }*/
+
+  //Object.entries(upcomingMeetings).map( ([key, value]) => {
 
   return (
     <div>
@@ -135,11 +163,36 @@ export const MeetingsUpcoming = props => {
 
       <div className="ind-meeting-content-upcoming">
         <ul >
-          {Object.entries(upcomingMeetings).map( ([key, value]) => {
+
+          {!isInfluencer && Object.entries(upcomingMeetings).map( ([key, value]) => {
             return (
-              <IndividualMeetingUpcoming key={key} type={getType(value.tb_type)} date={(value.date)} startTime={value.startTime} customers={value.customers} endTime={value.endTime} title={value.title} tb_id={value.touchbase_id} iter_id={value.iteration_id}/>
+              <IndividualMeetingUpcoming key={key}
+              type={getType(value.tb_type)}
+              date={(value.date).substring(0, value.date.length-13)}
+              startTime={(value.startTime).substring(0, (value.startTime.length-3))}
+              customers={value.customers}
+              endTime={(value.endTime).substring(0,(value.endTime.length-3))}
+              title={value.title}
+              tb_id={value.touchbase_id}
+              iter_id={value.iteration_id}/>
             )
           })}
+
+          {isInfluencer && Object.entries(upcomingMeetings).map( ([key, value]) => {
+            return (
+              <IndividualMeetingUpcoming key={key}
+              type={getType(value.tb_type)}
+              date={(value.date).substring(0, value.date.length-13)}
+              startTime={(value.startTime).substring(0, (value.startTime.length-3))}
+              customers= <div>{value.customers.length === 0 ? 0 : Object.entries(value.customers).map(([key, value]) => {return (<div>{value}</div>)})}</div>
+              endTime={(value.endTime).substring(0,(value.endTime.length-3))}
+              title={value.title}
+              tb_id={value.touchbase_id}
+              iter_id={value.iteration_id}/>
+            )
+          })}
+
+
         </ul>
         {Object.keys(upcomingMeetings).length === 0 && <div className="no-upcoming-meetings">No Upcoming Meetings!</div>}
       </div>
@@ -149,4 +202,17 @@ export const MeetingsUpcoming = props => {
 
 }
 
-/*{(value.date).substring(0, (value.date.length - 13))}*/
+/*
+const toChange = selectedDates.filter(isSameDay(date)).length > 0;
+
+//console.log(content)
+//console.log("the date is inside tilecontent: " + date);
+//console.log("the selecteddates are inside tilecontent: " +selectedDates);
+return toChange ? <div>
+                    {content.map(function(name, index){
+                      return <EventBanner content={name}/>;
+                    })}
+                  </div> : <></>;
+
+{(value.date).substring(0, (value.date.length - 13))}
+nextTime={(value.nextIterationTime).substring(0, (value.nextIterationTime.length-3))} nextDate={(value.nextIterationDate).substring(0, (value.nextIterationDate.length - 13))}*/

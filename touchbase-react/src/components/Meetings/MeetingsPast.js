@@ -51,7 +51,7 @@ export const MeetingsPast = props => {
     .then((res, data) => {
       console.log(res[1]);
       //setUpcomingMeetings(res[1].future_iterations)
-      setPastMeetings(res[1].past_meetings)
+      setPastMeetings(res[1].past_iterations)
     })
     .catch(error => {
       console.error(error);

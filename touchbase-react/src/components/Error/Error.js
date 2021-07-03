@@ -8,6 +8,7 @@ export const Error = () => {
 
   const handleBack = () => {
     history.push("/");
+    window.location.reload();
   };
 
   return (
