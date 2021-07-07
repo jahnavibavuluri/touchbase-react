@@ -201,7 +201,7 @@ export const YourTouchbases = () => {
             </div>
             <div className="ind-class">
               {classtb.map(function(name, index){
-                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost} tb_id={name.tb_id}/>;
               })}
               {classtb.length === 0 && <div className="no-upcoming-tbs">You have no Class Touchbases! Add one and focus on a specific project of discussion with your fans.</div>}
             </div>
@@ -223,7 +223,7 @@ export const YourTouchbases = () => {
             </div>
             <div className="ind-breakout">
               {breakouts.map(function(name, index){
-                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost}/>;
+                return <MyTouchbase key={index} title={name.title} description={name.description} cost={name.cost} tb_id={name.tb_id}/>;
               })}
               {breakouts.length === 0 && <div className="no-upcoming-tbs">You have no Breakout Touchbases! Add one and have the chance to engage and have fun with your fans.</div>}
             </div>

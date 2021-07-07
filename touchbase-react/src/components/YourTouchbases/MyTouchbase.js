@@ -5,6 +5,8 @@ import DeleteTouchbase from '../Popup/DeleteTouchbase.js'
 
 const MyTouchbase = props => {
 
+  let tb_id = props.tb_id
+  console.log(props.tb_id)
   const history = useHistory();
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const toggleDelete = () => {
@@ -65,7 +67,7 @@ const MyTouchbase = props => {
       <div className="my-touchbase-content-buttons">
         <button className="my-touchbase-content-delete" onClick={toggleDelete}>Delete</button>
       </div>
-      {isOpenDelete && <DeleteTouchbase handleClose={toggleDelete}/>}
+      {isOpenDelete && <DeleteTouchbase handleClose={toggleDelete} tb_id={tb_id}/>}
     </div>
   );
 

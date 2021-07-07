@@ -155,7 +155,7 @@ export const PopupClass = props => {
             setType("success")
             console.log("request went through!")
             console.log("showing toast")
-            showToast(type)
+            window.location.reload();
           } else {
             console.log("request did not go through")
             history.push("/error")
