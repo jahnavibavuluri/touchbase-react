@@ -26,6 +26,7 @@ export const Popup1on1 = props => {
     const [toastList, setToastList] = useState([]);
     const [input, setInput] = useState(false);
     const [type, setType] = useState("");
+    const [duration, setDuration] = useState(false)
 
     const handleCost = (event) => {
       setCost(event.target.value);
@@ -115,11 +116,20 @@ export const Popup1on1 = props => {
       }
     }
 
+    const checkDuration = a => b => {
+      let d = a - b
+      if (d != 15 || d != 25 || d != 55) {
+        setDuration(true)
+      }
+    }
+
     const getToastType = (event) => {
       //event.preventDefault();
       //checkInput();
       if (checkString(title) || checkString(description) || checkCost(cost) || isValidDate(startDateValue, endDateValue) < 0 || endTimeValue < startTimeValue) {
         console.log("input is wrong")
+        console.log(duration)
+        console.log(endTimeValue - startTimeValue)
         history.push("/error")
       } else {
           fetch('/api/profile/addTouchbase/oneOnone', {
@@ -209,6 +219,7 @@ export const Popup1on1 = props => {
         <div className="box-oneonone">
           <span className="close-icon-oneonone" onClick={props.handleClose}>x</span>
           <h1>New 1:1 Touchbase</h1>
+          <b> Please note you can only make Touchbases for 15, 25, and 55 minutes! </b>
           <div className="headings">
             <input className="touchbase-input-oneonone" placeholder="Touchbase Title" onChange={handleTouchbaseTitle}/>
             <input className="touchbase-input-oneonone" placeholder="Touchbase Description" onChange={handleTouchbaseDescription}/>

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from "react-router-dom"
 import {Navbar} from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import './Iterations.css'
 import Booking from './Booking.js'
 
 export const Iterations = ({match:{params:{id1, id2}}}) => {
+
+  const history = useHistory();
 
   //let influencerName = "John Smith"
   //let categories = ["Gaming, Streaming, Technology, Cooking, Baking, Food"]
@@ -35,6 +38,9 @@ export const Iterations = ({match:{params:{id1, id2}}}) => {
       setTbTitle(res[1].touchbaseTitle)
       setIterations(res[1].iterations)
       setCost(res[1].cost)
+      if (res[0] === 404) {
+        history.push('/error')
+      }
       //setIterationID(id2)
     })
     .catch(error => {

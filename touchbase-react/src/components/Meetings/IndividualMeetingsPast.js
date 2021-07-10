@@ -3,8 +3,13 @@ import './IndividualMeetingsPast.css'
 import favicon from '../../images/TouchbaseIcons/favicon-black.png'
 import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
 import { MenuCustomer } from '../Menu/MenuCustomer.js'
+import moment from 'moment';
 
 const IndividualMeetingPast = props => {
+
+  function convert(input) {
+    return moment(input, 'HH:mm:ss').format('h:mm:ss A');
+  }
 
   return (
     <div className="ind-content-past">
@@ -26,11 +31,11 @@ const IndividualMeetingPast = props => {
       </div>
 
       <div className="ind-start-time-past">
-        <div className="ind-meeting-past-heading">Start at: </div>{props.startTime}
+        <div className="ind-meeting-past-heading">Start at: </div>{convert(props.startTime)}
       </div>
 
       <div className="ind-end-time-past">
-        <div className="ind-meeting-past-heading">End at: </div>{props.endTime}
+        <div className="ind-meeting-past-heading">End at: </div>{convert(props.endTime)}
       </div>
 
     </div>

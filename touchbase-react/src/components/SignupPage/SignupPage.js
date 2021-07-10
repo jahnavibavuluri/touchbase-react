@@ -64,6 +64,9 @@ export const SignupPage = () => {
   const [bio, setBio] = useState("");
   const [twitterHandle, setTwitterHandle] = useState("");
   const [instagramHandle, setInstagramHandle] = useState("");
+  const [stripelink, setStripeLink] = useState('')
+  const [donationPercentage, setDonationPercentage] = useState(10)
+  const [charityName, setCharityName] = useState('')
 
   const handleFirstName = (event) => {
     setFirstName(event.target.value);
@@ -95,6 +98,18 @@ export const SignupPage = () => {
 
   const handleInstagramHandle = (event) => {
     setInstagramHandle(event.target.value);
+  }
+
+  const handleDonation = (event) => {
+    setDonationPercentage(event.target.value)
+  }
+
+  const handleCharity = (event) => {
+    setCharityName(event.target.value)
+  }
+
+  const handleStripeLink = (event) => {
+    window.location = stripelink
   }
 
   const handleRegistration = (event) => {
@@ -132,7 +147,7 @@ export const SignupPage = () => {
         })
         .then((res) => {
           console.log(res);
-          history.push(res[1].link)  /*ERROR HERE THIS SHOULD PUSH TO JUST HTTPS NOT LOCALHOST*/
+          window.location = res[1].link /*ERROR HERE THIS SHOULD PUSH TO JUST HTTPS NOT LOCALHOST*/
         })
         .catch(error => {
           console.error(error);
@@ -185,6 +200,14 @@ export const SignupPage = () => {
         <label className="sign-up-label" for="password">Categories -- Please enter your categories with a comma in between</label>
         <br />
         <input className="sign-up-input" type="text" id="venmo" name="venmo" onChange={handleCategories}/>
+        <br />
+        <label className="sign-up-label" for="password">Donation Percentage</label>
+        <br />
+        <input className="sign-up-input" type="text" id="venmo" name="venmo" onChange={handleDonation}/>
+        <br />
+        <label className="sign-up-label" for="password">Charity Name</label>
+        <br />
+        <input className="sign-up-input" type="text" id="venmo" name="venmo" onChange={handleCharity}/>
         <br />
         {/*<div className="select-categories">
           <button value="Food" onClick={handleCategory}>Food</button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Touchbase.css';
 import { useHistory } from "react-router-dom";
-
+import moment from 'moment';
 
 const Touchbase = props => {
 
@@ -11,13 +11,17 @@ const Touchbase = props => {
     history.push("/api/seller/" + props.influencer_id + "/iterations/" + props.touchbase_id);
   }
 
+  function convert(input) {
+    return moment(input, 'HH:mm:ss').format('h:mm:ss A');
+  }
+
   return(
     <div className="my-touchbase-content-ind">
       <div className="my-touchbase-content-ind-title">{props.title}</div>
       <div className="my-touchbase-content-ind-description">{props.description}</div>
       <div><b>Cost</b>: ${props.cost}</div>
       <div><b>Open Spots</b>: {props.spots}</div>
-      <div><b>Next Booking</b>: {props.nextDate} at {props.nextTime}</div>
+      <div><b>Next Booking</b>: {props.nextDate} at {convert(props.nextTime)}</div>
       {/*<div className="my-touchbase-content-buttons">
         <button className="my-touchbase-content-edit">Edit</button>
         <button className="my-touchbase-content-delete">Delete</button>

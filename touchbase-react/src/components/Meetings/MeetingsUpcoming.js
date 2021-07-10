@@ -169,9 +169,9 @@ export const MeetingsUpcoming = props => {
               <IndividualMeetingUpcoming key={key}
               type={getType(value.tb_type)}
               date={(value.date).substring(0, value.date.length-13)}
-              startTime={(value.startTime).substring(0, (value.startTime.length-3))}
+              startTime={(value.startTime)}
               customers={value.customers}
-              endTime={(value.endTime).substring(0,(value.endTime.length-3))}
+              endTime={(value.endTime)}
               title={value.title}
               tb_id={value.touchbase_id}
               iter_id={value.iteration_id}/>
@@ -183,9 +183,9 @@ export const MeetingsUpcoming = props => {
               <IndividualMeetingUpcoming key={key}
               type={getType(value.tb_type)}
               date={(value.date).substring(0, value.date.length-13)}
-              startTime={(value.startTime).substring(0, (value.startTime.length-3))}
+              startTime={(value.startTime)}
               customers= <div>{value.customers.length === 0 ? 0 : Object.entries(value.customers).map(([key, value]) => {return (<div>{value}</div>)})}</div>
-              endTime={(value.endTime).substring(0,(value.endTime.length-3))}
+              endTime={(value.endTime)}
               title={value.title}
               tb_id={value.touchbase_id}
               iter_id={value.iteration_id}/>

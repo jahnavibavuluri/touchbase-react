@@ -3,6 +3,7 @@ import './Booking.css'
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 import { useHistory } from "react-router-dom";
+import moment from 'moment';
 
 //import CheckoutForm from './CheckoutForm';
 
@@ -31,6 +32,10 @@ checkoutButton.addEventListener('click', function() {
   });
 });*/
 
+  function convert(input) {
+    return moment(input, 'HH:mm:ss').format('h:mm:ss A');
+  }
+
   const handleCheckout = (event) => {
 
     fetch(`/api/createCheckout/${iter_id}`)
@@ -39,6 +44,8 @@ checkoutButton.addEventListener('click', function() {
       const data = response.json();
       if (statusCode === 402) {
         history.push('/login')
+      } else if (statusCode === 300){
+        history.push('/error')
       }
       return Promise.all([statusCode, data]);
     })
@@ -75,11 +82,11 @@ checkoutButton.addEventListener('click', function() {
       </div>
 
       <div className="ind-start-time-booking">
-        <div className="ind-meeting-booking-heading">Start at: </div>{startTime}{/*props.startTime*/}
+        <div className="ind-meeting-booking-heading">Start at: </div>{convert(startTime)}{/*props.startTime*/}
       </div>
 
       <div className="ind-end-time-booking">
-        <div className="ind-meeting-booking-heading">End at: </div>{endTime}{/*props.endTime*/}
+        <div className="ind-meeting-booking-heading">End at: </div>{convert(endTime)}{/*props.endTime*/}
       </div>
 
       <div className="ind-current-part-booking">
@@ -87,7 +94,7 @@ checkoutButton.addEventListener('click', function() {
       </div>
 
       <div className="ind-current-cost-booking">
-        {cost}{/*props.customers*/}
+        ${cost}{/*props.customers*/}
       </div>
 
       <div className="ind-join-booking">
