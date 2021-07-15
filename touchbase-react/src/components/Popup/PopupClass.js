@@ -94,6 +94,7 @@ export const PopupClass = props => {
   //checks if the string input is not empty -- returns true if the string is empty
   const checkString = (props) => {
     if (!props || props.length === 0 || !props.trim()) {
+      console.log("checkstring")
       return true;
     }
   }
@@ -101,12 +102,14 @@ export const PopupClass = props => {
   //checks if the cost input is a valid price. checks that the input is in xx.xx format returns true if not valid
   const checkCost = (props) => {
     if (isNaN(props) || props.toString().indexOf('.') != (props.length-3)) {
+      console.log("checkcost")
       return true;
     }
   }
 
   //checking that the start date is not after the end date
   const isValidDate = a => b => {
+    console.log("isvalidate")
     return differenceInCalendarDays(a, b);
   }
 

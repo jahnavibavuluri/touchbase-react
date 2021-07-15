@@ -100,7 +100,7 @@ export const YourTouchbases = () => {
   ];*/
 
   useEffect(() => {
-    fetch('/api/dashboard')
+    fetch('/api/dashboard/home')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);

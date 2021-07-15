@@ -13,17 +13,23 @@ export const Login = () => {
 //same thing as compenentDidLoad
 
   useEffect(() => {
-    fetch('/api/isLoggedIn')
+    fetch('/isLoggedIn', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Credentials" : true
+      },
+    })
   .then(response => {
+    console.log(response)
     const statusCode = response.status;
-    const data = response.json();
-    return Promise.all([statusCode, data]);
+    //const data = response.json();
+    return Promise.all([statusCode]);
   })
   .then((res) => {
     if (res[0] === 201 || res[0] === 202) {
       history.push('/dashboard')
-    } else {
-      history.push('/error')
     }
     console.log(res);
   })
@@ -75,11 +81,13 @@ export const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     //const { email, firstName, lastName, password } = this.state
-    fetch('/api/login', {
+    fetch('api/login', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Credentials" : true
       },
       body: JSON.stringify({
         email:email,

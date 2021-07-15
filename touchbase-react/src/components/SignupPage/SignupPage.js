@@ -131,7 +131,9 @@ export const SignupPage = () => {
         categories: categories,
         bio: bio,
         instagramHandle: instagramHandle,
-        twitterHandle: twitterHandle
+        twitterHandle: twitterHandle,
+        donationPercentage: donationPercentage,
+        donationCharity: charityName
       })
     }).then(response => {
        const statusCode = response.status;

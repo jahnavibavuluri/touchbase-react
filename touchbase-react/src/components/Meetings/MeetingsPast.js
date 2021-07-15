@@ -18,7 +18,7 @@ export const MeetingsPast = props => {
   }
 
   useEffect(() => {
-    fetch('/api/dashboard')
+    fetch('/api/dashboard/home')
   .then(response => {
     const statusCode = response.status;
     return Promise.all([statusCode]);
@@ -129,11 +129,30 @@ export const MeetingsPast = props => {
 
       <div className="ind-meeting-content-past">
         <ul >
-          {Object.entries(pastMeetings).map( ([key, value]) => {
+
+          {!isInfluencer && Object.entries(pastMeetings).map( ([key, value]) => {
             return (
-              <IndividualMeetingsPast key={key} type={getType(value.tb_type)} date={(value.date).substring(0, (value.date.length - 13))} startTime={value.startTime} endTime={value.endTime} title={value.title} customers={value.customers.length}/>
+              <IndividualMeetingsPast key={key}
+              type={getType(value.tb_type)}
+              date={(value.date).substring(0, (value.date.length - 13))}
+              startTime={value.startTime} endTime={value.endTime}
+              title={value.title}
+              customers={value.customers}/>
             )
           })}
+
+          {isInfluencer && Object.entries(pastMeetings).map( ([key, value]) => {
+            return (
+              <IndividualMeetingsPast key={key}
+              type={getType(value.tb_type)}
+              date={(value.date).substring(0, (value.date.length - 13))}
+              startTime={value.startTime} endTime={value.endTime}
+              title={value.title}
+              customers= <div>{value.customers.length === 0 ? 0 : Object.entries(value.customers).map(([key, value]) => {return (<div>{value}</div>)})}</div>/>
+            )
+          })}
+
+
         </ul>
         {Object.keys(pastMeetings).length === 0 && <div className="no-past-meetings">No Past Meetings!</div>}
       </div>

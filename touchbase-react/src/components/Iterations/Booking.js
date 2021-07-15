@@ -15,6 +15,7 @@ const Booking = props => {
   let spotsOpen = props.open
   let cost = props.cost
   let iter_id = props.iter_id
+  console.log(iter_id)
 
   const history = useHistory();
   var stripe = window.Stripe('pk_test_51IvNM4ADzUQrLSjDDcIHl8MbsPICPw4vUCMLzLZt0Fuqoz4FS4w1tXcL8Ry3WF05xXxSSGIjNvEpmuyK5zLD4uIS00AnKVh4si');
@@ -41,12 +42,12 @@ checkoutButton.addEventListener('click', function() {
     fetch(`/api/createCheckout/${iter_id}`)
     .then(response => {
       const statusCode = response.status;
-      const data = response.json();
       if (statusCode === 402) {
         history.push('/login')
       } else if (statusCode === 300){
         history.push('/error')
       }
+      const data = response.json();
       return Promise.all([statusCode, data]);
     })
     .then((res) => {

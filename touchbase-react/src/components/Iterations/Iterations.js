@@ -38,6 +38,7 @@ export const Iterations = ({match:{params:{id1, id2}}}) => {
       setTbTitle(res[1].touchbaseTitle)
       setIterations(res[1].iterations)
       setCost(res[1].cost)
+      setBio(res[1].bio)
       if (res[0] === 404) {
         history.push('/error')
       }

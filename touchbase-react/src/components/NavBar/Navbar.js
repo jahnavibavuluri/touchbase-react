@@ -21,6 +21,7 @@ export const Navbar = () => {
       setUsername(res[1].firstName + " " + res[1].lastName);
     }
     console.log(res);
+    console.log(username)
   })
   .catch(error => {
     console.error(error);

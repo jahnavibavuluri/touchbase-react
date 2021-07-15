@@ -219,7 +219,6 @@ export const Popup1on1 = props => {
         <div className="box-oneonone">
           <span className="close-icon-oneonone" onClick={props.handleClose}>x</span>
           <h1>New 1:1 Touchbase</h1>
-          <b> Please note you can only make Touchbases for 15, 25, and 55 minutes! </b>
           <div className="headings">
             <input className="touchbase-input-oneonone" placeholder="Touchbase Title" onChange={handleTouchbaseTitle}/>
             <input className="touchbase-input-oneonone" placeholder="Touchbase Description" onChange={handleTouchbaseDescription}/>

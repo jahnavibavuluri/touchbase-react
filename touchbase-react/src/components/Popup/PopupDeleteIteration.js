@@ -87,7 +87,7 @@ const PopupDeleteIteration = props => {
       <div className="box-delete-iteration">
         <span className="close-icon-delete-iteration" onClick={props.handleClose}>x</span>
         <div className="delete-confirmation">
-          Are you sure you want to cancel this booking?
+          {props.content}
         </div>
         <button className="no" onClick={props.handleClose}>No</button>
         <button className="yes" onClick={handleDelete}>Yes</button>

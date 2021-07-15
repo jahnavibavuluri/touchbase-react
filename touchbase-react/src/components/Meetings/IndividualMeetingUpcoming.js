@@ -32,7 +32,11 @@ const IndividualMeetingUpcoming = props => {
   },[])
   //console.log(props.date)
   let button;
+  let deletePopup;
+  let buttonCancel = null;
   const history = useHistory();
+  var today = new Date(),
+  time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
   let date = Date.now()
   let date2 = new Date(props.date)
   let tb_id = props.tb_id
@@ -59,7 +63,8 @@ const IndividualMeetingUpcoming = props => {
   console.log("date2 is: " + date2)
   console.log(differenceInCalendarDays(date2, date))*/
 
-  if (differenceInCalendarDays(date2, date) < 1) {
+  if (differenceInCalendarDays(date2, date) === 0 || ((differenceInCalendarDays(date2, date) === 1) && (props.startTime < time))) {
+    console.log(differenceInCalendarDays(date2, date) + "for " + date2)
 
     if (isInfluencer === true) {
       fetch(`/api/startMeeting/${iter_id}`)
@@ -97,9 +102,22 @@ const IndividualMeetingUpcoming = props => {
 
 
     button = <button className="ind-join-button" onClick={handleLink} >Join</button>
+    buttonCancel = <button className="ind-cancel-two-button" onClick={toggleDelete} >Cancel</button>
+    if (isInfluencer === true) {
+      deletePopup = <PopupDeleteIteration handleClose={toggleDelete} tb_id={tb_id} iter_id={iter_id} content="Are you sure you want to cancel this booking?"/>
+    } else {
+      //customer canceling after the 24 hour period will not get a refund
+      deletePopup = <PopupDeleteIteration handleClose={toggleDelete} tb_id={tb_id} iter_id={iter_id} content="Are you sure you want to cancel this booking? You will not get a refund as you are canceling within 24 hours of this booking."/>
+    }
+
 
   } else {
     button = <button className="ind-cancel-button" onClick={toggleDelete}>Cancel</button>
+    //if this is customer cancelling before the 24 hour period, they get a 80% refund
+    if (isInfluencer === false) {
+      deletePopup = <PopupDeleteIteration handleClose={toggleDelete} tb_id={tb_id} iter_id={iter_id} content="Are you sure you want to cancel this booking? You will only get a 80% refund!"/>
+    }
+
   }
 
   return (
@@ -131,9 +149,10 @@ const IndividualMeetingUpcoming = props => {
 
       <div className="ind-join">
         {button}
+        <div>{buttonCancel}</div>
       </div>
 
-      {isOpenDelete && <PopupDeleteIteration handleClose={toggleDelete} tb_id={tb_id} iter_id={iter_id}/>}
+      {isOpenDelete && deletePopup}
 
 
     </div>

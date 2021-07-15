@@ -32,6 +32,11 @@
 	//animation: toast-in-right 1s;
 }
 
+.delete-confirmation {
+  font-size: 18px;
+  font-weight: 200;
+}
+
 .close-icon-delete-iteration {
   content: 'x';
   cursor: pointer;
