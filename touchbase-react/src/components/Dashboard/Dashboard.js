@@ -66,6 +66,8 @@ useEffect(() => {
   if (res[0] === 202) {
     setInfluencer(true)
     handleInfluencer()
+  } else if (res[0] === 200) {
+    history.push("/error")
   }
 
 })
