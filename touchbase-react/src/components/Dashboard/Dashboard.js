@@ -12,10 +12,20 @@ import { differenceInCalendarDays } from 'date-fns';
 import EventPopup from './EventPopup.js'
 import { MenuInfluencer } from '../Menu/MenuInfluencer.js'
 import { MenuCustomer } from '../Menu/MenuCustomer.js'
+import axios from 'axios'
+import { AxiosResponse, AxiosError } from 'axios'
 
 export const Dashboard = () => {
 
   const history = useHistory();
+  const [isInfluencer, setInfluencer] = useState(false);
+  const [value, onChange] = useState(new Date())
+  const [datesDict, setDatesDict] = useState({})
+  const [isOpenPopup, setIsOpenPopup] = useState(false)
+  const [iteration, setIteration] = useState({})
+  const axios = require('axios');
+  //let iteration = {}
+  //const [stringDates, setStringDates] = useEffect([])
 
   useEffect(() => {
     fetch('/api/dashboard/home')
@@ -33,6 +43,8 @@ export const Dashboard = () => {
       console.log("influencer is logged in!")
       setInfluencer(true)
       setDatesDict(res[1])
+    } else {
+      history.push('/error')
     }
     //console.log(res);
     //console.log(influencerDashboard);
@@ -41,48 +53,28 @@ export const Dashboard = () => {
     console.error(error);
     return { name: "network error", description: "" };
   });
-  },[])
+},[])
 
-/*
-  useEffect(() => {
-    async function getDashboard() {
-      await fetch('api/dashboard')
-    .then(response => {
-      console.log(response)
-      const statusCode = response.status;
-      console.log(statusCode)
-      const data = response.json();
-      console.log(data)
-      return Promise.all([statusCode, data]);
-    })
-    .then((res) => {
-      console.log(res)
-      if (res[0] === 200) {
-        console.log("customer is logged in!")
-        setDatesDict(res[1])
-      } else if (res[0] === 202) {
-        console.log("influencer is logged in!")
-        handleInfluencer()
-        setDatesDict(res[1])
-      }
-      //console.log(res);
-      //console.log(influencerDashboard);
-    })
-      .catch(error => {
-        console.error(error);
-        return { name: "network error", description: "" };
-      });
-    }
+useEffect(() => {
+  fetch('/api/isLoggedIn')
+.then(response => {
+  const statusCode = response.status;
+  const data = response.json();
+  return Promise.all([statusCode, data]);
+})
+.then((res) => {
+  if (res[0] === 202) {
+    setInfluencer(true)
+    handleInfluencer()
+  }
 
-  },[])*/
+})
+.catch(error => {
+  console.error(error);
+  return { name: "network error", description: "" };
+});
+},[])
 
-  const [isInfluencer, setInfluencer] = useState(false);
-  const [value, onChange] = useState(new Date())
-  const [datesDict, setDatesDict] = useState({})
-  const [isOpenPopup, setIsOpenPopup] = useState(false)
-  const [iteration, setIteration] = useState({})
-  //let iteration = {}
-  //const [stringDates, setStringDates] = useEffect([])
   let dashboard;
 
   const dates = []
