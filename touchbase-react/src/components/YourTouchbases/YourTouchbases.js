@@ -99,7 +99,7 @@ export const YourTouchbases = () => {
     },
   ];*/
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetch('/api/dashboard/home')
   .then(response => {
     const statusCode = response.status;
@@ -116,6 +116,28 @@ export const YourTouchbases = () => {
     }
     //console.log(res);
     //console.log(influencerDashboard);
+  })
+  .catch(error => {
+    console.error(error);
+    return { name: "network error", description: "" };
+  });
+},[])*/
+
+  useEffect(() => {
+    fetch('/api/isLoggedIn')
+  .then(response => {
+    const statusCode = response.status;
+    const data = response.json();
+    return Promise.all([statusCode, data]);
+  })
+  .then((res) => {
+    if (res[0] === 202) {
+      setInfluencer(true)
+      handleInfluencer()
+    } else if (res[0] === 200) {
+      history.push("/error")
+    }
+
   })
   .catch(error => {
     console.error(error);

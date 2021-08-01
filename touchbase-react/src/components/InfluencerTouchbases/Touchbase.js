@@ -15,13 +15,17 @@ const Touchbase = props => {
     return moment(input, 'HH:mm:ss').format('h:mm:ss A');
   }
 
+  const localStart = new Date(String(props.nextDate).substring(0, 17) + " " + props.nextTime + ":00 UTC").toString().substring(16, 25)
+  //const localEnd = new Date(String(props.date).substring(0, 17) + " " + props.endTime + ":00 UTC").toString().substring(16, 25)
+  console.log(localStart)
+
   return(
     <div className="my-touchbase-content-ind">
       <div className="my-touchbase-content-ind-title">{props.title}</div>
       <div className="my-touchbase-content-ind-description">{props.description}</div>
       <div><b>Cost</b>: ${props.cost}</div>
       <div><b>Open Spots</b>: {props.spots}</div>
-      <div><b>Next Booking</b>: {props.nextDate} at {convert(props.nextTime)}</div>
+      <div><b>Next Booking</b>: {props.nextDate} at {convert(localStart)}</div>
       {/*<div className="my-touchbase-content-buttons">
         <button className="my-touchbase-content-edit">Edit</button>
         <button className="my-touchbase-content-delete">Delete</button>

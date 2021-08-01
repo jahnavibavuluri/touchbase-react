@@ -16,8 +16,8 @@ export const PopupClass = props => {
   const history = useHistory();
   const [startDateValue, onStartDateChange] = useState(new Date());
   const [endDateValue, onEndDateChange] = useState(new Date());
-  const [startTimeValue, onStartTimeChange] = useState('00:00');
-  const [endTimeValue, onEndTimeChange] = useState('00:00');
+  const [startTimeValue, onStartTimeChange] = useState('00:00:00');
+  const [endTimeValue, onEndTimeChange] = useState('00:00:00');
   const [cost, setCost] = useState(0);
   const [title, setTouchbaseTitle] = useState("");
   const [description, setTouchbaseDescription] = useState("");
@@ -120,7 +120,6 @@ export const PopupClass = props => {
       setInput(true)
     }
   }
-
   const getToastType = (event) => {
     //event.preventDefault();
     //checkInput();
@@ -141,10 +140,13 @@ export const PopupClass = props => {
             title:title,
             description:description,
             repeat:repeat,
+            //document.write(date.toUTCString()); // Tue, 21 Apr 2020 09:20:30 GMT
+            //startOn: (moment(startDateValue).format('YYYY-MM-DD')).toUTCString(),
+            //endOn: (moment(endDateValue).format('YYYY-MM-DD')).toUTCString(),
             startOn: moment(startDateValue).format('YYYY-MM-DD'),
             endOn: moment(endDateValue).format('YYYY-MM-DD'),
-            startTime: startTimeValue,
-            endTime: endTimeValue,
+            startTime: String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25),
+            endTime: String(new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString()).substring(17,25),
             maxParticipants: participants,
             cost: cost
           })
@@ -155,12 +157,22 @@ export const PopupClass = props => {
         .then((res) => {
           console.log(res);
           if (res[0] === 201) {
+            //console.log("the start WITHOUT utc is: " + startTimeValue)
+            //console.log("the end WITHOUT utc is: " + endTimeValue)
+            //console.log("lets try this: " + String(startDateValue).substring(0, 16) + startTimeValue + ":00 GMT")
+            //console.log("lets try this: " + String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25))
+            //console.log(new Date('Sun, 01 Aug 2021 7:00:00').toUTCString())
+            //var date = new Date('Sun, 01 Aug 2021 06:44:00 GMT'); -- 12
+            //console.log("the start WITH utc is: " + moment((startDateValue).toUTCString()).format('YYYY-MM-DD'))
+            //console.log("the end WITH utc is: " +  moment((endDateValue).toUTCString()).format('YYYY-MM-DD'))
             setType("success")
             console.log("request went through!")
             console.log("showing toast")
             window.location.reload();
           } else {
-            console.log("request did not go through")
+            //console.log("request did not go through")
+            //console.log("lets try this: " + String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25))
+            //console.log("lets try this: " + String(new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString()).substring(17,25))
             history.push("/error")
           }
         })

@@ -70,6 +70,10 @@ checkoutButton.addEventListener('click', function() {
 
   }
 
+  const localStart = new Date(String(date).substring(0, 17) + " " + startTime + ":00 UTC").toString().substring(16, 25)
+  const localEnd = new Date(String(date).substring(0, 17) + " " + endTime + ":00 UTC").toString().substring(16, 25)
+  console.log(localStart)
+  console.log(localEnd)
 
   return (
     <div className="ind-content-booking">
@@ -83,11 +87,11 @@ checkoutButton.addEventListener('click', function() {
       </div>
 
       <div className="ind-start-time-booking">
-        <div className="ind-meeting-booking-heading">Start at: </div>{convert(startTime)}{/*props.startTime*/}
+        <div className="ind-meeting-booking-heading">Start at: </div>{convert(localStart)}{/*props.startTime*/}
       </div>
 
       <div className="ind-end-time-booking">
-        <div className="ind-meeting-booking-heading">End at: </div>{convert(endTime)}{/*props.endTime*/}
+        <div className="ind-meeting-booking-heading">End at: </div>{convert(localEnd)}{/*props.endTime*/}
       </div>
 
       <div className="ind-current-part-booking">

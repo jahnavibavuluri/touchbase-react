@@ -140,8 +140,8 @@ export const PopupBreakout = props => {
             repeat:repeat,
             startOn: moment(startDateValue).format('YYYY-MM-DD'),
             endOn: moment(endDateValue).format('YYYY-MM-DD'),
-            startTime: startTimeValue,
-            endTime: endTimeValue,
+            startTime: String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25),
+            endTime: String(new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString()).substring(17,25),
             maxParticipants: participants,
             cost: cost
           })

@@ -64,7 +64,7 @@ const IndividualMeetingUpcoming = props => {
   console.log(differenceInCalendarDays(date2, date))*/
 
   if (differenceInCalendarDays(date2, date) === 0 || ((differenceInCalendarDays(date2, date) === 1) && (props.startTime < time))) {
-    console.log(differenceInCalendarDays(date2, date) + "for " + date2)
+    //console.log(differenceInCalendarDays(date2, date) + "for " + date2)
 
     if (isInfluencer === true) {
       fetch(`/api/startMeeting/${iter_id}`)
@@ -107,7 +107,7 @@ const IndividualMeetingUpcoming = props => {
       deletePopup = <PopupDeleteIteration handleClose={toggleDelete} tb_id={tb_id} iter_id={iter_id} content="Are you sure you want to cancel this booking?"/>
     } else {
       //customer canceling after the 24 hour period will not get a refund
-      deletePopup = <PopupDeleteIteration handleClose={toggleDelete} tb_id={tb_id} iter_id={iter_id} content="Are you sure you want to cancel this booking? You will not get a refund as you are canceling within 24 hours of this booking."/>
+      deletePopup = <PopupDeleteIteration handleClose={toggleDelete} tb_id={tb_id} iter_id={iter_id} content="Are you sure you want to cancel this booking? You will only get a 10% refund as you are canceling within 24 hours of this booking."/>
     }
 
 
@@ -119,6 +119,18 @@ const IndividualMeetingUpcoming = props => {
     }
 
   }
+
+  //startTime: String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25),
+  //endTime: String(new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString()).substring(17,25),
+  const localStart = new Date(String(props.date).substring(0, 17) + " " + props.startTime + ":00 UTC").toString().substring(16, 25)
+  const localEnd = new Date(String(props.date).substring(0, 17) + " " + props.endTime + ":00 UTC").toString().substring(16, 25)
+  console.log(localStart)
+  console.log(localEnd)
+  //console.log("the start time is: " + props.startTime)
+  //var d = new Date('Wed Aug 25 2021 02:00:00 UTC')
+  //onsole.log("date is: " + d.toString())
+  //console.log("the date is " + convert((new Date(String(props.date).substring(0, 17) + " " + props.startTime + ":00 UTC")).toString().substring(16, 25)))
+  //console.log()
 
   return (
     <div className="ind-content">
@@ -140,11 +152,11 @@ const IndividualMeetingUpcoming = props => {
       </div>
 
       <div className="ind-start-time">
-        <div className="ind-meeting-upcoming-heading">Start at: </div>{convert(props.startTime)}
+        <div className="ind-meeting-upcoming-heading">Start at: </div>{convert(localStart)}
       </div>
 
       <div className="ind-end-time">
-        <div className="ind-meeting-upcoming-heading">End at: </div>{convert(props.endTime)}
+        <div className="ind-meeting-upcoming-heading">End at: </div>{convert(localEnd)}
       </div>
 
       <div className="ind-join">
