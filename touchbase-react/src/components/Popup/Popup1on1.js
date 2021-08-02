@@ -144,8 +144,8 @@ export const Popup1on1 = props => {
               title:title,
               description:description,
               repeat:repeat,
-              startOn: moment(startDateValue).format('YYYY-MM-DD'),
-              endOn: moment(endDateValue).format('YYYY-MM-DD'),
+              startOn: moment((new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString())).utc().format('YYYY-MM-DD'),
+              endOn: moment((new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString())).utc().format('YYYY-MM-DD'),
               startTime: String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25),
               endTime: String(new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString()).substring(17,25),
               cost: cost

@@ -143,8 +143,8 @@ export const PopupClass = props => {
             //document.write(date.toUTCString()); // Tue, 21 Apr 2020 09:20:30 GMT
             //startOn: (moment(startDateValue).format('YYYY-MM-DD')).toUTCString(),
             //endOn: (moment(endDateValue).format('YYYY-MM-DD')).toUTCString(),
-            startOn: moment(startDateValue).format('YYYY-MM-DD'),
-            endOn: moment(endDateValue).format('YYYY-MM-DD'),
+            startOn: moment((new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString())).utc().format('YYYY-MM-DD'),
+            endOn: moment((new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString())).utc().format('YYYY-MM-DD'),
             startTime: String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25),
             endTime: String(new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString()).substring(17,25),
             maxParticipants: participants,
@@ -157,8 +157,10 @@ export const PopupClass = props => {
         .then((res) => {
           console.log(res);
           if (res[0] === 201) {
-            //console.log("the start WITHOUT utc is: " + startTimeValue)
-            //console.log("the end WITHOUT utc is: " + endTimeValue)
+            //var j = (String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()))
+            //console.log("j is: " + j)
+            //console.log(moment(j).utc().format('YYYY-MM-DD'))
+            //console.log(moment((new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()), 'YYYY-MM-DD'))
             //console.log("lets try this: " + String(startDateValue).substring(0, 16) + startTimeValue + ":00 GMT")
             //console.log("lets try this: " + String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25))
             //console.log(new Date('Sun, 01 Aug 2021 7:00:00').toUTCString())

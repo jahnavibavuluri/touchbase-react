@@ -70,10 +70,18 @@ checkoutButton.addEventListener('click', function() {
 
   }
 
-  const localStart = new Date(String(date).substring(0, 17) + " " + startTime + ":00 UTC").toString().substring(16, 25)
-  const localEnd = new Date(String(date).substring(0, 17) + " " + endTime + ":00 UTC").toString().substring(16, 25)
-  console.log(localStart)
-  console.log(localEnd)
+  //const localStart = new Date(String(date).substring(0, 17) + " " + startTime + ":00 UTC").toString().substring(16, 25)
+  //const localEnd = new Date(String(date).substring(0, 17) + " " + endTime + ":00 UTC").toString().substring(16, 25)
+  //console.log(localStart)
+  //console.log(localEnd)
+  const nextDateTimeStart = new Date(String(date).substring(0, 17) + " " + startTime + ":00 UTC").toString()
+  const nextDateTimeEnd = new Date(String(date).substring(0, 17) + " " + endTime + ":00 UTC").toString()
+  console.log("start: " + nextDateTimeStart)
+  console.log("end: " + nextDateTimeEnd)
+  const localStart = String(nextDateTimeStart).substring(16, 25)
+  const localEnd = String(nextDateTimeEnd).substring(16, 25)
+  const localDate = String(nextDateTimeStart).substring(0, 16)
+  console.log(localDate)
 
   return (
     <div className="ind-content-booking">
@@ -83,7 +91,7 @@ checkoutButton.addEventListener('click', function() {
       </div>
 
       <div className="ind-date-booking">
-        <div className="ind-meeting-booking-heading">Date: </div>{date}{/*props.date*/}
+        <div className="ind-meeting-booking-heading">Date: </div>{localDate}{/*props.date*/}
       </div>
 
       <div className="ind-start-time-booking">

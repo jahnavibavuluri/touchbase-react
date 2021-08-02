@@ -122,10 +122,14 @@ const IndividualMeetingUpcoming = props => {
 
   //startTime: String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25),
   //endTime: String(new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString()).substring(17,25),
-  const localStart = new Date(String(props.date).substring(0, 17) + " " + props.startTime + ":00 UTC").toString().substring(16, 25)
-  const localEnd = new Date(String(props.date).substring(0, 17) + " " + props.endTime + ":00 UTC").toString().substring(16, 25)
-  console.log(localStart)
-  console.log(localEnd)
+  const nextDateTimeStart = new Date(String(props.date).substring(0, 17) + " " + props.startTime + ":00 UTC").toString()
+  const nextDateTimeEnd = new Date(String(props.date).substring(0, 17) + " " + props.endTime + ":00 UTC").toString()
+  console.log("start: " + nextDateTimeStart)
+  console.log("end: " + nextDateTimeEnd)
+  const localStart = String(nextDateTimeStart).substring(16, 25)
+  const localEnd = String(nextDateTimeEnd).substring(16, 25)
+  const localDate = String(nextDateTimeStart).substring(0, 16)
+  console.log(localDate)
   //console.log("the start time is: " + props.startTime)
   //var d = new Date('Wed Aug 25 2021 02:00:00 UTC')
   //onsole.log("date is: " + d.toString())
@@ -148,7 +152,7 @@ const IndividualMeetingUpcoming = props => {
       </div>
 
       <div className="ind-date">
-        <div className="ind-meeting-upcoming-heading">Date: </div>{props.date}
+        <div className="ind-meeting-upcoming-heading">Date: </div>{localDate}
       </div>
 
       <div className="ind-start-time">
