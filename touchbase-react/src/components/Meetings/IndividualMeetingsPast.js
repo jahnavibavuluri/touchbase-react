@@ -11,8 +11,10 @@ const IndividualMeetingPast = props => {
     return moment(input, 'HH:mm:ss').format('h:mm:ss A');
   }
 
-  const localStart = new Date(String(props.date).substring(0, 17) + " " + props.startTime + ":00 UTC").toString().substring(16, 25)
-  const localEnd = new Date(String(props.date).substring(0, 17) + " " + props.endTime + ":00 UTC").toString().substring(16, 25)
+  const formatedDate = moment(props.date).format('YYYY-MM-DD')
+  console.log("moment is: " + formatedDate)
+  const localStart = new Date(String(formatedDate).substring(0, 17) + "T" + props.startTime + ".000Z").toString().substring(16, 25)
+  const localEnd = new Date(String(formatedDate).substring(0, 17) + "T" + props.endTime + ".000Z").toString().substring(16, 25)
   console.log(localStart)
   console.log(localEnd)
 

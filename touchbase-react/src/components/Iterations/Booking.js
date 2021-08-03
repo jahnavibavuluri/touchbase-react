@@ -74,14 +74,19 @@ checkoutButton.addEventListener('click', function() {
   //const localEnd = new Date(String(date).substring(0, 17) + " " + endTime + ":00 UTC").toString().substring(16, 25)
   //console.log(localStart)
   //console.log(localEnd)
-  const nextDateTimeStart = new Date(String(date).substring(0, 17) + " " + startTime + ":00 UTC").toString()
-  const nextDateTimeEnd = new Date(String(date).substring(0, 17) + " " + endTime + ":00 UTC").toString()
-  console.log("start: " + nextDateTimeStart)
+  //const dateFormat = 'DD-MM-YYYY HH:MM:SS';
+  //const toDateFormat = moment(new Date((date).substring(0, 17) + " " + startTime + ":00 UTC")).format(dateFormat).toString();
+  //console.log(toDateFormat)
+  //console.log("start time is: " + moment(toDateFormat).format('MM-DD-YYYY').toString())
+  const nextDateTimeStart = new Date(String(date).substring(0, 17) + "T" + startTime + ".000Z").toString()
+  const nextDateTimeEnd = new Date(String(date).substring(0, 17) + "T" + endTime + ".000Z").toString()
+  console.log("start: " + String(date).substring(0, 17) + "T" + startTime + ".000Z")
   console.log("end: " + nextDateTimeEnd)
   const localStart = String(nextDateTimeStart).substring(16, 25)
   const localEnd = String(nextDateTimeEnd).substring(16, 25)
   const localDate = String(nextDateTimeStart).substring(0, 16)
   console.log(localDate)
+
 
   return (
     <div className="ind-content-booking">

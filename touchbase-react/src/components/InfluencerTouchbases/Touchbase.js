@@ -17,11 +17,15 @@ const Touchbase = props => {
 
   //const localStart = new Date(String(props.nextDate).substring(0, 17) + " " + props.nextTime + ":00").toString().substring(16, 25)
   //const localEnd = new Date(String(props.date).substring(0, 17) + " " + props.endTime + ":00 UTC").toString().substring(16, 25)
-  const nextDateTime = new Date(String(props.nextDate).substring(0, 17) + " " + props.nextTime + ":00 UTC").toString()
-  console.log(nextDateTime)
+  //2021-08-03T02:00:00.000Z
+  const formatedDate = moment(props.nextDate).format('YYYY-MM-DD')
+  console.log("moment is: " + formatedDate)
+  const nextDateTime = new Date(String(formatedDate).substring(0, 17) + "T" + props.nextTime + ".000Z").toString()
+  console.log(String(props.nextDate).substring(0, 17) + "T" + props.nextTime + ".000Z")
   const localStart = String(nextDateTime).substring(16, 25)
   const localDate = String(nextDateTime).substring(0, 16)
   console.log(localDate)
+
   //console.log(convert(new Date(String(props.nextDate).substring(0, 17) + " " + props.nextTime + ":00 UTC").toString()))
   //console.log("the next date is: " + props.nextDate)
 

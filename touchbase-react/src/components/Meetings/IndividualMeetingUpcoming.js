@@ -122,14 +122,24 @@ const IndividualMeetingUpcoming = props => {
 
   //startTime: String(new Date(String(startDateValue).substring(0, 16) + startTimeValue + ":00").toUTCString()).substring(17,25),
   //endTime: String(new Date(String(endDateValue).substring(0, 16) + endTimeValue + ":00").toUTCString()).substring(17,25),
-  const nextDateTimeStart = new Date(String(props.date).substring(0, 17) + " " + props.startTime + ":00 UTC").toString()
-  const nextDateTimeEnd = new Date(String(props.date).substring(0, 17) + " " + props.endTime + ":00 UTC").toString()
+  const formatedDate = moment(props.date).format('YYYY-MM-DD')
+  console.log("moment is: " + formatedDate)
+  const nextDateTimeStart = new Date(String(formatedDate).substring(0, 17) + "T" + props.startTime + ".000Z").toString()
+  const nextDateTimeEnd = new Date(String(formatedDate).substring(0, 17) + "T" + props.endTime + ".000Z").toString()
   console.log("start: " + nextDateTimeStart)
   console.log("end: " + nextDateTimeEnd)
   const localStart = String(nextDateTimeStart).substring(16, 25)
   const localEnd = String(nextDateTimeEnd).substring(16, 25)
   const localDate = String(nextDateTimeStart).substring(0, 16)
   console.log(localDate)
+
+  /*const formatedDate = moment(props.nextDate).format('YYYY-MM-DD')
+  console.log("moment is: " + formatedDate)
+  const nextDateTime = new Date(String(formatedDate).substring(0, 17) + "T" + props.nextTime + ".000Z").toString()
+  console.log(String(props.nextDate).substring(0, 17) + "T" + props.nextTime + ".000Z")
+  const localStart = String(nextDateTime).substring(16, 25)
+  const localDate = String(nextDateTime).substring(0, 16)
+  console.log(localDate)*/
   //console.log("the start time is: " + props.startTime)
   //var d = new Date('Wed Aug 25 2021 02:00:00 UTC')
   //onsole.log("date is: " + d.toString())
